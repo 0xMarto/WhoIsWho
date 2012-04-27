@@ -1,0 +1,308 @@
+/* =============================================================================
+   HTML5 Boilerplate CSS: h5bp.com/css
+   ========================================================================== */
+
+article, aside, details, figcaption, figure, footer, header, hgroup, nav, section { display: block; margin: 0; padding: 0; }
+audio, canvas, video { display: inline-block; *display: inline; *zoom: 1; }
+audio:not([controls]) { display: none; }
+[hidden] { display: none; }
+
+html { font-size: 100%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+html, button, input, select, textarea { font-family: sans-serif; color: #222; }
+body { margin: 0; font-size: 1em; line-height: 1.4; }
+
+::-moz-selection { background: #fe57a1; color: #fff; text-shadow: none; }
+::selection { background: #fe57a1; color: #fff; text-shadow: none; }
+
+a { color: #00e; text-decoration: none;}
+a:visited { color: #551a8b; }
+a:hover { color: #06e; }
+a:focus { outline: thin dotted; }
+a:hover, a:active { outline: 0; }
+
+abbr[title] { border-bottom: 1px dotted; }
+b, strong { font-weight: bold; }
+blockquote { margin: 1em 40px; }
+dfn { font-style: italic; }
+hr { display: block; height: 1px; border: 0; border-top: 1px solid #ccc; margin: 1em 0; padding: 0; }
+ins { background: #ff9; color: #000; text-decoration: none; }
+mark { background: #ff0; color: #000; font-style: italic; font-weight: bold; }
+pre, code, kbd, samp { font-family: monospace, serif; _font-family: 'courier new', monospace; font-size: 1em; }
+pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
+q { quotes: none; }
+q:before, q:after { content: ""; content: none; }
+small { font-size: 85%; }
+
+sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-align: baseline; }
+sup { top: -0.5em; }
+sub { bottom: -0.25em; }
+
+ul, ol { margin: 1em 0; padding: 0 0 0 40px; list-style:  none;}
+dd { margin: 0 0 0 40px; }
+nav ul, nav ol { list-style: none; list-style-image: none; margin: 0; padding: 0; }
+
+img { border: 0; -ms-interpolation-mode: bicubic; vertical-align: middle; }
+
+svg:not(:root) { overflow: hidden; }
+
+figure { margin: 0; }
+
+form { margin: 0; }
+fieldset { border: 0; margin: 0; padding: 0; }
+label { cursor: pointer; }
+legend { border: 0; *margin-left: -7px; padding: 0; white-space: normal; }
+button, input, select, textarea { font-size: 100%; margin: 0; vertical-align: baseline; *vertical-align: middle; }
+button, input { line-height: normal; }
+button, input[type="button"], input[type="reset"], input[type="submit"] { cursor: pointer; -webkit-appearance: button; *overflow: visible; }
+button[disabled], input[disabled] { cursor: default; }
+input[type="checkbox"], input[type="radio"] { box-sizing: border-box; padding: 0; *width: 13px; *height: 13px; }
+input[type="search"] { -webkit-appearance: textfield; -moz-box-sizing: content-box; -webkit-box-sizing: content-box; box-sizing: content-box; }
+input[type="search"]::-webkit-search-decoration, input[type="search"]::-webkit-search-cancel-button { -webkit-appearance: none; }
+button::-moz-focus-inner, input::-moz-focus-inner { border: 0; padding: 0; }
+textarea { overflow: auto; vertical-align: top; resize: vertical; }
+input:valid, textarea:valid {  }
+input:invalid, textarea:invalid { background-color: #f0dddd; }
+
+table { border-collapse: collapse; border-spacing: 0; }
+td { vertical-align: top; }
+
+.chromeframe { margin: 0.2em 0; background: #ccc; color: black; padding: 0.2em 0; }
+
+
+
+/* ===== Common CSS ========================================================
+   Author: Team w&w
+   ========================================================================== */
+
+/*Variables*/
+@page-width: 1000px;
+
+/*Colors*/
+@gray-font: #777777;
+@burned-siena: #E7BD62;
+@horseradish: #F6F1B5;
+@brown-shadow: #715926;
+
+/*Functions*/
+.Border-radius(@radius:5px) {
+    -webkit-border-radius:@radius;
+    -moz-border-radius: @radius;
+    border-radius: @radius;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body.pinstripe {
+    background: url("../../../public/images/background-pinstripe.png") repeat;
+}
+
+.layout {
+    width: @page-width;
+    margin: 0 auto;
+}
+
+#outer_layout {
+    width: 100%;
+    float: left;
+}
+#wrapper {
+    width: @page-width;
+    margin: 0 auto;
+}
+
+.wrapper {
+    position: relative;
+    width: 950px;
+    margin: 0 auto 0 auto;
+    text-align: left;
+}
+
+#inner_wrapper {
+    width: @page-width;
+    float: left;
+    background:  white;
+    box-shadow: 0 0 50px rgba(0,0,0,0.5);
+}
+
+#header {
+    width: @page-width + 20px;
+    position: relative;
+    text-align: center;
+    background: white;
+    z-index: 10000;
+    border-bottom: 1px solid #c8c8c8;
+    #logo {
+        height: 73px;
+        font: 4em bold;
+        text-align: center;
+        a:visited, a {
+            color: @gray-font;
+        }
+    }
+    li {
+        float: left;
+    }
+    li a {
+        display: block;
+    }
+}
+
+#header #nav {
+    width: @page-width + 20px;
+    display: block;
+    position: relative;
+    background: @horseradish;
+    height: 33px;
+    margin-left: -11px;
+    margin-bottom: -2px;
+    border: 1px solid @burned-siena;
+    li a {
+        display: block;
+        text-align: center;
+        font-size: 13px;
+        padding: 0 10px;
+        line-height: 33px;
+        font-weight: bold;
+    }
+    li:first-child {
+        padding-left: 0;
+    }
+}
+
+#wraparound {
+    position: relative;
+    margin: 0 -11px;
+    border: 1px solid @burned-siena;
+    box-shadow: 0 4px 4px rgba(0,0,0,0.3);
+    &:before , &:after {
+        content: " ";
+        border-top: 10px solid @brown-shadow;
+        position: absolute;
+        bottom: -11px;
+    }
+    &:before {
+        border-left: 10px solid transparent;
+        left: 0;
+    }
+    &:after {
+        border-right: 10px solid transparent;
+        right: 0;
+    }
+}
+
+
+footer {
+    background-color: #E04332;
+    width: @page-width;
+    float: left;
+    padding: 5px 0;
+    border-top: 2px dashed red;
+    background: #f5f5f5;
+    color: @gray-font;
+    font-size: 12px;
+    position: absolute;
+    bottom: 0;
+    nav {
+        width: auto;
+        float: left;
+        padding-right: 20px;
+        ul {
+            width: auto;
+            float: left;
+            list-style: none;
+            li {
+                float: left;
+                font: 12px;
+                padding-left: 20px;
+                a , a:visited {
+                    color: @gray-font;
+                    text-decoration: none;
+                }
+                a:hover {
+                    text-decoration: none;
+                }
+            li:first-child {
+                padding-left: 0;
+            }
+            }
+        }
+
+    }
+    p {
+        float: right;
+        font: 12px;
+        padding-right: 20px;
+    }
+}
+
+/* ===== Home Page CSS ========================================================
+   Author: Team w&w
+   ========================================================================== */
+#header .wrapper {
+    width : @page-width;
+}
+
+#login {
+    width: 100%;
+    min-height: 610px;
+    background: url("../../../public/images/card-background.png") repeat;
+    a img {
+        position: relative;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        top: 150px;
+        box-shadow: 0 0 5px 5px rgba(0,0,0,0.3);
+        .Border-radius(5px);
+        &:hover {
+            box-shadow: 0 0 15px 15px blue;
+        }
+    }
+}
+
+
+
+
+/* =============================================================================
+   Media Queries
+   ========================================================================== */
+
+@media only screen and (min-width: 35em) {
+    /* Style adjustments for viewports that meet the condition */
+}
+
+/* =============================================================================
+   Non-Semantic Helper Classes
+   ========================================================================== */
+
+.ir { display: block; border: 0; text-indent: -999em; overflow: hidden; background-color: transparent; background-repeat: no-repeat; text-align: left; direction: ltr; *line-height: 0; }
+.ir br { display: none; }
+.hidden { display: none !important; visibility: hidden; }
+.visuallyhidden { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; }
+.visuallyhidden.focusable:active, .visuallyhidden.focusable:focus { clip: auto; height: auto; margin: 0; overflow: visible; position: static; width: auto; }
+.invisible { visibility: hidden; }
+.clearfix:before, .clearfix:after { content: ""; display: table; }
+.clearfix:after { clear: both; }
+.clearfix { *zoom: 1; }
+
+/* =============================================================================
+   Print Styles
+   ========================================================================== */
+
+@media print {
+    * { background: transparent !important; color: black !important; box-shadow:none !important; text-shadow: none !important; filter:none !important; -ms-filter: none !important; } /* Black prints faster: h5bp.com/s */
+    a, a:visited { text-decoration: underline; }
+    a[href]:after { content: " (" attr(href) ")"; }
+    abbr[title]:after { content: " (" attr(title) ")"; }
+    .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; }  /* Don't show links for images, or javascript/internal links */
+    pre, blockquote { border: 1px solid #999; page-break-inside: avoid; }
+    thead { display: table-header-group; } /* h5bp.com/t */
+    tr, img { page-break-inside: avoid; }
+    img { max-width: 100% !important; }
+    @page { margin: 0.5cm; }
+    p, h2, h3 { orphans: 3; widows: 3; }
+    h2, h3 { page-break-after: avoid; }
+}
