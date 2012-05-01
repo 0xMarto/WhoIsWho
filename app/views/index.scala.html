@@ -1,18 +1,8 @@
 
-@main(null) {
-    @if(flash.containsKey("error")) {
-        <div>
-            <p>
-            <strong>Oops!</strong> @flash.get("error")
-            </p>
-        </div>
-        }
-
-
-
+@main() {
      <section id="login" class="layout">
                     <a href="#">
-                        <img src="@routes.Assets.at("images/fb-connect.png") alt="Connect with Facebook">
+                        <img src="@routes.Assets.at("images/fb-connect.png")" alt="Connect with Facebook">
                     </a>
      </section>
 }

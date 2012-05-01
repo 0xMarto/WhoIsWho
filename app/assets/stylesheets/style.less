@@ -68,6 +68,23 @@ td { vertical-align: top; }
 
 .chromeframe { margin: 0.2em 0; background: #ccc; color: black; padding: 0.2em 0; }
 
+/* ===== LESS MIXIN ========================================================
+   Author: Team w&w
+   ========================================================================== */
+.Border-radius(@radius:5px) {
+    -webkit-border-radius:@radius;
+    -moz-border-radius: @radius;
+    border-radius: @radius;
+}
+
+.Transition (@property:all, @duration: 1s, @timing: ease, @delay: 0s ) {
+    -webkit-transition: @property @duration @timing @delay;
+	-moz-transition: @property @duration @timing @delay;
+	-o-transition: @property @duration @timing @delay;
+	-ms-transition: @property @duration @timing @delay;
+	transition: @property @duration @timing @delay;
+}
+
 
 
 /* ===== Common CSS ========================================================
@@ -83,12 +100,6 @@ td { vertical-align: top; }
 @horseradish: #F6F1B5;
 @brown-shadow: #715926;
 
-/*Functions*/
-.Border-radius(@radius:5px) {
-    -webkit-border-radius:@radius;
-    -moz-border-radius: @radius;
-    border-radius: @radius;
-}
 
 * {
     margin: 0;
@@ -96,7 +107,7 @@ td { vertical-align: top; }
 }
 
 body.pinstripe {
-    background: url("../../../public/images/background-pinstripe.png") repeat;
+    background: url("/assets/images/background-pinstripe.png") repeat;
 }
 
 .layout {
@@ -246,10 +257,13 @@ footer {
 }
 
 #login {
+
     width: 100%;
     min-height: 610px;
-    background: url("../../../public/images/card-background.png") repeat;
+    background: url("/assets/images/card-background.png") no-repeat;
+    background-size: @page-width;
     a img {
+
         position: relative;
         display: block;
         margin-left: auto;
@@ -263,8 +277,13 @@ footer {
     }
 }
 
+.pull-right {
+    float:right;
+}
 
-
+.pull-left {
+    float:left;
+}
 
 /* =============================================================================
    Media Queries
