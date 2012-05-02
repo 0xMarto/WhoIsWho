@@ -1,0 +1,22 @@
+@(username: String)
+
+@main(username) {
+<input id="WSocketPath" value="@routes.Application.game(username).webSocketURL(request)" style="display: none;">
+<div id="onError" class="alert-message error">
+    <p>
+        <strong>Oops!</strong> <span></span>
+    </p>
+</div>
+<div id="onChat">
+    <div id="main">
+        <div id="messages">
+        </div>
+        <input id="talk">
+    </div>
+</div>
+<div id="shootZone">
+    <button id="infoBt" onclick="getServerInfo()">Server Info</button>
+</div>
+
+<script type="text/javascript" charset="utf-8" src="@routes.Assets.at("javascripts/WSocketServer.js")"></script>
+}

@@ -1,0 +1,110 @@
+#username {
+    width: 200px;
+}
+
+#onError {
+    display: none;
+}
+
+#onChat {
+    display: none;
+    width: auto;
+    height: 400px;
+}
+
+#messages {
+    position: absolute;
+    bottom: 40px;
+    width: 776px;
+    border: 1px solid #cccccc;
+}
+
+#main {
+    width: auto;
+    height: 400px;
+    position: relative;
+    overflow: hidden;
+    border-top: 1px solid #cccccc
+}
+
+#talk {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 768px;
+    height: 20px;
+    color: #000099;
+}
+
+.message {
+    padding: 4px 0;
+    border-bottom: 1px solid #eee;
+    position: relative;
+}
+
+.message span {
+    width: 70px;
+    overflow: hidden;
+    text-align: center;
+    font-weight: bold;
+    margin-right: 5px;
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    top: -1px;
+}
+
+.message p {
+    display: inline-block;
+    margin: 0;
+    width: 570px;
+}
+
+.message user {
+    width: auto;
+    overflow: hidden;
+    text-align: center;
+    font-weight: bold;
+    margin-right: 5px;
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    top: -1px;
+}
+
+.message.chat {
+    background: #FFC;
+}
+
+.message.start, .message.leave, .message.info {
+    background: #D9E7FB;
+}
+
+.message.info {
+    background: #99ff99;
+}
+
+#infoBt {
+    color: #9d261d;
+    border: 2px solid #9d261d;
+    background-color: #ccccff;
+    text-align: center;
+    font-weight: bolder;
+    font-size: 20px;
+    width: 120px;
+    height: 33px;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+#infoBt:hover {
+    border: 2px solid green;
+    color: green;
+}
+
+.btn{
+    width: 70px;
+}
+
+
