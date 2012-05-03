@@ -47,8 +47,8 @@ public class Game {
     }
 
     private void notifyStart() {
-        message(getCurrentPlayer(), "start", "The Battle is ON !!!");
-        message(getAlternative(), "start", "The Battle is ON !!!");
+        message(getCurrentPlayer(), "start", "Let's play WHO IS WHO, you are playing against " + getAlternative().getUsername());
+        message(getAlternative(), "start", "Let's play WHO IS WHO, you are playing against " + getCurrentPlayer().getUsername());
     }
 
     private void notifyTurn() {
@@ -56,10 +56,13 @@ public class Game {
         message(getAlternative(), "wait", "Other player's move!");
     }
 
-    private void moveCalculation() {
-        String move = "Has blond hair?";
-        message(getCurrentPlayer(), "My-move", move);
-        message(getAlternative(), "Op-move", move);
+    private void AskCalculation(Player player, String question) {
+        if (question.equalsIgnoreCase("")) {
+            Game.message(player, "mistake", "Please, write a valid question and then Press ASK button");
+        } else {
+            message(getCurrentPlayer(), "my-ask", question);
+            message(getAlternative(), "op-ask", question);
+        }
     }
 
     public void leave(Player player) {
@@ -77,13 +80,17 @@ public class Game {
         }
     }
 
-    public void move(Player player) {
-        if (getCurrentPlayer() == player) {
-            moveCalculation();
-            changeTurn();
-            notifyTurn();
+    public void ask(Player player, String question) {
+        if (start) {
+            if (getCurrentPlayer() == player) {
+                AskCalculation(player, question);
+                changeTurn();
+                notifyTurn();
+            } else {
+                message(player, "wait", "Not your move!");
+            }
         } else {
-            message(player, "wait", "Not your move!");
+            message(player, "wait", "Still Waiting for oponent....");
         }
     }
 
@@ -151,4 +158,5 @@ public class Game {
                 ", leavers=" + leavers +
                 '}';
     }
+
 }

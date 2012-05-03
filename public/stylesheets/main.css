@@ -77,7 +77,7 @@
     background: #FFC;
 }
 
-.message.start, .message.leave, .message.info {
+.message.start, .message.leave {
     background: #D9E7FB;
 }
 
@@ -85,7 +85,11 @@
     background: #99ff99;
 }
 
-#infoBt {
+.message.question {
+    background: #ff968c;
+}
+
+#askBt, #infoBt {
     color: #9d261d;
     border: 2px solid #9d261d;
     background-color: #ccccff;
@@ -98,12 +102,12 @@
     margin-top: 20px;
 }
 
-#infoBt:hover {
+#infoBt:hover, #askBt:hover {
     border: 2px solid green;
     color: green;
 }
 
-.btn{
+.btn {
     width: 70px;
 }
 

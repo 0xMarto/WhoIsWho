@@ -127,8 +127,9 @@ body.pinstripe {
 
 #logOut{
     position: absolute;
-    top: 10px;
-    right: 10px;
+    right: 45px;
+    top: 85px;
+    z-index: 99999;
 }
 
 .wrapper {
@@ -315,6 +316,11 @@ footer {
     display: none;
     width: auto;
     height: 400px;
+    margin-left: 10px;
+}
+
+#buttonPanel{
+    margin-left: 10px;
 }
 
 #messages {
@@ -382,6 +388,10 @@ footer {
     background: #FFC;
 }
 
+.message.mistake {
+    background: #fffe85;
+}
+
 .message.start, .message.leave, .message.info {
     background: #D9E7FB;
 }
@@ -390,7 +400,11 @@ footer {
     background: #99ff99;
 }
 
-#infoBt {
+.message.question {
+    background: #78ff64;
+}
+
+#askBt, #infoBt {
     color: #9d261d;
     border: 2px solid #9d261d;
     background-color: #ccccff;
