@@ -70,8 +70,10 @@ public class ConnectionHandler {
                         game.chat(player, talk);
                     } else if (messageType.equals("question")) {
 //                        question behavior
-                        final String question = jsonNode.get("text").asText();
-                        game.ask(player, question);
+                        final String questionString = jsonNode.get("questionString").asText();
+                        final String questionAbout = jsonNode.get("questionAbout").asText();
+                        final String questionValue = jsonNode.get("questionValue").asText();
+                        game.ask(player, questionAbout,questionValue,questionString);
                     } else {
 //                        To add other "messageTypes" behavior
                     }

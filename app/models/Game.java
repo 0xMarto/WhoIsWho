@@ -56,12 +56,13 @@ public class Game {
         message(getAlternative(), "wait", "Other player's move!");
     }
 
-    private void AskCalculation(Player player, String question) {
-        if (question.equalsIgnoreCase("")) {
+    private void AskCalculation(Player player, String questionAbout, String questionValue, String questionString) {
+        if (questionAbout.equals("")||questionValue.equals("")||questionString.equals("")) {
             Game.message(player, "mistake", "Please, write a valid question and then Press ASK button");
         } else {
-            message(getCurrentPlayer(), "my-ask", question);
-            message(getAlternative(), "op-ask", question);
+            message(getCurrentPlayer(), "my-ask", questionString);
+            message(getAlternative(), "op-ask", questionString);
+//            todo implement WAIT FOR ANSWER
         }
     }
 
@@ -80,10 +81,10 @@ public class Game {
         }
     }
 
-    public void ask(Player player, String question) {
+    public void ask(Player player, String questionAbout, String questionValue, String questionString) {
         if (start) {
             if (getCurrentPlayer() == player) {
-                AskCalculation(player, question);
+                AskCalculation(player, questionAbout,questionValue,questionString);
                 changeTurn();
                 notifyTurn();
             } else {

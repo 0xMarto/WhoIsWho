@@ -9,13 +9,17 @@ chatSocket.onmessage = receiveEvent;
 $("#talk").keypress(handleReturnKey);
 
 function sendMessage(type) {
+    var question = $("#askQuestions").val().split(",");
     chatSocket.send(JSON.stringify(
         {
             type:type,
             text:$("#talk").val(),
-            question:$("#talk").val()
+            questionString:question[1],
+            questionAbout:$("#questionAbout").val(),
+            questionValue:question[0]
         }
     ));
+    alert(question[1]+" y "+question[0]);
     $("#talk").val('');
 }
 
