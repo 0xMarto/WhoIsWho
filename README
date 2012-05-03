@@ -1,3 +1,18 @@
+Who is Who is an online 2 player game. 
+To win, the player must guess the opponents card by asking questions about the cards on the board before the opponent guesses his.
+
+Cheating:
+Cheating is allowed in Who Is Who. However, there is a catch. Each time a player lies about the answer, a cheating counter is increased.
+At the end of the game, the player who lied the most automatically loses.
+
+
+Features:
+- Built in chat using WebSockets.
+- Usage of play framework.
+- Beautiful CSS made using LESS.
+- Interactions built with Javascript.
+
+
 A Chat room built using WebSockets. Additionally there is a bot used speaking on the same chat room. It demonstrates:
 
 - WebSocket connections.
