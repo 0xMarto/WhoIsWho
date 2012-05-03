@@ -39,7 +39,7 @@ function receiveEvent(event) {
         $("user", chatLine).text(data.name + ":");
     }
     if (data.type == 'mistake') $(chatLine).addClass('mistake');
-    if (data.type == 'my-ask'||data.type == 'op-ask') $(chatLine).addClass('question');
+    if (data.type == 'my-ask' || data.type == 'op-ask') $(chatLine).addClass('question');
     if (data.type == 'start') $(chatLine).addClass('start');
     if (data.type == 'leave') $(chatLine).addClass('leave');
     if (data.type == 'info') $(chatLine).addClass('info');

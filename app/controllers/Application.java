@@ -18,10 +18,10 @@ public class Application extends Controller {
         return ok(index.render());
     }
 
-     /**
+    /**
      * Display the about game page.
      */
-	public static Result aboutGame() {
+    public static Result aboutGame() {
         return ok(aboutGame.render());
     }
 
@@ -29,23 +29,23 @@ public class Application extends Controller {
      * Display the game room.
      */
     public static Result chatRoom(String username) {
-        if(username == null || username.trim().equals("")) {
+        if (username == null || username.trim().equals("") || username.contains("%")) {
             flash("error", "Please choose a valid username.");
             return redirect(routes.Application.index());
         }
         return ok(chatRoom.render(username));
     }
-    
+
     /**
      * Handle the game webSocket.
      */
     public static WebSocket<JsonNode> game(final String username) {
         return new WebSocket<JsonNode>() {
-            
+
             // Called when the WebSocket Handshake is done.
-            public void onReady(WebSocket.In<JsonNode> in, WebSocket.Out<JsonNode> out){
+            public void onReady(WebSocket.In<JsonNode> in, WebSocket.Out<JsonNode> out) {
                 // Join the user to the Game.
-                try { 
+                try {
                     ConnectionHandler.join(username, in, out);
                 } catch (Exception ex) {
                     ex.printStackTrace();
@@ -53,5 +53,5 @@ public class Application extends Controller {
             }
         };
     }
-  
+
 }
