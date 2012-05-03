@@ -19,7 +19,6 @@ function sendMessage(type) {
             questionValue:question[0]
         }
     ));
-    alert(question[1]+" y "+question[0]);
     $("#talk").val('');
 }
 
