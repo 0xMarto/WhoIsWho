@@ -15,7 +15,7 @@ body { margin: 0; font-size: 1em; line-height: 1.4; }
 ::selection { background: #fe57a1; color: #fff; text-shadow: none; }
 
 a { color: #00e; text-decoration: none;}
-a:visited { color: #551a8b; }
+a:visited { color: #551a8b; text-decoration: none;}
 a:hover { color: #06e; }
 a:focus { outline: thin dotted; }
 a:hover, a:active { outline: 0; }
@@ -100,7 +100,7 @@ td { vertical-align: top; }
 @horseradish: #F6F1B5;
 @brown-shadow: #715926;
 @facebook-blue: #2E64FE;
-
+@orangered: #ff4500;
 
 * {
     margin: 0;
@@ -134,7 +134,7 @@ body.pinstripe {
 
 .wrapper {
     position: relative;
-    width: 950px;
+    width: @page-width;
     margin: 0 auto 0 auto;
     text-align: left;
 }
@@ -149,56 +149,52 @@ body.pinstripe {
 #header {
     width: @page-width + 20px;
     position: relative;
-    text-align: center;
     background: white;
     z-index: 10000;
+    height: 73px;
     border-bottom: 1px solid #c8c8c8;
     #logo {
-        height: 73px;
         font: 4em bold;
-        text-align: center;
+        float: left;
         a:visited, a {
             color: @gray-font;
         }
     }
-    li {
-        float: left;
-    }
-    li a {
+    #nav {
+        height: 73px;
+        background: blue;
+        float: right;
         display: block;
+        position: relative;
+        li {
+            float:right;
+        }
+        ul li a {
+            padding: 0 40px;
+            line-height: 73px;
+            text-decoration: none;
+            color: white;
+            display: block;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        #aboutLink {background: #F6B402;}
+        #playLink {background: #D54403; }
+        #rankingLink {background: #01B0EC;}
+        #statsLink{background: #0CF100;}
     }
+
 }
 
-#header #nav {
-    width: @page-width + 20px;
-    display: block;
-    position: relative;
-    background: @horseradish;
-    height: 33px;
-    margin-left: -11px;
-    margin-bottom: -2px;
-    border: 1px solid @burned-siena;
-    li a {
-        display: block;
-        text-align: center;
-        font-size: 13px;
-        padding: 0 10px;
-        line-height: 33px;
-        font-weight: bold;
-    }
-    li:first-child {
-        padding-left: 0;
-    }
-}
 
 #wraparound {
     position: relative;
     margin: 0 -11px;
-    border: 1px solid @burned-siena;
+    border: 1px solid black;
     box-shadow: 0 4px 4px rgba(0,0,0,0.3);
     &:before , &:after {
         content: " ";
-        border-top: 10px solid @brown-shadow;
+        border-top: 10px solid @orangered;
         position: absolute;
         bottom: -11px;
     }
