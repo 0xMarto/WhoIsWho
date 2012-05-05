@@ -15,6 +15,7 @@ public class Game {
     private Player playerOne;
     private Player playerTwo;
     private Player currentPlayer;
+    private TurnState currentState;
     private boolean start;
     private int leavers;
 
@@ -35,10 +36,11 @@ public class Game {
         Random turnRoller = new Random();
         int roll = turnRoller.nextInt(2) + 1;
         currentPlayer = roll == 1 ? playerOne : playerTwo;
+        currentState = TurnState.ASKING;
     }
 
     private void generateDefaultStrategies() {
-//        todo Define default strategies
+//        todo Implement player card picking...
     }
 
     public void setPlayerA(Player playerOne) {
@@ -52,17 +54,31 @@ public class Game {
     }
 
     private void notifyTurn() {
-        message(getCurrentPlayer(), "play", "You're move!");
-        message(getAlternative(), "wait", "Other player's move!");
+        if (currentState == TurnState.ASKING) {
+            message(getCurrentPlayer(), "ask", "It's your turn, Ask a question.");
+            message(getAlternative(), "wait", "Other player's turn!");
+        } else {
+            message(getAlternative(), "answer", "Answer the question.");
+        }
     }
 
     private void AskCalculation(Player player, String questionAbout, String questionValue, String questionString) {
-        if (questionAbout.equals("")||questionValue.equals("")||questionString.equals("")) {
-            Game.message(player, "mistake", "Please, write a valid question and then Press ASK button");
+        if (questionAbout.equals("") || questionValue.equals("") || questionString.equals("")) {
+            message(player, "mistake", "Please, Choose valid question and then Press ASK button");
         } else {
             message(getCurrentPlayer(), "my-ask", questionString);
             message(getAlternative(), "op-ask", questionString);
-//            todo implement WAIT FOR ANSWER
+            changeTurn();
+        }
+    }
+
+    private void answerCalculation(Player player, String answer) {
+        if (answer.equals("")) {
+            message(player, "mistake", "Please, Choose a valid answer");
+        } else {
+            message(getCurrentPlayer(), "op-answer", answer);
+            message(getAlternative(), "my-answer", answer);
+            changeTurn();
         }
     }
 
@@ -81,11 +97,20 @@ public class Game {
         }
     }
 
+    public void answer(Player player, String answer) {
+        if (getAlternative() == player) {
+            answerCalculation(player, answer);
+            notifyTurn();
+        } else {
+            message(player, "wait", "Not your move!");
+        }
+    }
+
+
     public void ask(Player player, String questionAbout, String questionValue, String questionString) {
         if (start) {
             if (getCurrentPlayer() == player) {
-                AskCalculation(player, questionAbout,questionValue,questionString);
-                changeTurn();
+                AskCalculation(player, questionAbout, questionValue, questionString);
                 notifyTurn();
             } else {
                 message(player, "wait", "Not your move!");
@@ -115,7 +140,12 @@ public class Game {
     }
 
     private void changeTurn() {
-        currentPlayer = currentPlayer == playerOne ? playerTwo : playerOne;
+        if (currentState == TurnState.ASKING) {
+            currentState = TurnState.ANSWERING;
+        } else {
+            currentPlayer = currentPlayer == playerOne ? playerTwo : playerOne;
+            currentState = TurnState.ASKING;
+        }
     }
 
     public boolean isPlayerOneDefined() {
@@ -160,4 +190,5 @@ public class Game {
                 '}';
     }
 
+    private enum TurnState {ASKING, ANSWERING}
 }

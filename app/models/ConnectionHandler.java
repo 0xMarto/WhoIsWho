@@ -69,13 +69,15 @@ public class ConnectionHandler {
                         final String talk = jsonNode.get("text").asText();
                         game.chat(player, talk);
                     } else if (messageType.equals("question")) {
-//                        question behavior
+//                        Question behavior
                         final String questionString = jsonNode.get("questionString").asText();
                         final String questionAbout = jsonNode.get("questionAbout").asText();
                         final String questionValue = jsonNode.get("questionValue").asText();
-                        game.ask(player, questionAbout,questionValue,questionString);
-                    } else {
-//                        To add other "messageTypes" behavior
+                        game.ask(player, questionAbout, questionValue, questionString);
+                    } else if (messageType.equals("answer")) {
+//                        Answer behavior
+                        final String answer = jsonNode.get("answer").asText();
+                        game.answer(player,answer);
                     }
                 } else {
 //                    Waiting for another player
