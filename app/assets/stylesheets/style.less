@@ -313,7 +313,8 @@ Author: Team w&w
 }
 
 body.pinstripe {
-    background: url("/assets/images/background-pinstripe.png") repeat;
+    background: white;
+    /*background: url("/assets/images/background-pinstripe.png") repeat;*/
 }
 
 .layout {
@@ -331,13 +332,6 @@ body.pinstripe {
     margin: 0 auto;
 }
 
-#logOut {
-    position: absolute;
-    right: 80px;
-    top: 85px;
-    z-index: 99999;
-}
-
 .wrapper {
     position: relative;
     width: 950px;
@@ -353,31 +347,30 @@ body.pinstripe {
 }
 
 #header {
+    background-color: black;
     width: @page-width + 20px;
     position: relative;
-    background: white;
     z-index: 10000;
-    height: 73px;
-    border-bottom: 1px solid #c8c8c8;
+    height: 72px;
     #logo {
         font: 4em bold;
         float: left;
+        margin-left: 10px;
         a:visited, a {
             color: @gray-font;
         }
     }
     #nav {
-        height: 73px;
-        background: blue;
         float: right;
         display: block;
         position: relative;
+        margin-right: -11px;
         li {
             float:right;
         }
         ul li a {
-            padding: 0 40px;
-            line-height: 73px;
+            padding: 0 30px;
+            line-height: 72px;
             text-decoration: none;
             color: white;
             display: block;
@@ -386,20 +379,23 @@ body.pinstripe {
         }
         #aboutLink {background: #F6B402;}
         #playLink {background: #D54403; }
-        #rankingLink {background: #01B0EC;}
+        #rankingLink {background: #9932CC;}
         #statsLink{background: #0CF100;}
+        #loginLink{
+            background: @facebook-blue;
+            height: 72px;
+        }
     }
 
 }
 
 #wraparound {
     position: relative;
-    margin: 0 -11px;
-    border: 1px solid black;
+    margin: 0 -10px;
     box-shadow: 0 4px 4px rgba(0,0,0,0.3);
     &:before , &:after {
         content: " ";
-        border-top: 10px solid @orangered;
+        border-top: 11px solid @orangered;
         position: absolute;
         bottom: -11px;
     }
@@ -414,16 +410,15 @@ body.pinstripe {
 }
 
 footer {
-    background-color: #E04332;
     width: @page-width;
     float: left;
     padding-top: 5px;
-    border-top: 2px dashed red;
     background: #f5f5f5;
     color: @gray-font;
     font-size: 12px;
     position: relative;
     bottom: 0;
+    margin-top: 0;
     nav {
         width: auto;
         float: left;
@@ -465,19 +460,17 @@ footer {
 }
 
 #loginForm {
+    
     height: 550px;
     width: 100%;
     display: block;
-/*background: url("/assets/images/card-background.png") no-repeat;*/
     background-size: @page-width;
     button, input {
-
         position: relative;
         top: 250px;
         display: block;
         margin-left: auto;
         margin-right: auto;
-        top: 150px;
         box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.3);
         .Border-radius(5px);
         &:hover {
@@ -524,6 +517,8 @@ footer {
 }
 
 #messages {
+    /*overflow: auto;*/
+    /*height: 400px;*/
     position: absolute;
     bottom: 40px;
     width: 776px;
@@ -535,7 +530,6 @@ footer {
     height: 460px;
     position: relative;
     overflow: hidden;
-    border-top: 1px solid #cccccc
 }
 
 #talk {
@@ -649,18 +643,14 @@ Author: Team w&w
 .cardInfo {
     width: 100px;
     height: 140px;
-    background-color: white;
+    background:  url("/assets/images/photo.jpeg");
     .Border-radius(10px);
     border: 10px solid blue;
     .Transition;
-    img {
-        display: none;
-    }
     &:hover {
         margin-left: -10px;
         height: 0px;
         width: 120px;
-        background-color: red;
     }
 }
 

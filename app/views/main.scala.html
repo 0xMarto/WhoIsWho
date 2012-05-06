@@ -63,6 +63,17 @@
                                     <li>
                                         <a href="#" id="rankingLink">Ranking</a>
                                     </li>
+                                    <li>
+                                        <div id="loginLink">
+                                        @if(connected != null) {
+
+                                            <a href="@routes.Application.index()">@connected - Logout</a>
+
+                                        } else {
+                                          <a href="@routes.Application.index()">Login</a>
+                                        }
+                                        </div>
+                                    </li>
                                 </ul>
                             </nav>
                             <!--Navigation bar ends here-->
@@ -84,11 +95,9 @@
                 <section class="layout">
                 <div>
                     @if(connected != null) {
-                                            <p id="logOut">
-                                                Logged in as @connected —
-                                                <a href="@routes.Application.index()">Disconnect</a>
-                                            </p>
-                                        } else {
+
+
+                     } else {
                                             <form action="@routes.Application.chatRoom()"  id="loginForm">
 
                                                 <input id="username" name="username" class="input-small" type="text" placeholder="Username">
