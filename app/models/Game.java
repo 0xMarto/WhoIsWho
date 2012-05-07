@@ -84,8 +84,10 @@ public class Game {
 
     public void leave(Player player) {
         leavers++;
-        Player quitter = isCurrent(player) ? getAlternative() : getCurrentPlayer();
-        message(quitter, "leave", "Other played left the game!");
+        if (playerOne != null && playerTwo != null) {
+            Player notQuitter = isCurrent(player) ? getAlternative() : getCurrentPlayer();
+            message(notQuitter, "leave", "Other played left the game!");
+        }
     }
 
     public void chat(Player player, String talk) {
@@ -177,7 +179,10 @@ public class Game {
     }
 
     public boolean isEmpty() {
-        return leavers == 2;
+        boolean result = false;
+        if (leavers == 2) result = true;
+        if (leavers == 1 && start == false) result = true;
+        return result;
     }
 
     @Override

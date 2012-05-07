@@ -28,8 +28,6 @@ public class ConnectionHandler {
             lastGame.setPlayerB(player);
             bingInWebSocket(in, player);
             lastGame.startGame();
-            gamesPlayed++;
-            activeGames++;
         } else {
             createNewGame();
             join(username, in, out);
@@ -49,6 +47,8 @@ public class ConnectionHandler {
     }
 
     private static void createNewGame() {
+        activeGames++;
+        gamesPlayed++;
         gameList.add(new Game());
     }
 
@@ -84,9 +84,8 @@ public class ConnectionHandler {
                     game.chat(player, "");
                 }
                 if (messageType.equals("serverInfo")) {
-                    Game.message(player, "info", activeGames + " Active Games" + " - " +
-                            gamesPlayed + " Total Games Played" + " - " +
-                            (gameList.size() - activeGames) + " Waiting Opponent");
+                    Game.message(player, "info","  "+ activeGames + " Active Games" + " - " +
+                            gamesPlayed + " Total Games Played");
                 }
             }
         });
