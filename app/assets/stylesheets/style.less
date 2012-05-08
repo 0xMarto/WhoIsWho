@@ -197,7 +197,7 @@ label {
 
 legend {
     border: 0;
-    *margin-left: -7px;
+    margin-left: -7px;
     padding: 0;
     white-space: normal;
 }
@@ -409,10 +409,10 @@ body.pinstripe {
     }
 }
 
-footer {
+#pageFooter {
     width: @page-width;
     float: left;
-    padding-top: 5px;
+    height: 33px;
     background: #f5f5f5;
     color: @gray-font;
     font-size: 12px;
@@ -455,37 +455,55 @@ footer {
 /* ===== Home Page CSS ========================================================
    Author: Team w&w
    ========================================================================== */
+
+/*Colors*/
+@loginFormColor: #F5F5F5;
+
+
+
 #header .wrapper {
     width: @page-width;
 }
 
+#loginPage {
+    min-height: 610px;
+    background:url("/assets/images/red-pinstripe.png") repeat;
+}
+
 #loginForm {
-    
-    height: 550px;
-    width: 100%;
+    background: @loginFormColor;
+    height: 200px;
+    width: 400px;
     display: block;
+    margin-left: auto;
+    margin-right: auto;
     background-size: @page-width;
-    button, input {
-        position: relative;
-        top: 250px;
-        display: block;
+    box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.3);
+    button, input, img {
         margin-left: auto;
         margin-right: auto;
-        box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.3);
+        position: relative;
+        display: block;
+        /*box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.3);*/
         .Border-radius(5px);
         &:hover {
             box-shadow: 0 0 5px 5px @facebook-blue;
         }
     }
     button {
-        margin-left: 423px;
-        margin-top: 20px;
+        margin-top: 15px;
+        margin-left: 50px;
+    }
+    legend {
+        width: 100%;
+        text-align: center;
+        padding: 15px 0 15px 0;
+        font-size: 2em;
     }
     input {
         padding: 10px 50px;
         text-align: center;
         font-size: 16px;
-
     }
 }
 
