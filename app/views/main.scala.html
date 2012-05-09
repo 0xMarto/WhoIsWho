@@ -19,6 +19,8 @@
 
     <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/style.css")">
     <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/bootstrap.css")">
+    <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/animate-custom.css")">
+
     <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/W&Wicon.png")">
 
 </head>
@@ -99,13 +101,13 @@
                      } else {
 
                     <div id="loginPage">
-                        <form action="@routes.Application.chatRoom()" id="loginForm">
+                        <form action="@routes.Application.chatRoom()" id="loginForm" class="animated fadeInDown">
                             <fieldset>
                                 <legend>Enter your username</legend>
                                 <input id="username" name="username" class="input-small" type="text"
                                        placeholder="Username">
 
-                                <button type="submit">
+                                <button type="submit" onclick="fadeOut(loginPage)">
                                     <img src="@routes.Assets.at("images/fb-connect.png")" alt="Connect with Facebook">
                                 </button>
                             </fieldset>
@@ -142,8 +144,8 @@
 </div>
 
 <script src="@routes.Assets.at("javascripts/plugins.js")"></script>
-
 <script src="@routes.Assets.at("javascripts/script.js")"></script>
+
 
 </body>
 </html>

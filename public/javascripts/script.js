@@ -1,6 +1,5 @@
-/* Author:
+/* Author: Team w&w */
 
-*/
 
 
 
