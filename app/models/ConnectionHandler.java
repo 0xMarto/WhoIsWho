@@ -77,14 +77,14 @@ public class ConnectionHandler {
                     } else if (messageType.equals("answer")) {
 //                        Answer behavior
                         final String answer = jsonNode.get("answer").asText();
-                        game.answer(player,answer);
+                        game.answer(player, answer);
                     }
                 } else {
 //                    Waiting for another player
                     game.chat(player, "");
                 }
                 if (messageType.equals("serverInfo")) {
-                    Game.message(player, "info","  "+ activeGames + " Active Games" + " - " +
+                    Game.message(player, "info", "  " + activeGames + " Active Games" + " - " +
                             gamesPlayed + " Total Games Played");
                 }
             }

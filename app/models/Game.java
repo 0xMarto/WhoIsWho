@@ -49,8 +49,8 @@ public class Game {
     }
 
     private void notifyStart() {
-        message(getCurrentPlayer(), "start", "Let's play WHO IS WHO, you are playing against " + getAlternative().getUsername());
-        message(getAlternative(), "start", "Let's play WHO IS WHO, you are playing against " + getCurrentPlayer().getUsername());
+        message(getCurrentPlayer(), "start", "Let's play WHO IS WHO, You're playing against " + getAlternative().getUsername());
+        message(getAlternative(), "start", "Let's play WHO IS WHO, You're playing against " + getCurrentPlayer().getUsername());
     }
 
     private void notifyTurn() {
