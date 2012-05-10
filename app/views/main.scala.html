@@ -2,20 +2,12 @@
 
 <!doctype html>
 <html xmlns="http://www.w3.org/1999/html">
-<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
-<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
-<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
-
 <head>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
 
     <title>Who is Who - An amazing online board game</title>
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <meta name="viewport" content="width=device-width">
 
     <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/style.css")">
     <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/bootstrap.css")">
@@ -25,31 +17,22 @@
 
 </head>
 <body class="index pinstripe">
-<!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
+<!--[if IE]><h3 class=chromeframe>Your browser can't render this site. <a href="http://www.google.com/chromeframe/?redirect=true">Click to Fix it!</a></h3><![endif]-->
 
 <div id="container">
-
     <section id="outer_layout">
-        <!--outer layout starts here-->
         <section id="wrapper">
             <section id="inner_wrapper">
-                <!--inner layout starts here-->
-
                 <div id="wraparound">
-                    <!--Wraparound effect for CSS-->
                     <div id="header">
-                        <!--Header starts here-->
                         <div class="wrapper">
                             <div id="logo">
-
                                     <a href="@routes.Application.index()">
                                         <img src="@routes.Assets.at("images/logo.png")">
                                     </a>
-
                             </div>
                             <nav id="nav">
-                               <!--Navigation bar starts here-->
-                                <ul>
+                               <ul>
                                     <li>
                                         <a href="@routes.Application.aboutGame()" id="aboutLink">About</a>
                                     </li>
@@ -79,18 +62,10 @@
                                     </li>
                                 </ul>
                             </nav>
-                            <!--Navigation bar ends here-->
-
                         </div>
                     </div>
-                    <!--Header ends here-->
                 </div>
-                <!--End of wraparound-->
 
-
-
-
-                <!--Content goes here-->
                 <div class="layout">
                     @content
                 </div>
@@ -120,7 +95,6 @@
                 </section>
 
                 <section class="layout">
-                    <!--footer starts here-->
                     <footer id="pageFooter">
                         <div class="wrapper">
                             <nav>
@@ -135,18 +109,22 @@
                             </p>
                         </div>
                     </footer>
-                    <!--footer ends here-->
                 </section>
-                <!--inner layout ends here-->
             </section>
         </section>
-        <!--outer layout ends here-->
     </section>
 </div>
 
+
+<!--<script>-->
+<!--TODO Google Analytics ver si meterlo o no.-->
+<!--var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];-->
+<!--(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];-->
+<!--g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';-->
+<!--s.parentNode.insertBefore(g,s)}(document,'script'));-->
+<!--</script>-->
+
 <script src="@routes.Assets.at("javascripts/plugins.js")"></script>
 <script src="@routes.Assets.at("javascripts/script.js")"></script>
-
-
 </body>
 </html>

@@ -55,10 +55,11 @@ public class Game {
 
     private void notifyTurn() {
         if (currentState == TurnState.ASKING) {
-            message(getCurrentPlayer(), "ask", "It's your turn, Ask a question.");
+            message(getCurrentPlayer(), "ask", "It's your turn, Ask a question");
             message(getAlternative(), "wait", "Other player's turn!");
         } else {
-            message(getAlternative(), "answer", "Answer the question.");
+            message(getAlternative(), "answer", "Answer the question");
+            message(getCurrentPlayer(), "wait", "Wait for "+getAlternative().getUsername()+" answer");
         }
     }
 
@@ -69,6 +70,7 @@ public class Game {
             message(getCurrentPlayer(), "my-ask", questionString);
             message(getAlternative(), "op-ask", questionString);
             changeTurn();
+            notifyTurn();
         }
     }
 
@@ -79,6 +81,7 @@ public class Game {
             message(getCurrentPlayer(), "op-answer", answer);
             message(getAlternative(), "my-answer", answer);
             changeTurn();
+            notifyTurn();
         }
     }
 
@@ -102,7 +105,6 @@ public class Game {
     public void answer(Player player, String answer) {
         if (getAlternative() == player) {
             answerCalculation(player, answer);
-            notifyTurn();
         } else {
             message(player, "wait", "Not your move!");
         }
@@ -113,7 +115,6 @@ public class Game {
         if (start) {
             if (getCurrentPlayer() == player) {
                 AskCalculation(player, questionAbout, questionValue, questionString);
-                notifyTurn();
             } else {
                 message(player, "wait", "Not your move!");
             }
