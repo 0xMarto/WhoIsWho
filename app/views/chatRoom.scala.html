@@ -11,7 +11,7 @@
     <div id="main">
         <div id="messages">
         </div>
-        <input id="talk">
+        <input id="talk" type="text" placeholder="Chat here">
     </div>
 </div>
 <div id="questionPanel">
@@ -35,8 +35,8 @@
     <button id="yesBt" onclick="answerQuestion('Yes')">YES</button>
     <button id="noBt" onclick="answerQuestion('No')">NO</button>
 </div>
-<div>
-    <button id="infoBt" onclick="getServerInfo()">Server Info</button>
+<div style="display: none;">
+    {<button id="infoBt" onclick="getServerInfo()">Server Info</button>}
 </div>
 
 <script src="@routes.Assets.at("javascripts/jquery-1.7.2.min.js")"></script>

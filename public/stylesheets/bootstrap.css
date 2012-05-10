@@ -568,7 +568,7 @@ pre {
  * Base styles for various input types, form layouts, and states
  * ------------------------------------------------------------- */
 form {
-  margin-bottom: 18px;
+  /*margin-bottom: 18px;*/
 }
 fieldset {
   margin-bottom: 18px;
@@ -1786,7 +1786,6 @@ a.menu:after, .dropdown-toggle:after {
   line-height: 27px;
 }
 footer {
-  margin-top: 17px;
   padding-top: 17px;
   border-top: 1px solid #eee;
 }
