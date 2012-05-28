@@ -7,14 +7,9 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
-import com.google.gson.*;
-/**
- * Created with IntelliJ IDEA.
- * User: debian
- * Date: 5/19/12
- * Time: 11:39 AM
- * To change this template use File | Settings | File Templates.
- */
+//import com.google.gson.*;
+
+
 public class Card {
 
     private String name;
@@ -57,7 +52,7 @@ public class Card {
             }
             in.close();
 
-            new Gson().fromJson(result, Card.class);
+//            new Gson().fromJson(result, Card.class);
 
             // hasta aca tengo El objeto card que pedi a GSON todo llenito
 

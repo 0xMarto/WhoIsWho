@@ -8,6 +8,7 @@ import play.mvc.WebSocket;
 import views.html.aboutGame;
 import views.html.chatRoom;
 import views.html.index;
+import views.html.gameRoom;
 
 public class Application extends Controller {
 
@@ -26,7 +27,14 @@ public class Application extends Controller {
     }
 
     /**
-     * Display the game room.
+     * Display the about game page.
+     */
+    public static Result gameRoom() {
+        return ok(gameRoom.render());
+    }
+
+    /**
+     * Display the chat room.
      */
     public static Result chatRoom(String username) {
         if (username == null || username.trim().equals("") || username.contains("%")) {

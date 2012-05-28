@@ -17,32 +17,6 @@
         </div>
     </div>
 
-    <div id="questionPanel">
-        <select id="questionAbout">
-          <option value="">Ask About</option>
-          <option value="hair">Hair</option>
-          <option value="eyes">Eyes</option>
-        </select>
-        <select id="askQuestions">
-          <option value=",">Question</option>
-          <option value="brown,Has brown hair?" class="hair">Has brown hair?</option>
-          <option value="black,Has black hair?" class="hair">Has black hair?</option>
-          <option value="bold,Is bald?" class="hair">Is bold?</option>
-          <option value="blue,Has blue eyes?" class="eyes">Has blue eyes?</option>
-          <option value="brown,Has brown eyes?" class="eyes">Has brown eyes?</option>
-          <option value="green,Has green eyes?" class="eyes">Has green eyes?</option>
-        </select>
-        <button id="askBt" onclick="askQuestion()">Ask</button>
-    </div>
-
-    <div id="answerPanel">
-        <button id="yesBt" onclick="answerQuestion('Yes')">YES</button>
-        <button id="noBt" onclick="answerQuestion('No')">NO</button>
-    </div>
-    <div style="display: none;">
-        {<button id="infoBt" onclick="getServerInfo()">Server Info</button>}
-    </div>
-
     <script src="@routes.Assets.at("javascripts/jquery-1.7.2.min.js")"></script>
     <script src="@routes.Assets.at("javascripts/WSocketServer.js")"></script>
     <script src="@routes.Assets.at("javascripts/jquery.chained.js")"></script>
