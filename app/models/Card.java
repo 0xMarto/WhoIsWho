@@ -7,6 +7,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
+<<<<<<< HEAD
 import com.google.gson.Gson;
 
 /**
@@ -16,6 +17,10 @@ import com.google.gson.Gson;
  * Time: 11:39 AM
  * To change this template use File | Settings | File Templates.
  */
+=======
+//import com.google.gson.*;
+
+>>>>>>> f02ca6a7f89f72f896f47d63657b0f0955632beb
 
 public class Card {
 
@@ -59,7 +64,7 @@ public class Card {
             }
             in.close();
 
-            new Gson().fromJson(result, Card.class);
+//            new Gson().fromJson(result, Card.class);
 
             // hasta aca tengo El objeto card que pedi a GSON todo llenito
 
