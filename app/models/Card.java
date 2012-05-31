@@ -7,7 +7,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
-import com.google.gson.*;
+import com.google.gson.Gson;
+
 /**
  * Created with IntelliJ IDEA.
  * User: debian
@@ -15,6 +16,7 @@ import com.google.gson.*;
  * Time: 11:39 AM
  * To change this template use File | Settings | File Templates.
  */
+
 public class Card {
 
     private String name;
