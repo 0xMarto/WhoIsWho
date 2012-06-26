@@ -1,26 +1,18 @@
 package models;
 
-import scala.util.parsing.json.JSONObject;
-
-import javax.xml.crypto.Data;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
-<<<<<<< HEAD
-import com.google.gson.Gson;
 
 /**
  * Created with IntelliJ IDEA.
  * User: debian
  * Date: 5/19/12
  * Time: 11:39 AM
- * To change this template use File | Settings | File Templates.
  */
-=======
 //import com.google.gson.*;
 
->>>>>>> f02ca6a7f89f72f896f47d63657b0f0955632beb
 
 public class Card {
 
