@@ -66,16 +66,24 @@
                     </div>
                 </div>
 
+
+
                 <div class="layout">
+                    @if(connected != null) {
                         @content
                 </div>
 
                 <section class="layout">
-                <div>
-                    @if(connected != null) {
+                    <div>
+
+
 
 
                      } else {
+                    </div>
+
+                    <section class="layout">
+                        <div>
 
                     <div id="loginPage">
                         <form action="@routes.Application.chatRoom()" id="loginForm" class="animated fadeInDown">

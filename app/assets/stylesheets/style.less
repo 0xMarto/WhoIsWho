@@ -311,44 +311,30 @@ body.pinstripe {
     background: #78ff64;
 }
 
-#askBt, #infoBt, #yesBt, #noBt {
-    color: #9d261d;
-    border: 2px solid #9d261d;
-    background-color: #ccccff;
-    text-align: center;
-    font-weight: bolder;
-    font-size: 20px;
-    width: 120px;
-    height: 33px;
-    border-radius: 8px;
-    margin-top: 20px;
-}
 
-#askBt:hover, #infoBt:hover, #yesBt:hover, #noBt:hover {
-    border: 2px solid green;
-    color: green;
-}
-
-.btn {
-    width: 70px;
-}
 
 /* ===== Game Page CSS ========================================================
 Author: Team w&w
 ========================================================================== */
+#guess {
+    float: right;
+    position: absolute;
+    left: 519px;
+    z-index: 2;
+    top: -55px;
+    #guessImage {
+        width: 100px;
+    }
 
-
-
-
-#loginPage {
-    display: none;
 }
 
-/*Faces go here*/
 #boardGame {
+    position: relative;
     width: 100%;
     float: left;
     margin: 0 auto;
+    padding-bottom: 20px;
+
     background: url("/assets/images/boardBg.png") repeat;
 
     .card {
@@ -407,9 +393,78 @@ Author: Team w&w
 
 }
 
-#questionPanel,#answerPanel{
-    margin-left: 10px;
-    display: block;
+#panel {
+    position: relative;
+    color: black;
+    background: url("/assets/images/background-pinstripe.png");
+    font-size: 1.5em;
+    float: left;
+    clear: both;
+    text-shadow: 0 -1px #d0284b, 0 1px #f96080;
+    padding-left: 30px;
+    margin: 10px -10px;
+    width: 552px;
+
+    box-shadow: 0 4px 4px rgba(0,0,0,0.3);
+    &:before  {
+        content: " ";
+        border-top: 11px solid @orangered;
+        position: absolute;
+        bottom: -11px;
+    }
+    &:before {
+        border-left: 10px solid transparent;
+        left: 0;
+    }
+
+}
+
+#cheatCounter {
+    position:relative;
+   	color:#fff;
+   	background:#f43059;
+   	font-size:1.5em;
+   	float:right;
+   	clear:both;
+   	padding:10px 10px 10px 20px;
+   	text-shadow:0 -1px #d0284b, 0 1px #f96080;
+    position: relative;
+    margin: -70px -10px 0 -10px;
+    box-shadow: 0 4px 4px rgba(0,0,0,0.3);
+    &:after {
+        content: " ";
+        border-top: 11px solid @orangered;
+        position: absolute;
+        bottom: -11px;
+    }
+    &:after {
+        border-right: 10px solid transparent;
+        right: 0;
+    }
+}
+
+#askBt, #infoBt, #yesBt, #noBt {
+    color: white;
+    background-color: black;
+    text-align: center;
+    font-weight: bolder;
+    font-size: 20px;
+    width: 120px;
+    height: 60px;
+    .Transition;
+}
+
+#askBt:hover, #infoBt:hover, #yesBt:hover, #noBt:hover {
+    color: white;
+    background-color: #f43059;
+}
+
+.btn {
+    width: 70px;
+}
+
+#answerPanel{
+    display: none;
 }
 
     /*#face1{background:url("/assets/images/faces/Sam.png") no-repeat;}*/

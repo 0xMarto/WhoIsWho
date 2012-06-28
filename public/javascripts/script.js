@@ -23,6 +23,9 @@ $(document).ready(function () {
         $(this).rotate3Di('toggle', 1000, {direction: 'clockwise', sideChange: mySideChange});
 
     });
+
+    $("#askQuestions").chained("#questionAbout");
+
 });
 
 
