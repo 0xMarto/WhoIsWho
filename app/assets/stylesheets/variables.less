@@ -1,0 +1,30 @@
+/*Variables*/
+@page-width: 1150px;
+
+@cardWidth: 100px;
+@cardHeight: 145px;
+
+/*Colors*/
+@gray-font: #777777;
+@burned-siena: #E7BD62;
+@horseradish: #F6F1B5;
+@brown-shadow: #715926;
+@facebook-blue: #2E64FE;
+@orangered: #ff4500;
+
+@loginFormColor: #F5F5F5;
+
+/*Mixins*/
+.Border-radius(@radius: 5px){
+    -webkit-border-radius: @radius;
+    -moz-border-radius: @radius;
+    border-radius: @radius;
+}
+
+.Transition(@property: all, @duration: 1s, @timing: ease, @delay: 0s){
+    -webkit-transition: @property @duration @timing @delay;
+    -moz-transition: @property @duration @timing @delay;
+    -o-transition: @property @duration @timing @delay;
+    -ms-transition: @property @duration @timing @delay;
+    transition: @property @duration @timing @delay;
+}

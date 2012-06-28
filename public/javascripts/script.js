@@ -1,10 +1,4 @@
 /* Author: Team w&w */
-
-function hideLoginForm() {
-    var element = document.getElementById("loginPage");
-    element.style.display = "none";
-}
-
 function validateUsername() {
     var username = document.getElementById("username").value();
     if (username.contains("%")) {
@@ -12,16 +6,23 @@ function validateUsername() {
     }
 }
 
-//Card dropping effect
-$('.card').click(function() {
-    $('.cardInfo').toggle(
-        function () {
-            $(this).css({"width":"100px", "height":"140px", "margin-left": "0"});
-        },
-        function () {
-            $(this).css({"width":"120px", "height":"5px", "margin-left":"-10px"});
+$(document).ready(function () {
+    $('#boardGame div.cardBack').hide().css('left', 0);
+
+    function mySideChange(front) {
+        if (front) {
+            $(this).parent().find('div.cardFront').show();
+            $(this).parent().find('div.cardBack').hide();
+
+        } else {
+            $(this).parent().find('div.cardFront').hide();
+            $(this).parent().find('div.cardBack').show();
         }
-    );
+    }
+    $('.cardInfo').click(function () {
+        $(this).rotate3Di('toggle', 1000, {direction: 'clockwise', sideChange: mySideChange});
+
+    });
 });
 
 
