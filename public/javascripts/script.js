@@ -20,7 +20,7 @@ $(document).ready(function () {
         }
     }
     $('.cardInfo').click(function () {
-        $(this).rotate3Di('toggle', 1000, {direction: 'clockwise', sideChange: mySideChange});
+        $(this).rotate3Di('toggle', 750, {direction: 'clockwise', sideChange: mySideChange});
 
     });
 

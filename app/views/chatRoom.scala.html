@@ -9,16 +9,315 @@
         </p>
     </div>
 
-    <div id="onChat">
-        <div id="main">
-            <div id="messages">
+<div id="boardGame">
+
+    <div id="guess">
+        <img id="guessImage" src="@routes.Assets.at("images/guessOrange.png")">
+    </div>
+
+    <div class="card">
+        <div id="face1" class="cardInfo">
+            <div class="cardFront">
+                <img src="@routes.Assets.at("images/faces/Sam.png")"><img>
+                <h2>Sam</h2>
             </div>
-            <input id="talk" type="text" placeholder="Chat here">
+            <div class="cardBack"><h2>Sam</h2></div>
+        </div>
+    </div>
+    <div class="card">
+        <div id="face2" class="cardInfo">
+            <div class="cardFront">
+                <img src="@routes.Assets.at("images/faces/Joe.png")"><img>
+                <h2>Joe</h2>
+            </div>
+            <div class="cardBack"><h2>Joe</h2></div>
+        </div>
+    </div>
+    <div class="card">
+        <div id="face3" class="cardInfo">
+            <div class="cardFront">
+                <img src="@routes.Assets.at("images/faces/Pablo.png")"><img>
+                <h2>Pablo</h2>
+            </div>
+            <div class="cardBack"><h2>Pablo</h2></div>
+        </div>
+    </div>
+    <div class="card">
+        <div id="face4" class="cardInfo">
+            <div class="cardFront">
+                <img src="@routes.Assets.at("images/faces/George.png")"><img>
+                <h2>George</h2>
+            </div>
+            <div class="cardBack"><h2>George</h2></div>
+        </div>
+    </div>
+    <div class="card">
+        <div id="face5" class="cardInfo">
+            <div class="cardFront">
+                <img src="@routes.Assets.at("images/faces/Philip.png")"><img>
+
+                <h2>Philip</h2>
+            </div>
+            <div class="cardBack"><h2>Philip</h2></div>
+        </div>
+    </div>
+    <div class="card">
+        <div id="face6" class="cardInfo">
+            <div class="cardFront">
+                <img src="@routes.Assets.at("images/faces/Claire.png")"><img>
+                <h2>Claire</h2>
+            </div>
+            <div class="cardBack"><h2>Claire</h2></div>
+        </div>
+    </div>
+    <div class="card">
+        <div id="face7" class="cardInfo">
+            <div class="cardFront">
+                <img src="@routes.Assets.at("images/faces/Anita.png")"><img>
+                <h2>Anita</h2>
+            </div>
+            <div class="cardBack"><h2>Anita</h2></div>
+        </div>
+    </div>
+    <div class="card">
+        <div id="face8" class="cardInfo">
+            <div class="cardFront">
+                <img src="@routes.Assets.at("images/faces/Alfred.png")"><img>
+                <h2>Alfred</h2>
+            </div>
+            <div class="cardBack"><h2>Alfred</h2></div>
         </div>
     </div>
 
-    <script src="@routes.Assets.at("javascripts/jquery-1.7.2.min.js")"></script>
-    <script src="@routes.Assets.at("javascripts/WSocketServer.js")"></script>
-    <script src="@routes.Assets.at("javascripts/jquery.chained.js")"></script>
-    <script type="text/javascript" charset="utf-8">$("#askQuestions").chained("#questionAbout");</script>
+
+
+    <div class="card">
+        <div id="face9" class="cardInfo">
+            <div class="cardFront">
+                <img src="@routes.Assets.at("images/faces/Susan.png")"><img>
+                <h2>Susan</h2>
+            </div>
+            <div class="cardBack"><h2>Susan</h2></div>
+        </div>
+    </div>
+    <div class="card">
+        <div id="face10" class="cardInfo">
+            <div class="cardFront">
+                <img src="@routes.Assets.at("images/faces/Richard.png")"><img>
+                <h2>Richard</h2>
+            </div>
+            <div class="cardBack"><h2>Richard</h2></div>
+        </div>
+    </div>
+    <div class="card">
+        <div id="face11" class="cardInfo">
+            <div class="cardFront">
+                <img src="@routes.Assets.at("images/faces/Frank.png")"><img>
+                <h2>Frank</h2>
+            </div>
+            <div class="cardBack"><h2>Frank</h2></div>
+        </div>
+    </div>
+    <div class="card">
+        <div id="face12" class="cardInfo">
+            <div class="cardFront">
+                <img src="@routes.Assets.at("images/faces/Manny.png")"><img>
+                <h2>Manny</h2>
+            </div>
+            <div class="cardBack"><h2>Manny</h2></div>
+        </div>
+    </div>
+    <div class="card">
+        <div id="face13" class="cardInfo">
+            <div class="cardFront">
+                <img src="@routes.Assets.at("images/faces/German.png")"><img>
+                <h2>German</h2>
+            </div>
+            <div class="cardBack"><h2>German</h2></div>
+        </div>
+    </div>
+    <div class="card">
+        <div id="face14" class="cardInfo">
+            <div class="cardFront">
+                <img src="@routes.Assets.at("images/faces/David.png")"><img>
+                <h2>David</h2>
+            </div>
+            <div class="cardBack"><h2>David</h2></div>
+        </div>
+    </div>
+    <div class="card">
+        <div id="face15" class="cardInfo">
+            <div class="cardFront">
+                <img src="@routes.Assets.at("images/faces/Bernard.png")"><img>
+                <h2>Bernard</h2>
+            </div>
+            <div class="cardBack"><h2>Bernard</h2></div>
+        </div>
+    </div>
+    <div class="card">
+        <div id="face16" class="cardInfo">
+            <div class="cardFront">
+                <img src="@routes.Assets.at("images/faces/Alex.png")"><img>
+                <h2>Alex</h2>
+            </div>
+            <div class="cardBack"><h2>Alex</h2></div>
+        </div>
+    </div>
+    <div class="card">
+        <div id="face17" class="cardInfo">
+            <div class="cardFront">
+                <img src="@routes.Assets.at("images/faces/Tom.png")"><img>
+                <h2>Tom</h2>
+            </div>
+            <div class="cardBack"><h2>Tom</h2></div>
+        </div>
+    </div>
+    <div class="card">
+        <div id="face18" class="cardInfo">
+            <div class="cardFront">
+                <img src="@routes.Assets.at("images/faces/Robert.png")"><img>
+                <h2>Robert</h2>
+            </div>
+            <div class="cardBack"><h2>Robert</h2></div>
+        </div>
+    </div>
+    <div class="card">
+        <div id="face19" class="cardInfo">
+            <div class="cardFront">
+                <img src="@routes.Assets.at("images/faces/Peter.png")"><img>
+                <h2>Peter</h2>
+            </div>
+            <div class="cardBack"><h2>Peter</h2></div>
+        </div>
+    </div>
+    <div class="card">
+        <div id="face20" class="cardInfo">
+            <div class="cardFront">
+                <img src="@routes.Assets.at("images/faces/Maria.png")"><img>
+                <h2>Maria</h2>
+            </div>
+            <div class="cardBack"><h2>Maria</h2></div>
+        </div>
+    </div>
+    <div class="card">
+        <div id="face21" class="cardInfo">
+            <div class="cardFront">
+                <img src="@routes.Assets.at("images/faces/William.png")"><img>
+                <h2>William</h2>
+            </div>
+            <div class="cardBack"><h2>William</h2></div>
+        </div>
+    </div>
+    <div class="card">
+        <div id="face22" class="cardInfo">
+            <div class="cardFront">
+                <img src="@routes.Assets.at("images/faces/Ernest.png")"><img>
+                <h2>Ernest</h2>
+            </div>
+            <div class="cardBack"><h2>Ernest</h2></div>
+        </div>
+    </div>
+    <div class="card">
+        <div id="face23" class="cardInfo">
+            <div class="cardFront">
+                <img src="@routes.Assets.at("images/faces/Charles.png")"><img>
+                <h2>Charles</h2>
+            </div>
+            <div class="cardBack"><h2>Charles</h2></div>
+        </div>
+    </div>
+    <div class="card">
+        <div id="face24" class="cardInfo">
+            <div class="cardFront">
+                <img src="@routes.Assets.at("images/faces/Anna.png")"><img>
+                <h2>Anna</h2>
+            </div>
+            <div class="cardBack"><h2>Anna</h2></div>
+        </div>
+    </div>
+
+    <div id="panel">
+
+        <div id="onChat">
+                <div id="main">
+                    <div id="messages">
+                    </div>
+                    <input id="talk" type="text" placeholder="Chat here">
+                </div>
+        </div>
+
+        <div id="questionPanel">
+            <select id="questionAbout">
+                <option value="">Category</option>
+                <option value="sex">Sex</option>
+                <option value="hair">Hair</option>
+                <option value="eyes">Eyes</option>
+                <option value="lips">Lips</option>
+                <option value="glasses">Glasses</option>
+                <option value="hat">Hat</option>
+                <option value="mood">Mood</option>
+                <option value="cheeks">Cheeks</option>
+                <option value="mustache">Mustache</option>
+                <option value="beard">Beard</option>
+                <option value="other">Other Questions/option>
+
+            </select>
+            <select id="askQuestions">
+                <option value=",">Select a category first</option>
+                <option value="brown,Does your card have brown hair?" class="hair">Brown hair?</option>
+                <option value="black,Does your card have black hair?" class="hair">Black hair?</option>
+                <option value="blond,Does your card have blond hair?" class="hair">Blond hair?</option>
+                <option value="white,Does your card have white hair?" class="hair">White hair?</option>
+                <option value="bald,Is your card bald?" class="hair">Is your card bald?</option>
+
+                <option value="blue,Does your card have blue eyes?" class="eyes">Blue eyes?</option>
+                <option value="brown,Does your card have brown eyes?" class="eyes">Brown eyes?</option>
+
+                <option value="male,Is your card a man?" class="sex">Is it a man?</option>
+                <option value="female,Is your card a woman?" class="sex">Is it a woman?</option>
+
+                <option value="thickLips,Does your card have thick lips?" class="lips">Thick lips?</option>
+                <option value="thinLips,Does your card have thin lips?" class="eyes">Thin lips?</option>
+
+                <option value="glasses,Does your card wear glasses?" class="glasses">Is he/she wearing glasses?</option>
+
+                <option value="hat,Does your card wear a hat?" class="hat">Is he/she wearing a hat?</option>
+
+                <option value="happy,Is he/she happy?" class="mood">Is he/she happy?</option>
+                <option value="sad,Is he/she sad?" class="mood">Is he/she sad?</option>
+                <option value="angry,Is he/she angry?" class="mood">Is he/she angry?</option>
+
+                <option value="cheeks,Is he/she blushing?" class="cheeks">Are his/her cheeks blushing?</option>
+
+                <option value="mustache,Does he have a mustache?" class="mustache">Does he have a mustache?</option>
+
+                <option value="beard,Does he have a beard?" class="beard">Does he have a beard?</option>
+
+                <option value="ponytails, Does she have two ponytails?" class="other">Does she have two ponytails?</option>
+                <option value="earrings, Does she have earrings?" class="other">Does she have earrings?</option>
+
+
+            </select>
+            <button id="askBt" onclick="askQuestion()">Ask</button>
+        </div>
+
+        <div id="answerPanel">
+            <button id="yesBt" onclick="answerQuestion('Yes')">YES</button>
+            <button id="noBt" onclick="answerQuestion('No')">NO</button>
+        </div>
+    </div>
+
+    <div id="cheatCounter">
+        <h4>Lies Counter: 0 </h4>
+        <div></div>
+    </div>
+
+
+</div>
+
+<script src="@routes.Assets.at("javascripts/jquery-1.7.2.min.js")"></script>
+<script src="@routes.Assets.at("javascripts/WSocketServer.js")"></script>
+<script src="@routes.Assets.at("javascripts/jquery.chained.js")"></script>
+<script src="@routes.Assets.at("javascripts/jquery-css-transform.js")"></script>
+<script src="@routes.Assets.at("javascripts/rotate3Di.js")"></script>
 }

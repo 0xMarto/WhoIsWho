@@ -219,7 +219,7 @@ body.pinstripe {
 #onChat {
     display: none;
     width: auto;
-    height: 460px;
+    height: 165px;
     margin-left: 10px;
 }
 
@@ -236,14 +236,21 @@ body.pinstripe {
     border: 1px solid #cccccc;
 }
 
+#questionPanel, #answerPanel{
+    margin-bottom: 15px;
+    display: none;
+}
+
 #main {
+    margin-top: 15px;
     width: auto;
-    height: 460px;
+    height: 160px;
     position: relative;
     overflow: hidden;
 }
 
 #talk {
+    margin-bottom: 4px;
     position: absolute;
     bottom: 0;
     left: 0;
@@ -397,13 +404,14 @@ Author: Team w&w
     position: relative;
     color: black;
     background: url("/assets/images/background-pinstripe.png");
-    font-size: 1.5em;
+//    font-size: 1.5em;
     float: left;
-    clear: both;
-    text-shadow: 0 -1px #d0284b, 0 1px #f96080;
+    border: 1px solid black;
+//    clear: both;
+//    text-shadow: 0 -1px #d0284b, 0 1px #f96080;
     padding-left: 30px;
     margin: 10px -10px;
-    width: 552px;
+    width: 830px;
 
     box-shadow: 0 4px 4px rgba(0,0,0,0.3);
     &:before  {
@@ -420,6 +428,7 @@ Author: Team w&w
 }
 
 #cheatCounter {
+    bottom: 100px;
     position:relative;
    	color:#fff;
    	background:#f43059;
@@ -451,6 +460,8 @@ Author: Team w&w
     font-size: 20px;
     width: 120px;
     height: 60px;
+    margin-left: 15px;
+    border-radius: 10px;
     .Transition;
 }
 

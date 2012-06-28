@@ -11,6 +11,7 @@ public class Player {
     private String username;
     private WebSocket.Out<JsonNode> channel;
     private String gameId;
+    private String Card;
 
     public Player(String name, WebSocket.Out<JsonNode> out, String id) {
         username = name;
@@ -33,5 +34,13 @@ public class Player {
     @Override
     public String toString() {
         return username;
+    }
+
+    public String getCard() {
+        return Card;
+    }
+
+    public void setCard(String card) {
+        Card = card;
     }
 }

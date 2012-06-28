@@ -25,6 +25,7 @@ function sendMessage(type) {
 
 function receiveEvent(event) {
     var data = JSON.parse(event.data);
+    console.log("Recive event: " + data);
 
     // Handle errors
     if (data.error) {

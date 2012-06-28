@@ -28,7 +28,7 @@ public class Game {
         leavers = 0;
         setRandomTurn();
         notifyStart();
-        generateDefaultStrategies();
+        setPlayersCards();
         notifyTurn();
     }
 
@@ -39,8 +39,12 @@ public class Game {
         currentState = TurnState.ASKING;
     }
 
-    private void generateDefaultStrategies() {
-//        todo Implement player card picking...
+    private void setPlayersCards() {
+        playerOne.setCard(pickRandomCard());
+        message(playerOne, "start", "Your card is: " + playerOne.getCard());
+
+        playerTwo.setCard(pickRandomCard());
+        message(playerTwo, "start", "Your card is: " + playerTwo.getCard());
     }
 
     public void setPlayerA(Player playerOne) {
@@ -53,13 +57,20 @@ public class Game {
         message(getAlternative(), "start", "Let's play WHO IS WHO, You're playing against " + getCurrentPlayer().getUsername());
     }
 
+    private String pickRandomCard() {
+        String cards[] = {"RICHARD", "FRANK", "MANNY", "DAVID", "MARIA", "ANITA", "SUSAN", "ANNA"};
+        Random turnRoller = new Random();
+        int roll = turnRoller.nextInt(8) + 1;
+        return cards[roll];
+    }
+
     private void notifyTurn() {
         if (currentState == TurnState.ASKING) {
             message(getCurrentPlayer(), "ask", "It's your turn, Ask a question");
             message(getAlternative(), "wait", "Other player's turn!");
         } else {
             message(getAlternative(), "answer", "Answer the question");
-            message(getCurrentPlayer(), "wait", "Wait for "+getAlternative().getUsername()+" answer");
+            message(getCurrentPlayer(), "wait", "Wait for " + getAlternative().getUsername() + " answer");
         }
     }
 
