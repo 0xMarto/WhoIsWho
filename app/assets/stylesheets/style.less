@@ -494,11 +494,11 @@ Author: Team w&w
     position: relative;
     color: black;
     background: url("/assets/images/background-pinstripe.png");
-//    font-size: 1.5em;
+    font-size: 1.5em;
     float: left;
     border: 1px solid black;
-//    clear: both;
-//    text-shadow: 0 -1px #d0284b, 0 1px #f96080;
+    clear: both;
+    text-shadow: 0 -1px #d0284b, 0 1px #f96080;
     padding-left: 30px;
     margin: 10px -10px;
     width: 830px;
@@ -593,8 +593,45 @@ Author: Team w&w
     /*#face23{background:url("/assets/images/faces/Charles.png") no-repeat;}*/
     /*#face24{background:url("/assets/images/faces/Anna.png") no-repeat;}*/
 
+/* ===== Ranking Page CSS ========================================================
+   Author: Team w&w
+   ========================================================================== */
+#rankingRoom {
+    width: 100%;
+    float: left;
+    margin: 0 auto;
 
+    background: url("/assets/images/rankingBg.jpg") repeat;
+}
 
+div#rankingTitle {
+    font-size: 30px;
+    -webkit-background-clip: text;
+        -moz-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        text-shadow: rgba(255,255,255,0.5) 0px 3px 3px;
+
+    background: #666666;
+
+    height: 40px;
+
+    margin-top: 20px;
+
+    text-align: center;
+}
+
+#rankingRoom table {
+    width: 95%;
+    margin: 40px auto;
+
+    thead {
+        background: white;
+        th {
+            text-align: center;
+        }
+    }
+}
 
 
 @import "helpers.less";
