@@ -109,7 +109,7 @@ public class Game {
             chatMessage(getCurrentPlayer(), "chat", player.getUsername(), talk);
             chatMessage(getAlternative(), "chat", player.getUsername(), talk);
         } else {
-            message(player, "wait", "Still Waiting for oponent....");
+            message(player, "wait", "Still Waiting for opponent....");
         }
     }
 
@@ -130,7 +130,7 @@ public class Game {
                 message(player, "wait", "Not your move!");
             }
         } else {
-            message(player, "wait", "Still Waiting for oponent....");
+            message(player, "wait", "Still Waiting for opponent....");
         }
     }
 
