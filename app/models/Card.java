@@ -1,22 +1,14 @@
 package models;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.URL;
-
 /**
  * Created with IntelliJ IDEA.
  * User: debian
  * Date: 5/19/12
  * Time: 11:39 AM
  */
-//import com.google.gson.*;
-
 
 public class Card {
-
-    private String name;
+    private String namee;
     private String hairColor;
     private boolean hat;
     private boolean longHair;
@@ -27,52 +19,15 @@ public class Card {
     private Character sex;
     private boolean bigNose;
 
-
-    public Card(String name) {
-
-        this.name = name;
-        loadAttributes(name);
-
-
+    public Card() {
     }
 
-    public void loadAttributes(String name){
-
-    makeRequest(name);
-
+    public String getNamee() {
+        return namee;
     }
 
-    public void makeRequest(String name){
-
-        // importante: agregar desde Idea la libreria Gson-1.1.jar ( te lo ofrece automaticamente )
-
-        String requestUrl = "http://<GAE-URL>?name="+name;  // aca va la URL del server GAE
-        try {
-            URL url = new URL(requestUrl.toString());
-            BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream()));
-            String inputLine, result = "";
-            while ((inputLine = in.readLine()) != null) {
-                result = result.concat(inputLine);
-            }
-            in.close();
-
-//            new Gson().fromJson(result, Card.class);
-
-            // hasta aca tengo El objeto card que pedi a GSON todo llenito
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+    public void setNamee(String namee) {
+        this.namee = namee;
     }
 
     public String getHairColor() {
@@ -145,6 +100,22 @@ public class Card {
 
     public void setBigNose(boolean bigNose) {
         this.bigNose = bigNose;
+    }
+
+    @Override
+    public String toString() {
+        return "Card{" +
+                "namee='" + namee + '\'' +
+                ", hairColor='" + hairColor + '\'' +
+                ", hat=" + hat +
+                ", longHair=" + longHair +
+                ", glasses=" + glasses +
+                ", bold=" + bold +
+                ", beard=" + beard +
+                ", mustache=" + mustache +
+                ", sex=" + sex +
+                ", bigNose=" + bigNose +
+                '}';
     }
 }
 

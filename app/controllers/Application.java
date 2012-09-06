@@ -5,10 +5,7 @@ import org.codehaus.jackson.JsonNode;
 import play.mvc.Controller;
 import play.mvc.Result;
 import play.mvc.WebSocket;
-import views.html.aboutGame;
-import views.html.chatRoom;
-import views.html.index;
-import views.html.gameRoom;
+import views.html.*;
 
 public class Application extends Controller {
 
@@ -31,6 +28,13 @@ public class Application extends Controller {
      */
     public static Result gameRoom() {
         return ok(gameRoom.render());
+    }
+
+    /**
+     * Display Ranking page.
+     */
+    public static Result ranking(String username) {
+        return ok(ranking.render(username));
     }
 
     /**

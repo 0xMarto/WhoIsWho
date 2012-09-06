@@ -67,6 +67,10 @@ function receiveEvent(event) {
     if (data.type == 'op-ask' || data.type == 'op-answer') {
         $(chatLine).addClass('question');
     }
+    if (data.type == "lie") {
+        $("#lies").html(data.message);
+    }
+
     $("span", chatLine).text(data.type);
     $("p", chatLine).text(data.message);
     $('#messages').append(chatLine)

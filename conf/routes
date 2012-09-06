@@ -8,6 +8,7 @@ GET     /whoiswho/chatRoom                   controllers.Application.chatRoom(us
 GET     /whoiswho/chatRoom/Play              controllers.Application.game(username)
 GET     /whoiswho/aboutGame                  controllers.Application.aboutGame()
 GET     /whoiswho/gameRoom                   controllers.Application.gameRoom()
+GET     /whoiswho/ranking                    controllers.Application.ranking(username: String ?= null)
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

@@ -50,7 +50,7 @@ body.pinstripe {
     background-color: black;
     width: @page-width + 20px;
     position: relative;
-    z-index: 10000;
+    z-index: 999;
     height: 72px;
     #logo {
         font: 4em bold;
@@ -77,12 +77,90 @@ body.pinstripe {
             font-size: 16px;
             font-weight: bold;
         }
-        #aboutLink {background: #F6B402;}
-        #playLink {background: #D54403; }
-        #rankingLink {background: #9932CC;}
-        #statsLink{background: #0CF100;}
+        #aboutLink {
+            background: #F6B402;
+            background-image: linear-gradient(bottom, rgb(246,181,2) 18%, rgb(245,148,3) 53%, rgb(245,213,3) 0%);
+            background-image: -o-linear-gradient(bottom, rgb(246,181,2) 18%, rgb(245,148,3) 53%, rgb(245,213,3) 0%);
+            background-image: -moz-linear-gradient(bottom, rgb(246,181,2) 18%, rgb(245,148,3) 53%, rgb(245,213,3) 0%);
+            background-image: -webkit-linear-gradient(bottom, rgb(246,181,2) 18%, rgb(245,148,3) 53%, rgb(245,213,3) 0%);
+            background-image: -ms-linear-gradient(bottom, rgb(246,181,2) 18%, rgb(245,148,3) 53%, rgb(245,213,3) 0%);
+
+            background-image: -webkit-gradient(
+            	linear,
+            	left bottom,
+            	left top,
+            	color-stop(0.18, rgb(246,181,2)),
+            	color-stop(0.53, rgb(245,148,3)),
+            	color-stop(0, rgb(245,213,3))
+            );
+        }
+        #playLink {
+            background: #D54403;
+            background-image: linear-gradient(bottom, rgb(212,129,4) 9%, rgb(212,70,4) 72%, rgb(213,70,3) 86%);
+            background-image: -o-linear-gradient(bottom, rgb(212,129,4) 9%, rgb(212,70,4) 72%, rgb(213,70,3) 86%);
+            background-image: -moz-linear-gradient(bottom, rgb(212,129,4) 9%, rgb(212,70,4) 72%, rgb(213,70,3) 86%);
+            background-image: -webkit-linear-gradient(bottom, rgb(212,129,4) 9%, rgb(212,70,4) 72%, rgb(213,70,3) 86%);
+            background-image: -ms-linear-gradient(bottom, rgb(212,129,4) 9%, rgb(212,70,4) 72%, rgb(213,70,3) 86%);
+
+            background-image: -webkit-gradient(
+            	linear,
+            	left bottom,
+            	left top,
+            	color-stop(0.09, rgb(212,129,4)),
+            	color-stop(0.72, rgb(212,70,4)),
+            	color-stop(0.86, rgb(213,70,3))
+            );
+        }
+        #rankingLink {
+            background: #9932CC;
+            background-image: linear-gradient(bottom, rgb(214,102,201) 11%, rgb(173,51,204) 46%, rgb(153,50,204) 70%);
+            background-image: -o-linear-gradient(bottom, rgb(214,102,201) 11%, rgb(173,51,204) 46%, rgb(153,50,204) 70%);
+            background-image: -moz-linear-gradient(bottom, rgb(214,102,201) 11%, rgb(173,51,204) 46%, rgb(153,50,204) 70%);
+            background-image: -webkit-linear-gradient(bottom, rgb(214,102,201) 11%, rgb(173,51,204) 46%, rgb(153,50,204) 70%);
+            background-image: -ms-linear-gradient(bottom, rgb(214,102,201) 11%, rgb(173,51,204) 46%, rgb(153,50,204) 70%);
+
+            background-image: -webkit-gradient(
+            	linear,
+            	left bottom,
+            	left top,
+            	color-stop(0.11, rgb(214,102,201)),
+            	color-stop(0.46, rgb(173,51,204)),
+            	color-stop(0.7, rgb(153,50,204))
+            );
+        }
+        #statsLink{
+            background: #0CF100;
+            background-image: linear-gradient(bottom, rgb(35,178,51) 100%, rgb(63,214,77) 53%, rgb(95,255,108) 0%);
+            background-image: -o-linear-gradient(bottom, rgb(35,178,51) 100%, rgb(63,214,77) 53%, rgb(95,255,108) 0%);
+            background-image: -moz-linear-gradient(bottom, rgb(35,178,51) 100%, rgb(63,214,77) 53%, rgb(95,255,108) 0%);
+            background-image: -webkit-linear-gradient(bottom, rgb(35,178,51) 100%, rgb(63,214,77) 53%, rgb(95,255,108) 0%);
+            background-image: -ms-linear-gradient(bottom, rgb(35,178,51) 100%, rgb(63,214,77) 53%, rgb(95,255,108) 0%);
+
+            background-image: -webkit-gradient(
+            	linear,
+            	left bottom,
+            	left top,
+            	color-stop(1, rgb(35,178,51)),
+            	color-stop(0.53, rgb(63,214,77)),
+            	color-stop(0, rgb(95,255,108))
+            );
+        }
         #loginLink{
             background: @facebook-blue;
+            background-image: linear-gradient(bottom, rgb(0,117,171) 12%, rgb(0,68,171) 58%, rgb(0,11,172) 84%);
+            background-image: -o-linear-gradient(bottom, rgb(0,117,171) 12%, rgb(0,68,171) 58%, rgb(0,11,172) 84%);
+            background-image: -moz-linear-gradient(bottom, rgb(0,117,171) 12%, rgb(0,68,171) 58%, rgb(0,11,172) 84%);
+            background-image: -webkit-linear-gradient(bottom, rgb(0,117,171) 12%, rgb(0,68,171) 58%, rgb(0,11,172) 84%);
+            background-image: -ms-linear-gradient(bottom, rgb(0,117,171) 12%, rgb(0,68,171) 58%, rgb(0,11,172) 84%);
+
+            background-image: -webkit-gradient(
+            	linear,
+            	left bottom,
+            	left top,
+            	color-stop(0.12, rgb(0,117,171)),
+            	color-stop(0.58, rgb(0,68,171)),
+            	color-stop(0.84, rgb(0,11,172))
+            );
             height: 72px;
         }
     }
@@ -93,6 +171,8 @@ body.pinstripe {
     position: relative;
     margin: 0 -10px;
     box-shadow: 0 4px 4px rgba(0,0,0,0.3);
+
+    z-index: 1000;
     &:before , &:after {
         content: " ";
         border-top: 11px solid @orangered;
@@ -326,11 +406,15 @@ Author: Team w&w
 #guess {
     float: right;
     position: absolute;
-    left: 519px;
+    left: 509px;
     z-index: 2;
-    top: -55px;
+    top: -58px;
+    .Transition(top, 0.3s, linear, 0.1s);
+    &:hover {
+        top: -50px;
+    }
     #guessImage {
-        width: 100px;
+        width: 110px;
     }
 
 }
@@ -344,16 +428,15 @@ Author: Team w&w
 
     background: url("/assets/images/boardBg.png") repeat;
 
-    .card {
+    div.card {
         padding: 10px;
         float: left;
         position: relative;
         width: @cardWidth;
         height: @cardHeight;
         margin: 5px 10px;
-        .cardInfo {
-            box-shadow: 3px 5px 5px 2px rgba(0, 0, 0, 0.5);
 
+        div.cardInfo {
             background: yellow;
 
             width: 100%;
@@ -362,6 +445,13 @@ Author: Team w&w
 
             border: 5px solid #850;
             .Border-radius(8px);
+            box-shadow: 3px 5px 5px 2px rgba(0, 0, 0, 0.5);
+            .Transition (box-shadow, 0s);
+            /*Enhances box-shadow on hover*/
+            &:hover {
+                box-shadow: 3px 5px 5px 2px rgba(0,0,0, 0.7);
+
+            }
 
             .cardFront {
             width: 100%;
@@ -404,11 +494,11 @@ Author: Team w&w
     position: relative;
     color: black;
     background: url("/assets/images/background-pinstripe.png");
-//    font-size: 1.5em;
+    font-size: 1.5em;
     float: left;
     border: 1px solid black;
-//    clear: both;
-//    text-shadow: 0 -1px #d0284b, 0 1px #f96080;
+    clear: both;
+    text-shadow: 0 -1px #d0284b, 0 1px #f96080;
     padding-left: 30px;
     margin: 10px -10px;
     width: 830px;
@@ -503,8 +593,45 @@ Author: Team w&w
     /*#face23{background:url("/assets/images/faces/Charles.png") no-repeat;}*/
     /*#face24{background:url("/assets/images/faces/Anna.png") no-repeat;}*/
 
+/* ===== Ranking Page CSS ========================================================
+   Author: Team w&w
+   ========================================================================== */
+#rankingRoom {
+    width: 100%;
+    float: left;
+    margin: 0 auto;
 
+    background: url("/assets/images/rankingBg.jpg") repeat;
+}
 
+div#rankingTitle {
+    font-size: 30px;
+    -webkit-background-clip: text;
+        -moz-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        text-shadow: rgba(255,255,255,0.5) 0px 3px 3px;
+
+    background: #666666;
+
+    height: 40px;
+
+    margin-top: 20px;
+
+    text-align: center;
+}
+
+#rankingRoom table {
+    width: 95%;
+    margin: 40px auto;
+
+    thead {
+        background: white;
+        th {
+            text-align: center;
+        }
+    }
+}
 
 
 @import "helpers.less";

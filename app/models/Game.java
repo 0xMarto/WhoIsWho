@@ -1,8 +1,15 @@
 package models;
 
+import com.google.gson.Gson;
 import org.codehaus.jackson.node.ObjectNode;
 import play.libs.Json;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 import java.util.UUID;
 
@@ -18,6 +25,8 @@ public class Game {
     private TurnState currentState;
     private boolean start;
     private int leavers;
+    Map cardsMap;
+    Question currentQuestion;
 
     public Game() {
         gameId = UUID.randomUUID().toString();
@@ -40,16 +49,41 @@ public class Game {
     }
 
     private void setPlayersCards() {
-        playerOne.setCard(pickRandomCard());
-        try {
-            Thread.sleep(200);
-        } catch (InterruptedException e) {
+        loadCardsMap();
 
-        }
-        message(playerOne, "start", "Your card is: " + playerOne.getCard());
+        playerOne.setCard(pickRandomCard());
+        message(playerOne, "start", "Your card is: " + playerOne.getCard().getNamee());
 
         playerTwo.setCard(pickRandomCard());
-        message(playerTwo, "start", "Your card is: " + playerTwo.getCard());
+        message(playerTwo, "start", "Your card is: " + playerTwo.getCard().getNamee());
+    }
+
+    private void loadCardsMap() {
+        cardsMap = new HashMap<String, String>();
+        cardsMap.put("RICHARD", "0e6067");
+        cardsMap.put("GEORGE", "0fbac2");
+        cardsMap.put("ANNA", "22a8a4");
+        cardsMap.put("ALEX", "2eafcf");
+        cardsMap.put("SAM", "3f7f60");
+        cardsMap.put("MARIA", "40c79c");
+        cardsMap.put("WILLIAM", "48166f");
+        cardsMap.put("ALFRED", "4e3b5c");
+        cardsMap.put("CHARLES", "63db8f");
+        cardsMap.put("TOM", "694599");
+        cardsMap.put("ANITA", "6f4433");
+        cardsMap.put("ROBERT", "7028d6");
+        cardsMap.put("FRANK", "83f097");
+        cardsMap.put("PABLO", "861d72");
+        cardsMap.put("PETER", "91718d");
+        cardsMap.put("CLARIE", "ac4871");
+        cardsMap.put("DAVID", "ade557");
+        cardsMap.put("JOE", "b3e0af");
+        cardsMap.put("BERNARD", "bb88ca");
+        cardsMap.put("GERMAN", "c46e40");
+        cardsMap.put("SUSAN", "dca3b5");
+        cardsMap.put("MANNY", "dea8ed");
+        cardsMap.put("ERNEST", "e08c9c");
+        cardsMap.put("PHILIP", "e5ec68");
     }
 
     public void setPlayerA(Player playerOne) {
@@ -62,11 +96,40 @@ public class Game {
         message(getAlternative(), "start", "Let's play WHO IS WHO, You're playing against " + getCurrentPlayer().getUsername());
     }
 
-    private String pickRandomCard() {
-        String cards[] = {"RICHARD", "FRANK", "MANNY", "DAVID", "MARIA", "ANITA", "SUSAN", "ANNA"};
+    private Card pickRandomCard() {
+        String cards[] = {"RICHARD", "FRANK", "MANNY", "DAVID", "MARIA", "ANITA", "SUSAN", "ANNA", "GEORGE", "ALEX",
+                "SAM", "WILLIAM", "ALFRED", "CHARLES", "TOM", "ROBERT", "PABLO", "PETER", "CLARIE", "JOE", "BERNARD",
+                "GERMAN", "ERNEST", "PHILIP"};
+
         Random turnRoller = new Random();
-        int roll = turnRoller.nextInt(8);
-        return cards[roll];
+        int roll = turnRoller.nextInt(24);
+
+        System.out.println("Game: " + this.gameId + " - Loading Card:" + cards[roll]);
+        Card card = getCardFromDb(cardsMap.get(cards[roll]).toString());
+        return card;
+    }
+
+    public Card getCardFromDb(String id) {
+        String requestUrl = "http://dpoi2012api.appspot.com/api/1.0/view?credential=w&id=" + id;
+        try {
+            URL url = new URL(requestUrl);
+            BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream()));
+            String inputLine, result = "";
+            while ((inputLine = in.readLine()) != null) {
+                result = result.concat(inputLine);
+            }
+            in.close();
+
+            result = result.split("payload")[1];
+            result = result.substring(2, result.length() - 1);
+
+            Card card = new Gson().fromJson(result, Card.class);
+            return card;
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        System.out.println("Game: " + this.gameId + " - ERROR: Card id no found");
+        return null;
     }
 
     private void notifyTurn() {
@@ -96,6 +159,10 @@ public class Game {
         } else {
             message(getCurrentPlayer(), "op-answer", answer);
             message(getAlternative(), "my-answer", answer);
+            if (!answer.equalsIgnoreCase(currentQuestion.getRightAnswer())) {
+                getAlternative().lied();
+                message(getAlternative(), "lie", getAlternative().getLies() + "");
+            }
             changeTurn();
             notifyTurn();
         }
@@ -114,7 +181,7 @@ public class Game {
             chatMessage(getCurrentPlayer(), "chat", player.getUsername(), talk);
             chatMessage(getAlternative(), "chat", player.getUsername(), talk);
         } else {
-            message(player, "wait", "Still Waiting for oponent....");
+            message(player, "wait", "Still Waiting for opponent....");
         }
     }
 
@@ -126,16 +193,16 @@ public class Game {
         }
     }
 
-
     public void ask(Player player, String questionAbout, String questionValue, String questionString) {
         if (start) {
             if (getCurrentPlayer() == player) {
+                currentQuestion = new Question(questionAbout, questionValue, questionString, getAlternative().getCard());
                 AskCalculation(player, questionAbout, questionValue, questionString);
             } else {
                 message(player, "wait", "Not your move!");
             }
         } else {
-            message(player, "wait", "Still Waiting for oponent....");
+            message(player, "wait", "Still Waiting for opponent....");
         }
     }
 

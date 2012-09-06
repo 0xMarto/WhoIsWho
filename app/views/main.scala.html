@@ -5,7 +5,7 @@
 <head>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
+    <meta namee="viewport" content="width=device-width">
 
     <title>Who is Who - An amazing online board game</title>
 
@@ -42,7 +42,7 @@
                                     </li>
 
                                     <li>
-                                        <a href="#" id="rankingLink">Ranking</a>
+                                        <a href="@routes.Application.ranking()" id="rankingLink">Ranking</a>
                                     </li>
 
                                     <li>
@@ -89,7 +89,7 @@
                         <form action="@routes.Application.chatRoom()" id="loginForm" class="animated fadeInDown">
                             <fieldset>
                                 <legend>Enter your username</legend>
-                                <input id="username" name="username" maxlength="8" class="input-small" type="text" placeholder="Username">
+                                <input id="username" namee="username" maxlength="8" class="input-small" type="text" placeholder="Username">
 
                                 <button type="submit" onclick="validateUsername()">
                                     <img src="@routes.Assets.at("images/fb-connect.png")" alt="Connect with Facebook">
