@@ -60,7 +60,6 @@ public class Card {
 
             // hasta aca tengo El objeto card que pedi a GSON todo llenito
 
-
         } catch (IOException e) {
             e.printStackTrace();
         }

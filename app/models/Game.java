@@ -41,6 +41,11 @@ public class Game {
 
     private void setPlayersCards() {
         playerOne.setCard(pickRandomCard());
+        try {
+            Thread.sleep(200);
+        } catch (InterruptedException e) {
+
+        }
         message(playerOne, "start", "Your card is: " + playerOne.getCard());
 
         playerTwo.setCard(pickRandomCard());
@@ -60,7 +65,7 @@ public class Game {
     private String pickRandomCard() {
         String cards[] = {"RICHARD", "FRANK", "MANNY", "DAVID", "MARIA", "ANITA", "SUSAN", "ANNA"};
         Random turnRoller = new Random();
-        int roll = turnRoller.nextInt(8) + 1;
+        int roll = turnRoller.nextInt(8);
         return cards[roll];
     }
 
