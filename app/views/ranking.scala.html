@@ -1,29 +1,50 @@
 @(username: String)
 
 @main(username) {
+
+
 <div id="rankingRoom">
 
     <div id="rankingTitle">
         Player Ranking
     </div>
 
-    <table>
+    <table id="rankingTable" class="bordered-table">
         <thead>
-            <th>
+        <tr>
+            <th id="col1">
                 Position
             </th>
-            <th>
+            <th id="col2">
                 Name
             </th>
-            <th>
+            <th id="col3">
                 Won
             </th>
-            <th>
+            <th id="col4">
                 Lost
             </th>
+        </tr>
         </thead>
+        <tbody>
+            <tr>
+
+            </tr>
+        </tbody>
+
+        <tfoot>
+        <tr>
+            <th colspan=4> + </th>
+        </tr>
+        </tfoot>
     </table>
 
 </div>
+
+<script src="@routes.Assets.at("javascripts/jquery-1.7.2.min.js")"></script>
+<script src="@routes.Assets.at("javascripts/script.js")"></script>
+
+<script  type="text/javascript">listJson()</script>
+
 
 }

@@ -10,7 +10,10 @@ Author: Team w&w
 }
 
 body {
-    font-family: 'Helvetica Neue', Helvetica, sans-serif;
+    font-family: "Open Sans", sans-serif;
+    font-size: 13px;
+
+    font-weight: normal;
 }
 
 body.pinstripe {
@@ -74,8 +77,7 @@ body.pinstripe {
             text-decoration: none;
             color: white;
             display: block;
-            font-size: 16px;
-            font-weight: bold;
+            font-size: 15px;
         }
         #aboutLink {
             background: #F6B402;
@@ -568,31 +570,6 @@ Author: Team w&w
     display: none;
 }
 
-    /*#face1{background:url("/assets/images/faces/Sam.png") no-repeat;}*/
-    /*#face2{background:url("/assets/images/faces/Joe.png") no-repeat;}*/
-    /*#face3{background:url("/assets/images/faces/Pablo.png") no-repeat;}*/
-    /*#face4{background:url("/assets/images/faces/George.png") no-repeat;}*/
-    /*#face5{background:url("/assets/images/faces/Philip.png") no-repeat;}*/
-    /*#face6{background:url("/assets/images/faces/Claire.png") no-repeat;}*/
-    /*#face7{background:url("/assets/images/faces/Anita.png") no-repeat;}*/
-    /*#face8{background:url("/assets/images/faces/Alfred.png") no-repeat;}*/
-    /*#face9{background:url("/assets/images/faces/Susan.png") no-repeat;}*/
-    /*#face10{background:url("/assets/images/faces/Richard.png") no-repeat;}*/
-    /*#face11{background:url("/assets/images/faces/Frank.png") no-repeat;}*/
-    /*#face12{background:url("/assets/images/faces/Manny.png") no-repeat;}*/
-    /*#face13{background:url("/assets/images/faces/German.png") no-repeat;}*/
-    /*#face14{background:url("/assets/images/faces/David.png") no-repeat;}*/
-    /*#face15{background:url("/assets/images/faces/Bernard.png") no-repeat;}*/
-    /*#face16{background:url("/assets/images/faces/Alex.png") no-repeat;}*/
-    /*#face17{background:url("/assets/images/faces/Tom.png") no-repeat;}*/
-    /*#face18{background:url("/assets/images/faces/Robert.png") no-repeat;}*/
-    /*#face19{background:url("/assets/images/faces/Peter.png") no-repeat;}*/
-    /*#face20{background:url("/assets/images/faces/Maria.png") no-repeat;}*/
-    /*#face21{background:url("/assets/images/faces/William.png") no-repeat;}*/
-    /*#face22{background:url("/assets/images/faces/Ernest.png") no-repeat;}*/
-    /*#face23{background:url("/assets/images/faces/Charles.png") no-repeat;}*/
-    /*#face24{background:url("/assets/images/faces/Anna.png") no-repeat;}*/
-
 /* ===== Ranking Page CSS ========================================================
    Author: Team w&w
    ========================================================================== */
@@ -601,35 +578,48 @@ Author: Team w&w
     float: left;
     margin: 0 auto;
 
-    background: url("/assets/images/rankingBg.jpg") repeat;
+    background: #474747 url("/assets/images/grayBg.png") repeat;
 }
 
 div#rankingTitle {
-    font-size: 30px;
-    -webkit-background-clip: text;
-        -moz-background-clip: text;
-        background-clip: text;
-        color: transparent;
-        text-shadow: rgba(255,255,255,0.5) 0px 3px 3px;
+    font-size: 64px;
 
-    background: #666666;
+    font-family: inherit;
+    font-weight: bold;
 
-    height: 40px;
-
-    margin-top: 20px;
-
+    color: #222;
+    text-shadow: 0px 2px 3px #555;
     text-align: center;
+
+    height: 85px;
+    line-height: 75px;
+
 }
 
 #rankingRoom table {
-    width: 95%;
-    margin: 40px auto;
+    width: 80%;
+    margin: 15px auto 40px auto;
+
+    box-shadow: 0 4px 4px rgba(0,0,0,0.3);
 
     thead {
-        background: white;
+        background: gray;
+
+        font-size: 14px;
         th {
             text-align: center;
+            color: #f5f5f5;
+            border: 1px solid #666;
         }
+    }
+
+    .row:nth-child(even) {
+        background: #f5f5f5;
+    }
+    .row:nth-child(odd) {
+        background:  none;
+        color: white;
+
     }
 }
 

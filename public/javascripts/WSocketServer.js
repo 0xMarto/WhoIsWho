@@ -60,12 +60,12 @@ function receiveEvent(event) {
         $("#answerPanel").hide();
     }
     if (data.type == 'my-ask' || data.type == 'my-answer') {
-        $(chatLine).addClass('question');
+        $(chatLine).addClass('Question');
         $("#questionPanel").hide();
         $("#answerPanel").hide();
     }
     if (data.type == 'op-ask' || data.type == 'op-answer') {
-        $(chatLine).addClass('question');
+        $(chatLine).addClass('Question');
     }
     if (data.type == "lie") {
         $("#lies").html(data.message);

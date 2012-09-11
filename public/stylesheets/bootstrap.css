@@ -183,11 +183,10 @@ textarea {
 body {
   background-color: #ffffff;
   margin: 0;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 13px;
   font-weight: normal;
   line-height: 18px;
-  color: #404040;
+  color: #494949;
 }
 .container {
   width: 940px;
@@ -1114,22 +1113,21 @@ table th, table td {
 }
 table th {
   padding-top: 9px;
-  font-weight: bold;
   vertical-align: middle;
 }
 table td {
   vertical-align: top;
-  border-top: 1px solid #ddd;
+  border-top: 1px solid #666;
 }
 table tbody th {
-  border-top: 1px solid #ddd;
+  border-top: 1px solid #666;
   vertical-align: top;
 }
 .condensed-table th, .condensed-table td {
   padding: 5px 5px 4px;
 }
 .bordered-table {
-  border: 1px solid #ddd;
+  border: 1px solid #666;
   border-collapse: separate;
   *border-collapse: collapse;
   /* IE7, collapse table to remove spacing */
@@ -1139,7 +1137,7 @@ table tbody th {
   border-radius: 4px;
 }
 .bordered-table th + th, .bordered-table td + td, .bordered-table th + td {
-  border-left: 1px solid #ddd;
+  border-left: 1px solid #666;
 }
 .bordered-table thead tr:first-child th:first-child, .bordered-table tbody tr:first-child td:first-child {
   -webkit-border-radius: 4px 0 0 0;

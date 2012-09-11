@@ -68,7 +68,7 @@ public class ConnectionHandler {
 //                        Chat behavior
                         final String talk = jsonNode.get("text").asText();
                         game.chat(player, talk);
-                    } else if (messageType.equals("question")) {
+                    } else if (messageType.equals("Question")) {
 //                        Question behavior
                         final String questionString = jsonNode.get("questionString").asText();
                         final String questionAbout = jsonNode.get("questionAbout").asText();

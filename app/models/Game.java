@@ -14,7 +14,7 @@ import java.util.Random;
 import java.util.UUID;
 
 /**
- * Created by Mart0
+ * Created by w&w
  * Date: 4/24/12
  */
 public class Game {
@@ -134,17 +134,17 @@ public class Game {
 
     private void notifyTurn() {
         if (currentState == TurnState.ASKING) {
-            message(getCurrentPlayer(), "ask", "It's your turn, Ask a question");
+            message(getCurrentPlayer(), "ask", "It's your turn, Ask a Question");
             message(getAlternative(), "wait", "Other player's turn!");
         } else {
-            message(getAlternative(), "answer", "Answer the question");
+            message(getAlternative(), "answer", "Answer the Question");
             message(getCurrentPlayer(), "wait", "Wait for " + getAlternative().getUsername() + " answer");
         }
     }
 
     private void AskCalculation(Player player, String questionAbout, String questionValue, String questionString) {
         if (questionAbout.equals("") || questionValue.equals("") || questionString.equals("")) {
-            message(player, "mistake", "Please, Choose valid question and then Press ASK button");
+            message(player, "mistake", "Please, Choose valid Question and then Press ASK button");
         } else {
             message(getCurrentPlayer(), "my-ask", questionString);
             message(getAlternative(), "op-ask", questionString);
