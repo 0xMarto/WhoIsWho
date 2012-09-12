@@ -91,7 +91,7 @@ function updateJson (id) {
     var phone = document.getElementById("editPhone").value;
 
     var method = "POST";
-    var url = "/update?credential=nconstanzo";
+    var url = "/update?credential=ranking";
     var params = "&id="+id+"&first="+first+"&last="+last+"&mail="+mail+"&phone="+phone ;
     loadXML(method,url,params, updateOneJson);
     hidePopUp();
@@ -129,7 +129,7 @@ function createJson () {
     var phone = document.getElementById("editPhone").value;
 
     var method = "POST";
-    var url = "/create?credential=nconstanzo";
+    var url = "/create?credential=ranking";
     var params = "&first="+first+"&last="+last+"&mail="+mail+"&phone="+phone;
     loadXML(method, url, params, parseOneJson);
     hidePopUp();
@@ -138,10 +138,10 @@ function createJson () {
 function parseOneJson (json) {
 
 	var id = json.payload.id;
-	var mail = json.payload.mail;
-	var phone = json.payload.phone;
-        var last = json.payload.last;
-        var first = json.payload.first;
+	var mail = json.payload.name;
+	var phone = json.payload.rank;
+        var last = json.payload.Win;
+        var first = json.payload.Lost;
 	createTableRow (id, first, last, mail, phone);
 }
 
@@ -161,17 +161,48 @@ function deleteRow (json) {
 
 }
 
+function bubbleSort(a)
+{
+    var swapped;
+    do {
+        swapped = false;
+        for (var i=0; i < a.length-1; i++) {
+            if (Number(a[i].win) > Number(a[i+1].win)) {
+                var temp = a[i];
+                a[i] = a[i+1];
+                a[i+1] = temp;
+                swapped = true;
+            }
+        }
+    } while (swapped);
+    return a;
+}
+
 function parseJSON(json) {
-        for (i = 0; i < json.payload.count; i++) {
+    var players = new Array();
+    for (i = 0; i < json.payload.count; i++) {
+        var RankObject = {};
+        RankObject.name = json.payload.items[i].name;
+        RankObject.rank = json.payload.items[i].rank;
+        RankObject.win = json.payload.items[i].Win;
+        RankObject.lose = json.payload.items[i].Lost;
+        players[i] = RankObject;
+
+    }
+    console.log(players);
+    players = bubbleSort(players);
+    console.log(players);
+
+    for (i = 0; i < 10; i++) {
             var id = json.payload.items[i].id;
             var credential = json.payload.items[i].credential;
-            var first = json.payload.items[i].first;
-            var last = json.payload.items[i].last;
-            var mail = json.payload.items[i].mail;
-            var phone = json.payload.items[i].phone;
+            var first = 10 - (i);
+            var last = players[i].name;
+            var mail = players[i].win;
+            var phone = players[i].lose;
             var created = json.payload.items[i].created;
             createTableRow(id, first, last, mail, phone);
-        }
+    }
         document.getElementById('table1').deleteRow(json.payload.count+1);
         var loading = document.getElementById('loading');
         suicide (loading);
