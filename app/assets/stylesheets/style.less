@@ -608,19 +608,39 @@ Author: Team w&w
     display: none;
 }
 
-div#rankingTitle {
+#closeRanking {
+    text-align: right;
+
+    font-size: 56px;
+
+    float: right;
+    margin-top: -88px;
+    margin-right: 17px;
+
+    a, a:visited{
+        color: #222;
+        text-decoration: none;
+    }
+    a:hover, a:active {
+        color: #111;
+    }
+}
+
+#rankingTitle {
     font-size: 64px;
+    text-align: center;
+}
+
+div#rankingTitle, #closeRanking {
 
     font-family: inherit;
     font-weight: bold;
 
     color: #222;
     text-shadow: 0px 2px 3px #555;
-    text-align: center;
 
     height: 85px;
     line-height: 75px;
-
 }
 
 #rankingRoom table {
