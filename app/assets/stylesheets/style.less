@@ -28,6 +28,8 @@ body.pinstripe {
 #outer_layout {
     width: 100%;
     float: left;
+
+    background-color: #f5f5f5;
 }
 
 #wrapper {
@@ -508,7 +510,6 @@ Author: Team w&w
     float: left;
     border: 1px solid black;
     clear: both;
-//    text-shadow: 0 -1px #d0284b, 0 1px #f96080;
     padding-left: 30px;
     margin: 10px -10px;
     width: 830px;
@@ -516,7 +517,7 @@ Author: Team w&w
     box-shadow: 0 4px 4px rgba(0,0,0,0.3);
     &:before  {
         content: " ";
-        border-top: 11px solid @orangered;
+        border-top: 10px solid @orangered;
         position: absolute;
         bottom: -11px;
     }
@@ -528,18 +529,24 @@ Author: Team w&w
 }
 
 #cheatCounter {
-    bottom: 100px;
     position:relative;
-   	color:#fff;
+    bottom: 100px;
+
+    font-size:1.5em;
+    text-shadow:0 -1px #d0284b, 0 1px #f96080;
+   	color: black;
+
    	background:#f43059;
-   	font-size:1.5em;
+
    	float:right;
    	clear:both;
+
    	padding:10px 10px 10px 20px;
-   	text-shadow:0 -1px #d0284b, 0 1px #f96080;
-    position: relative;
     margin: -70px -10px 0 -10px;
+
     box-shadow: 0 4px 4px rgba(0,0,0,0.3);
+
+/*Wraparound ribbon*/
     &:after {
         content: " ";
         border-top: 11px solid @orangered;
@@ -549,6 +556,14 @@ Author: Team w&w
     &:after {
         border-right: 10px solid transparent;
         right: 0;
+    }
+
+    /*So that h4 and h3 show inline*/
+    h4 {
+        float: left;
+    }
+    h3#lies {
+        float: right;
     }
 }
 
@@ -587,6 +602,10 @@ Author: Team w&w
     margin: 0 auto;
 
     background: #474747 url("/assets/images/grayBg.png") repeat;
+
+    box-shadow: 0px 0px 0px rgba(0,0,0,0) inset, 0px -5px 5px rgba(0,0,0,0.3) inset;
+
+    display: none;
 }
 
 div#rankingTitle {
@@ -606,11 +625,14 @@ div#rankingTitle {
 
 #rankingRoom table {
     width: 80%;
-    margin: 15px auto 40px auto;
+    margin: 15px auto 80px auto;
 
     box-shadow: 0 4px 4px rgba(0,0,0,0.3);
 
-    thead {
+    thead th {
+        font-weight: bold;
+    }
+    thead, tfoot {
         background: gray;
 
         font-size: 14px;

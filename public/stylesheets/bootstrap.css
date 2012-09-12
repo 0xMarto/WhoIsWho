@@ -248,23 +248,7 @@ a:hover {
 .show {
   display: block;
 }
-.row {
-  zoom: 1;
-  margin-left: -20px;
-}
-.row:before, .row:after {
-  display: table;
-  content: "";
-  zoom: 1;
-}
-.row:after {
-  clear: both;
-}
-.row > [class*="span"] {
-  display: inline;
-  float: left;
-  margin-left: 20px;
-}
+
 .span1 {
   width: 40px;
 }
@@ -1130,7 +1114,7 @@ table tbody th {
   border: 1px solid #666;
   border-collapse: separate;
   *border-collapse: collapse;
-  /* IE7, collapse table to remove spacing */
+   IE7, collapse table to remove spacing
 
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;

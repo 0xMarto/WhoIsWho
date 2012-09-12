@@ -26,8 +26,16 @@ $(document).ready(function () {
 
     $("#askQuestions").chained("#questionAbout");
 
+//    Load ranking table when document is loaded
+    listJson();
 });
 
+
+function loadRanking() {
+    var room = $("#rankingRoom")
+
+    room.slideToggle('slow');
+}
 
 var req;
 
@@ -325,10 +333,6 @@ function cancelPopUp (id) {
 
 function suicide (element) {
     element.parentNode.removeChild(element);
-}
-
-function hide (element) {
-     element.style.display="none";
 }
 
 function show (element) {

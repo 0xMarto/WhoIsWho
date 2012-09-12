@@ -1,13 +1,64 @@
 @(username: String)
 
 @main(username) {
-    <input id="WSocketPath" value="@routes.Application.game(username).webSocketURL(request)" style="display: none;">
 
-    <div id="onError" class="alert-message error">
-        <p>
-            <strong>Oops!</strong> <span></span>
-        </p>
+<input id="WSocketPath" value="@routes.Application.game(username).webSocketURL(request)" style="display: none;">
+
+<div id="onError" class="alert-message error">
+    <p>
+        <strong>Oops!</strong> <span></span>
+    </p>
+</div>
+
+<div id="rankingRoom">
+
+    <div id="rankingTitle">
+        Player Ranking
     </div>
+
+    <table id="rankingTable" class="bordered-table">
+        <thead>
+        <tr>
+            <th id="col1">
+                Rank
+            </th>
+            <th id="col2">
+                Name
+            </th>
+            <th id="col3">
+                Won
+            </th>
+            <th id="col4">
+                Lost
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr>
+
+            </tr>
+        </tbody>
+
+        <tfoot>
+        <tr>
+            <th>
+                Rank
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                Won
+            </th>
+            <th>
+                Lost
+            </th>
+        </tr>
+        </tfoot>
+    </table>
+
+</div>
+
 
 <div id="boardGame">
 
@@ -291,7 +342,7 @@
     </div>
 
     <div id="cheatCounter">
-        <h4>Lies Counter</h4>
+        <h4>Lies Counter&nbsp;</h4>
         <h3 id="lies">0</h3>
     </div>
 
