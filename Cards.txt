@@ -1,29 +1,29 @@
 Crear una tabla en GAE a la cual se acceda por un GET : "www.gaeserver.com/getName?namee=Sam" y
 devuelva un Json.
 
-Name-HairColor-Hat-LongHair-Glasses-Bold-Beard-Mustache-sex-bignose
+Name-   Hair-   Hat-LongHair-Glasses-Bold-Beard-Mustache-sex-bignose
 
-Sam-white-false-false-true-true-false-false-M-false
-Joe-yellow-false-false-true-false-false-false-M-false
-Pablo-white-false-false-true-false-false-false-M-false
-George-white-true-false-false-false-false-false-M-false
-Philip-black-false-false-false-false-true-false-M-false
-Clarie-orange-true-false-true-false-false-false-F-false
-Anita-yellow-false-true-false-false-false-false-F-false
-Alfred-orange-false-true-false-false-false-true-M-false
-Susan-white-false-true-false-false-false-false-F-false
-Richard-brawn-false-false-false-true-true-true-M-false
-Frank-oragne-false-false-false-false-false-false-M-false
-Manny-brawn-false-false-false-false-false-true-M-true-
-German-orange-false-false-false-true-false-false-M-true-
-David-yellow-false-false-false-false-true-false-M-false
-Bernard-brawn-true-false-false-false-false-false-M-true-
-Alex-black-false-false-false-false-false-true-M-false
-Tom-black-false-false-true-true-false-false-M-false
-Robert-brawn-false-false-false-false-false-false-M-true-
-Peter-white-false-false-false-false-false-false-M-true-
-Maria-brawn-true-true-false-false-true-false-F-false
-William-orange-false-false-false-true-false-false-M-false
-Ernest-yellow-true-false-false-false-false-false-M-false
-Charles-yellow-false-false-false-false-false-true-M-false
-Anna-black-false-false-false-false-false-false-F-true
+Sam-    white-  false-false-true-true-false-false-M-false
+Joe-    yellow- false-false-true-false-false-false-M-false
+Pablo-  white-  false-false-true-false-false-false-M-false
+George- white-  true-false-false-false-false-false-M-false
+Philip- black-  false-false-false-false-true-false-M-false
+Clarie- orange- true-false-true-false-false-false-F-false
+Anita-  yellow- false-true-false-false-false-false-F-false
+Alfred- orange- false-true-false-false-false-true-M-false
+Susan-  white-  false-true-false-false-false-false-F-false
+Richard-brawn-  false-false-false-true-true-true-M-false
+Frank-  oragne- false-false-false-false-false-false-M-false
+Manny-  brawn-  false-false-false-false-false-true-M-true-
+German- orange- false-false-false-true-false-false-M-true-
+David-  yellow- false-false-false-false-true-false-M-false
+Bernard-brawn-  true-false-false-false-false-false-M-true-
+Alex-   black-  false-false-false-false-false-true-M-false
+Tom-    black-  false-false-true-true-false-false-M-false
+Robert- brawn-  false-false-false-false-false-false-M-true-
+Peter-  white-  false-false-false-false-false-false-M-true-
+Maria-  brawn-  true-true-false-false-true-false-F-false
+William-orange- false-false-false-true-false-false-M-false
+Ernest- yellow- true-false-false-false-false-false-M-false
+Charles-yellow- false-false-false-false-false-true-M-false
+Anna-   black-  false-false-false-false-false-false-F-true

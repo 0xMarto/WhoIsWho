@@ -16,7 +16,8 @@ function sendMessage(type) {
             questionAbout:qAbout,
             questionValue:qValue,
             questionString:qString,
-            answer:qAnswer
+            answer:qAnswer,
+            guessCard:guessCardName
         }
     ))
     ;
@@ -38,7 +39,10 @@ function receiveEvent(event) {
     }
 
     // Create the message element
-    var chatLine = $('<div class="message"><span></span><user></user><p></p></div>');
+
+//    var chatLine = $('<div class="message"><span></span><user></user><p></p></div>');
+    var chatLine = $('<div class="message"><user></user><p></p></div>');
+
     if (data.type == 'chat') {
         $(chatLine).addClass('chat');
         $("user", chatLine).text(data.name + ":");
@@ -47,6 +51,7 @@ function receiveEvent(event) {
     if (data.type == 'start') $(chatLine).addClass('start');
     if (data.type == 'leave') $(chatLine).addClass('leave');
     if (data.type == 'info') $(chatLine).addClass('info');
+
 
     if (data.type == 'ask') {
         $("#questionPanel").show();
@@ -60,18 +65,29 @@ function receiveEvent(event) {
         $("#answerPanel").hide();
     }
     if (data.type == 'my-ask' || data.type == 'my-answer') {
-        $(chatLine).addClass('Question');
+        $(chatLine).addClass('question');
         $("#questionPanel").hide();
         $("#answerPanel").hide();
     }
     if (data.type == 'op-ask' || data.type == 'op-answer') {
-        $(chatLine).addClass('Question');
+        $(chatLine).addClass('question');
     }
     if (data.type == "lie") {
         $("#lies").html(data.message);
+        $(chatLine).addClass('lie');
+        data.message = "Lier !!!!";
+    }
+    if (data.type == "end") {
+        $("#questionPanel").hide();
+        $("#answerPanel").hide();
+        $(chatLine).addClass('end');
+    }
+    if (data.type == 'op-guess' || data.type == 'my-guess') {
+        $(chatLine).addClass('end');
     }
 
-    $("span", chatLine).text(data.type);
+
+//    $("span", chatLine).text(data.type);
     $("p", chatLine).text(data.message);
     $('#messages').append(chatLine)
 }
@@ -102,6 +118,16 @@ var qAnswer;
 function answerQuestion(answer) {
     qAnswer = answer;
     sendMessage("answer");
+}
+
+var guessCardName;
+function guessCard() {
+    smoke.prompt('What\'s the card?', function (e) {
+        if (e) {
+            guessCardName = e;
+            sendMessage("guess");
+        }
+    });
 }
 
 

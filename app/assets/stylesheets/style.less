@@ -396,8 +396,16 @@ body.pinstripe {
     background: #99ff99;
 }
 
-.message.question {
+.message.question, .message.guess, .message.end {
     background: #78ff64;
+}
+
+.message.answer {
+    background: #ffe96e;
+}
+
+.message.lie {
+    background: #ff6957;
 }
 
 
@@ -500,7 +508,7 @@ Author: Team w&w
     float: left;
     border: 1px solid black;
     clear: both;
-    text-shadow: 0 -1px #d0284b, 0 1px #f96080;
+//    text-shadow: 0 -1px #d0284b, 0 1px #f96080;
     padding-left: 30px;
     margin: 10px -10px;
     width: 830px;
@@ -559,7 +567,7 @@ Author: Team w&w
 
 #askBt:hover, #infoBt:hover, #yesBt:hover, #noBt:hover {
     color: white;
-    background-color: #f43059;
+    background-color: #f43e46;
 }
 
 .btn {

@@ -24,9 +24,10 @@ public class Game {
     private Player currentPlayer;
     private TurnState currentState;
     private boolean start;
+    private boolean end;
     private int leavers;
     Map cardsMap;
-    Question currentQuestion;
+    CurrentQuestion currentQuestion;
 
     public Game() {
         gameId = UUID.randomUUID().toString();
@@ -34,6 +35,7 @@ public class Game {
 
     void startGame() {
         start = true;
+        end = false;
         leavers = 0;
         setRandomTurn();
         notifyStart();
@@ -137,12 +139,12 @@ public class Game {
             message(getCurrentPlayer(), "ask", "It's your turn, Ask a Question");
             message(getAlternative(), "wait", "Other player's turn!");
         } else {
-            message(getAlternative(), "answer", "Answer the Question");
+            message(getAlternative(), "answer", "Answer the Question. (Remember your card is " + getAlternative().getCard().getNamee() + ")");
             message(getCurrentPlayer(), "wait", "Wait for " + getAlternative().getUsername() + " answer");
         }
     }
 
-    private void AskCalculation(Player player, String questionAbout, String questionValue, String questionString) {
+    private void askCalculation(Player player, String questionAbout, String questionValue, String questionString) {
         if (questionAbout.equals("") || questionValue.equals("") || questionString.equals("")) {
             message(player, "mistake", "Please, Choose valid Question and then Press ASK button");
         } else {
@@ -196,8 +198,8 @@ public class Game {
     public void ask(Player player, String questionAbout, String questionValue, String questionString) {
         if (start) {
             if (getCurrentPlayer() == player) {
-                currentQuestion = new Question(questionAbout, questionValue, questionString, getAlternative().getCard());
-                AskCalculation(player, questionAbout, questionValue, questionString);
+                currentQuestion = new CurrentQuestion(questionAbout, questionValue, questionString, getAlternative().getCard());
+                askCalculation(player, questionAbout, questionValue, questionString);
             } else {
                 message(player, "wait", "Not your move!");
             }
@@ -277,6 +279,50 @@ public class Game {
                 ", start=" + start +
                 ", leavers=" + leavers +
                 '}';
+    }
+
+    public void guess(Player player, String guessCard) {
+        if (start) {
+            if (!end) {
+                if (getCurrentPlayer() == player) {
+                    guessCalculation(player, guessCard);
+                } else {
+                    message(player, "wait", "Not your move!");
+                }
+            } else {
+                message(player, "end", "Game Ended: the winner is " + getCurrentPlayer().getUsername());
+            }
+
+        } else {
+            message(player, "wait", "Still Waiting for opponent....");
+        }
+    }
+
+    private void guessCalculation(Player player, String guessCard) {
+        if (getAlternative().getCard().getNamee().equalsIgnoreCase(guessCard)) {
+            message(getCurrentPlayer(), "my-guess", "You guess " + guessCard);
+            message(getAlternative(), "op-guess", player.getUsername() + " guess " + guessCard);
+
+            if (getCurrentPlayer().getLies() <= getAlternative().getLies()) {
+                message(getAlternative(), "end", "SORRY, YOU LOSE ");
+                message(getCurrentPlayer(), "end", "CONGRATULATIONS, YOU WIN");
+            } else {
+                message(getAlternative(), "end", "The guess was right but " + player.getUsername() + " lose for LIER!!");
+                message(getAlternative(), "end", "CONGRATULATIONS, YOU WIN");
+
+                message(getCurrentPlayer(), "end", "The guess was right but YOU lose for LIER!!");
+                message(getCurrentPlayer(), "end", "SORRY, YOU LOSE");
+
+                currentPlayer = getAlternative();
+            }
+            end = true;
+        } else {
+            message(getCurrentPlayer(), "my-guess", "You guess wrong!!, The card is not " + guessCard);
+            message(getAlternative(), "op-guess", player.getUsername() + " guess " + guessCard);
+            changeTurn();
+            changeTurn();
+            notifyTurn();
+        }
     }
 
     private enum TurnState {ASKING, ANSWERING}

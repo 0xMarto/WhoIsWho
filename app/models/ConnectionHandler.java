@@ -63,12 +63,13 @@ public class ConnectionHandler {
             public void invoke(JsonNode jsonNode) throws Throwable {
                 Game game = getGameById(player.getGameId());
                 String messageType = jsonNode.get("type").asText();
+                System.out.println("Game: " + game.getGameId() + " - Event Received: Type = " + messageType);
                 if (game.isStart()) {
                     if (messageType.equals("chat")) {
 //                        Chat behavior
                         final String talk = jsonNode.get("text").asText();
                         game.chat(player, talk);
-                    } else if (messageType.equals("Question")) {
+                    } else if (messageType.equals("question")) {
 //                        Question behavior
                         final String questionString = jsonNode.get("questionString").asText();
                         final String questionAbout = jsonNode.get("questionAbout").asText();
@@ -78,6 +79,10 @@ public class ConnectionHandler {
 //                        Answer behavior
                         final String answer = jsonNode.get("answer").asText();
                         game.answer(player, answer);
+                    } else if (messageType.equals("guess")) {
+//                        Guess behavior
+                        final String guessCard = jsonNode.get("guessCard").asText();
+                        game.guess(player, guessCard.toUpperCase());
                     }
                 } else {
 //                    Waiting for another player

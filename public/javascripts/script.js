@@ -72,7 +72,7 @@ function loadXML (method, url, params, callback) {
 function listJson (){
     var method = "GET";
     var url = "/list"
-    var params = "?credential=nconstanzo";
+    var params = "?credential=ranking";
     loadXML (method, url, params, parseJSON);
 }
 

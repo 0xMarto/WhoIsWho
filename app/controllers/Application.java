@@ -24,13 +24,6 @@ public class Application extends Controller {
     }
 
     /**
-     * Display the about game page.
-     */
-    public static Result gameRoom() {
-        return ok(gameRoom.render());
-    }
-
-    /**
      * Display Ranking page.
      */
     public static Result ranking(String username) {

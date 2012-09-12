@@ -15,6 +15,8 @@
     <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/style.css")">
     <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/bootstrap.css")">
     <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/animate-custom.css")">
+    <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/smoke.css")">
+    <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/dark.css")">
 
     <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/W&Wicon.png")">
 
@@ -57,9 +59,7 @@
                                     <li>
                                         <div id="loginLink">
                                         @if(connected != null) {
-
-                                            <a href="@routes.Application.index()">@connected - Logout</a>
-
+                                          <a href="@routes.Application.index()">@connected - Logout</a>
                                         } else {
                                           <a href="@routes.Application.index()">Login</a>
                                         }
@@ -94,7 +94,7 @@
                         <form action="@routes.Application.chatRoom()" id="loginForm" class="animated fadeInDown">
                             <fieldset>
                                 <legend>Enter your username</legend>
-                                <input id="username" namee="username" maxlength="8" class="input-small" type="text" placeholder="Username">
+                                <input id="username" name="username" maxlength="8" class="input-small" type="text" placeholder="Username">
 
                                 <button type="submit" onclick="validateUsername()">
                                     <img src="@routes.Assets.at("images/fb-connect.png")" alt="Connect with Facebook">
@@ -127,7 +127,5 @@
     </section>
 </div>
 
-<script src="@routes.Assets.at("javascripts/plugins.js")"></script>
-<script src="@routes.Assets.at("javascripts/script.js")"></script>
 </body>
 </html>
