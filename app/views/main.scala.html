@@ -12,16 +12,27 @@
 
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
 
-    <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/style.css")">
-    <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/bootstrap.css")">
-    <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/animate-custom.css")">
-    <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/smoke.css")">
-    <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/dark.css")">
+    <link rel="stylesheet" media="screen" href='@routes.Assets.at("stylesheets/style.css")'>
+    <link rel="stylesheet" media="screen" href='@routes.Assets.at("stylesheets/bootstrap.css")'>
+    <link rel="stylesheet" media="screen" href='@routes.Assets.at("stylesheets/animate-custom.css")'>
+    <link rel="stylesheet" media="screen" href='@routes.Assets.at("stylesheets/smoke.css")'>
+    <link rel="stylesheet" media="screen" href='@routes.Assets.at("stylesheets/dark.css")'>
 
-    <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/W&Wicon.png")">
+    <link rel="shortcut icon" type="image/png" href='@routes.Assets.at("images/W&Wicon.png")'>
+    <script type="text/javascript">
 
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-35973175-1']);
+      _gaq.push(['_setDomainName', 'martosystem.dyndns.org']);
+      _gaq.push(['_trackPageview']);
 
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
 
+    </script>
 </head>
 <body class="index pinstripe">
 <!--[if IE]><h3 class=chromeframe>Your browser can't render this site. <a href="http://www.google.com/chromeframe/?redirect=true">Click to Fix it!</a></h3><![endif]-->
@@ -35,7 +46,7 @@
                         <div class="wrapper">
                             <div id="logo">
                                     <a href="@routes.Application.index()">
-                                        <img src="@routes.Assets.at("images/logo.png")">
+                                        <img src='@routes.Assets.at("images/logo.png")'>
                                     </a>
                             </div>
                             <nav id="nav">
@@ -97,7 +108,7 @@
                                 <input id="username" name="username" maxlength="8" class="input-small" type="text" placeholder="Username">
 
                                 <button type="submit" onclick="validateUsername()">
-                                    <img src="@routes.Assets.at("images/fb-connect.png")" alt="Connect with Facebook">
+                                    <img src='@routes.Assets.at("images/fb-connect.png")' alt="Connect with Facebook">
                                 </button>
                             </fieldset>
                         </form>
@@ -109,15 +120,14 @@
                 <section class="layout">
                     <footer id="pageFooter">
                         <div class="wrapper">
-                            <nav>
-                                <ul>
-                                    <li>
-                                        <a href="#">Designed by W&W Team</a>
-                                    </li>
-                                </ul>
-                            </nav>
-                            <p>
-                                &#169 2012 Universidad Austral
+                            <p id="designed">
+                               Designed by W&W Team
+                            </p>
+                            <p id="license">
+                                Creative Commons License
+                                <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.es_ES">
+                                    <img alt="Licencia de Creative Commons" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-nd/3.0/88x31.png" />
+                                </a>
                             </p>
                         </div>
                     </footer>

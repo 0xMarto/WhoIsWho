@@ -81,6 +81,7 @@ function receiveEvent(event) {
         $("#questionPanel").hide();
         $("#answerPanel").hide();
         $(chatLine).addClass('end');
+        updateRanking();
     }
     if (data.type == 'op-guess' || data.type == 'my-guess') {
         $(chatLine).addClass('end');
@@ -90,6 +91,16 @@ function receiveEvent(event) {
 //    $("span", chatLine).text(data.type);
     $("p", chatLine).text(data.message);
     $('#messages').append(chatLine)
+}
+
+
+var updated = false;
+function updateRanking() {
+    if(!updated){
+        updated = true;
+        // todo CHEQUEAR SI EL USUARIO ESTA EN LA LISTA.
+        // todo SI ESTA, HACER UPDATE, SINO CREARLO
+    }
 }
 
 function handleReturnKey(e) {
