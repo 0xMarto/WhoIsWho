@@ -39,7 +39,7 @@ body.pinstripe {
 
 .wrapper {
     position: relative;
-    width: 950px;
+    width: 740px;
     margin: 0 auto 0 auto;
     text-align: left;
 }
@@ -236,11 +236,22 @@ body.pinstripe {
         }
 
     }
-    p {
-        float: right;
-        font: 12px;
-        padding-right: 20px;
-    }
+}
+
+#license {
+    font: 12px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-right: 0px;
+    float: right;
+}
+
+#designed {
+    font: 12px;
+    padding-top: 14px;
+    padding-bottom: 8px;
+    float: left;
+
 }
 
 #license {
@@ -269,6 +280,7 @@ body.pinstripe {
 #loginPage {
     min-height: 610px;
     background:url("/assets/images/red-pinstripe.png") repeat;
+    position: relative;
 }
 
 #loginForm {
@@ -280,6 +292,11 @@ body.pinstripe {
     margin-right: auto;
     background-size: @page-width;
     box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.3);
+    
+    position: absolute;
+    top: 0;
+    left: 189px;
+
     button, input, img {
         margin-left: auto;
         margin-right: auto;
@@ -327,7 +344,7 @@ body.pinstripe {
     display: none;
     width: auto;
     height: 165px;
-    margin-left: 10px;
+    padding-left: 10px;
 }
 
 #buttonPanel {
@@ -337,10 +354,10 @@ body.pinstripe {
 #messages {
     /*overflow: auto;*/
     /*height: 400px;*/
-    position: absolute;
-    bottom: 40px;
-    width: 398px;
-    border: 1px solid #cccccc;
+    width: 100%;
+    color: white;
+    overflow: scroll;
+    max-height: 120px;
 }
 
 #questionPanel, #answerPanel{
@@ -349,11 +366,10 @@ body.pinstripe {
 }
 
 #main {
-    margin-top: 15px;
     width: auto;
     height: 160px;
     position: relative;
-    overflow: hidden;
+    overflow: auto;
 }
 
 #talk {
@@ -386,10 +402,9 @@ body.pinstripe {
 }
 
 .message p {
-    font-size: 17px;
+    font-size: 14px;
     display: inline-block;
     margin: 0;
-    width: 570px;
     vertical-align: middle;
 }
 
@@ -441,7 +456,7 @@ Author: Team w&w
 #guess {
     float: right;
     position: absolute;
-    left: 303px;
+    left: 325px;
     z-index: 2;
     top: -58px;
     .Transition(top, 0.3s, linear, 0.1s);
@@ -464,12 +479,12 @@ Author: Team w&w
     background: url("/assets/images/boardBg.png") repeat;
 
     div.card {
-        padding: 10px;
+        padding: 8px;
         float: left;
         position: relative;
-        width: @cardWidth;
+        /*width: @cardWidth;*/
         height: @cardHeight;
-        margin: 5px 10px ;
+        margin: 5px 4px;
 
         div.cardInfo {
             background: yellow;
@@ -481,17 +496,18 @@ Author: Team w&w
             border: 5px solid #850;
             .Border-radius(8px);
             box-shadow: 3px 5px 5px 2px rgba(0, 0, 0, 0.5);
-            .Transition (box-shadow, 0s);
-            /*Enhances box-shadow on hover*/
+            .Transition(box-shadow, 0s)
+        ;
+        /*Enhances box-shadow on hover*/
             &:hover {
-                box-shadow: 3px 5px 5px 2px rgba(0,0,0, 0.7);
+                box-shadow: 3px 5px 5px 2px rgba(0, 0, 0, 0.7);
 
             }
 
             .cardFront {
-            width: 100%;
-            height: 100%;
-                h2{
+                width: 100%;
+                height: 100%;
+                h2 {
                     color: white;
                 }
                 img {
@@ -529,16 +545,15 @@ Author: Team w&w
 #panel {
     position: relative;
     color: black;
-    background: url("/assets/images/background-pinstripe.png");
+    background: black;
     font-size: 1.5em;
     float: left;
     border: 1px solid black;
     clear: both;
-    padding-left: 0px;
-    margin: 10px -10px;
+    margin: 20px -10px;
     width: 420px;
 
-    box-shadow: 0 4px 4px rgba(0,0,0,0.3);
+    box-shadow: 2px 4px 4px 2px rgba(0, 0, 0, 0.3);
     &:before  {
         content: " ";
         border-top: 10px solid @orangered;
@@ -565,7 +580,7 @@ Author: Team w&w
    	float:right;
    	clear:both;
 
-   	padding:10px 10px 10px 20px;
+   	padding:10px 15px 10px 15px;
     margin: -70px -10px 0 -10px;
 
     box-shadow: 0 4px 4px rgba(0,0,0,0.3);
@@ -622,8 +637,9 @@ Author: Team w&w
    ========================================================================== */
 #rankingRoom {
     width: 100%;
-    float: left;
-    margin: 0 auto;
+    margin: 0 auto -80px auto;
+    padding-bottom: 75px;
+    padding-top: 20px;
 
     background: #474747 url("/assets/images/grayBg.png") repeat;
 
@@ -697,6 +713,74 @@ div#rankingTitle, #closeRanking {
     }
 }
 
+.row:nth-child(odd) {
+    background: none;
+    color: white;
+
+}
+
+/* ===== About Page CSS ========================================================
+   Author: Team w&w
+   ========================================================================== */
+#aboutRoom {
+    display: none;
+    padding: 40px 15px 80px 15px;
+    position: relative;
+
+    box-shadow: 0px 0px 0px rgba(0,0,0,0) inset, 0px -5px 5px rgba(0,0,0,0.3) inset;
+    background: url('/assets/images/aboutBg.jpg') repeat center center;
+    background-color: whitesmoke;
+
+    color: #666;
+}
+
+.roomTitle h1, #aboutRoom h4 {
+    text-align: center;
+
+}
+
+
+
+.roomTitle {
+    margin-top: 13px;
+    margin-bottom: 35px;
+}
+.roomTitle h1 {
+    background-color: #666666;
+        -webkit-background-clip: text;
+        -moz-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        text-shadow: rgba(255,255,255,0.5) 0px 3px 3px;
+    margin-bottom: 0;
+    font-size: 60px;
+    line-height: 1;
+    letter-spacing: -1px;
+
+}
+
+.roomContent{
+    text-align: justify;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    background-color: whitesmoke;
+    box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.3);
+    padding: 10px;
+    margin-bottom: 10px;
+    h4 {
+        color: #666666;
+    }
+}
+
+.closeRoom {
+    text-align: right;
+    font-size: 56px;
+    margin-right: 17px;
+    .close {
+        font-size: 56px;
+    }
+}
 
 @import "helpers.less";
 @import "print.less";

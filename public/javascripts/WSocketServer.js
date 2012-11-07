@@ -91,6 +91,7 @@ function receiveEvent(event) {
 //    $("span", chatLine).text(data.type);
     $("p", chatLine).text(data.message);
     $('#messages').append(chatLine)
+    $("#messages").scrollTop($("#messages")[0].scrollHeight);
 }
 
 

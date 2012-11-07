@@ -52,7 +52,7 @@
                             <nav id="nav">
                                <ul>
                                     <li>
-                                        <a href="#" id="aboutLink">About</a>
+                                        <a href="#" id="aboutLink" onclick="loadAbout()">About</a>
                                     </li>
 
                                     <li>
@@ -82,6 +82,92 @@
                     </div>
                 </div>
 
+
+                <div id="aboutRoom" class="dropRoom">
+                    <div class="closeRoom">
+                        <a class="close" href="#" onclick="loadAbout()">&times;</a>
+                     </div>
+                        <div class="roomTitle">
+                            <h1>About & Rules</h1>
+                            </div>
+
+
+
+                    <div class="roomContent">
+                        <p>
+                            <strong>Who is who</strong> is an online two player guessing game.
+                        </p>
+                        <h4>How to play</h4>
+                        <p>Who is Who is a very simple game to play!</p>
+                        <p>Each player is first randomly assigned a name from one of the cards on the board.
+                            By asking questions back and forth, you have to guess the other player's card.</p>
+                        <p>The questions you are allowed to ask are predefined but are more than enough to figure out
+                            your opponent's card!</p>
+                        <h4>About cheating</h4>
+                        <p>Who is who allows cheating during the game, but with an interesting twist.
+                        Whenever you choose to cheat, your "lie counter" will increase by one.
+                        </p>
+                        <p>When the game finished, the player with the most lies on their counter will
+                        <strong>LOSE!</strong></p>
+                    </div>
+                    <h5><em><small>Psst!</small></em></h5>
+                    <p><small>You can always bring up this room by clicking on the "About" link on the navigation bar</small></p>
+                </div>
+
+                <div id="rankingRoom">
+
+                    <div id="rankingTitle">
+                        Player Ranking
+                    </div>
+
+                    <div id="closeRanking">
+                        <a href="#" onclick="loadRanking()">
+                            X
+                        </a>
+                    </div>
+
+                    <table id="rankingTable" class="bordered-table">
+                        <thead>
+                        <tr>
+                            <th id="col1">
+                                Rank
+                            </th>
+                            <th id="col2">
+                                Name
+                            </th>
+                            <th id="col3">
+                                Won
+                            </th>
+                            <th id="col4">
+                                Lost
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+
+                            </tr>
+                        </tbody>
+
+                        <tfoot>
+                        <tr>
+                            <th>
+                                Rank
+                            </th>
+                            <th>
+                                Name
+                            </th>
+                            <th>
+                                Won
+                            </th>
+                            <th>
+                                Lost
+                            </th>
+                        </tr>
+                        </tfoot>
+                    </table>
+
+                </div>
 
 
                 <div class="layout">
@@ -136,6 +222,15 @@
         </section>
     </section>
 </div>
+
+<script src='@routes.Assets.at("javascripts/jquery-1.7.2.min.js")'></script>
+<script src='@routes.Assets.at("javascripts/WSocketServer.js")'></script>
+<script src='@routes.Assets.at("javascripts/jquery.chained.js")'></script>
+<script src='@routes.Assets.at("javascripts/jquery-css-transform.js")'></script>
+<script src='@routes.Assets.at("javascripts/rotate3Di.js")'></script>
+<script src='@routes.Assets.at("javascripts/plugins.js")'></script>
+<script src='@routes.Assets.at("javascripts/script.js")'></script>
+<script src='@routes.Assets.at("javascripts/smoke.js")'></script>
 
 </body>
 </html>

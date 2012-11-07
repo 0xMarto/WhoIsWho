@@ -37,6 +37,11 @@ function loadRanking() {
     room.slideToggle('slow');
 }
 
+function loadAbout() {
+    var room =$('#aboutRoom')
+    room.slideToggle('slow');
+}
+
 var req;
 
 function loadXML (method, url, params, callback) {
