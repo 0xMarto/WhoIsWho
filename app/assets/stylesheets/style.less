@@ -361,8 +361,15 @@ body.pinstripe {
 }
 
 #questionPanel, #answerPanel{
-    margin-bottom: 15px;
+    margin: 10px;
     display: none;
+    position: relative;
+    padding-top: 10px;
+    border-top: 1px solid white;
+}
+
+#questionAbout, #askQuestions {
+    width: 197px;
 }
 
 #main {
@@ -607,21 +614,28 @@ Author: Team w&w
 }
 
 #askBt, #infoBt, #yesBt, #noBt {
-    color: white;
-    background-color: black;
+    color: black;
+    background-color: white;
     text-align: center;
     font-weight: bolder;
     font-size: 20px;
-    width: 120px;
-    height: 60px;
-    margin-left: 15px;
-    border-radius: 10px;
+    width: 49%;
+    height: 27px;
     .Transition;
+}
+
+#askBt {
+    width: 100%;
+    margin-top: 10px;
 }
 
 #askBt:hover, #infoBt:hover, #yesBt:hover, #noBt:hover {
     color: white;
     background-color: #f43e46;
+}
+
+#yesBt:hover {
+    background-color: #adff2f;
 }
 
 .btn {
