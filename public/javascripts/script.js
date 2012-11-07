@@ -19,8 +19,9 @@ $(document).ready(function () {
             $(this).parent().find('div.cardBack').show();
         }
     }
+
     $('.cardInfo').click(function () {
-        $(this).rotate3Di('toggle', 750, {direction: 'clockwise', sideChange: mySideChange});
+        $(this).rotate3Di('toggle', 750, {direction:'clockwise', sideChange:mySideChange});
 
     });
 
@@ -38,13 +39,13 @@ function loadRanking() {
 }
 
 function loadAbout() {
-    var room =$('#aboutRoom')
+    var room = $('#aboutRoom')
     room.slideToggle('slow');
 }
 
 var req;
 
-function loadXML (method, url, params, callback) {
+function loadXML(method, url, params, callback) {
     var baseUrl = "http://dpoi2012api.appspot.com/api/1.0";
     if (window.XMLHttpRequest) {
         req = new XMLHttpRequest();
@@ -52,44 +53,44 @@ function loadXML (method, url, params, callback) {
         /* For IE/Windows ActiveX */
         req = new ActiveXObject("Microsoft.XMLHTTP");
     }
-    req.onreadystatechange = function() {
+    req.onreadystatechange = function () {
         /*readyState 4 = Complete */
         if (req.readyState == 4) {
             /*Status = 200, everything OK*/
             if (req.status == 200) {
-                var jsonData = JSON.parse (req.responseText);
+                var jsonData = JSON.parse(req.responseText);
                 /*Check code to make sure the status is OK*/
-                if(jsonData.status.code == 1) {
+                if (jsonData.status.code == 1) {
                     callback(jsonData);
                 } else if (jsonData.status.code == 6) {
-			callback(jsonData);
-		} else if (jsonData.status.code == 5) {
-			callback(jsonData);
-		} else {
+                    callback(jsonData);
+                } else if (jsonData.status.code == 5) {
+                    callback(jsonData);
+                } else {
                     var loading = document.getElementById('loading');
-                    suicide (loading);
+                    suicide(loading);
                     showWarning(req);
                 }
             } else {
                 var loading = document.getElementById('loading');
-                suicide (loading);
+                suicide(loading);
                 showWarning(req);
             }
         }
     }
-;
-    req.open(method , baseUrl+url+params , true);
+    ;
+    req.open(method, baseUrl + url + params, true);
     req.send();
 }
 
-function listJson (){
+function listJson() {
     var method = "GET";
     var url = "/list"
     var params = "?credential=ranking";
-    loadXML (method, url, params, parseJSON);
+    loadXML(method, url, params, parseJSON);
 }
 
-function updateJson (id) {
+function updateJson(id) {
     var first = document.getElementById("editFirst").value;
     var last = document.getElementById("editLast").value;
     var mail = document.getElementById("editMail").value;
@@ -97,12 +98,12 @@ function updateJson (id) {
 
     var method = "POST";
     var url = "/update?credential=ranking";
-    var params = "&id="+id+"&first="+first+"&last="+last+"&mail="+mail+"&phone="+phone ;
-    loadXML(method,url,params, updateOneJson);
+    var params = "&id=" + id + "&first=" + first + "&last=" + last + "&mail=" + mail + "&phone=" + phone;
+    loadXML(method, url, params, updateOneJson);
     hidePopUp();
 }
 
-function updateOneJson (json) {
+function updateOneJson(json) {
     var mail = json.payload.mail;
     var phone = json.payload.phone;
     var last = json.payload.last;
@@ -110,24 +111,24 @@ function updateOneJson (json) {
     var id = json.payload.id;
     var row = document.getElementById(id);
     suicide(row);
-    createTableRow(id,first,last,mail,phone);
+    createTableRow(id, first, last, mail, phone);
 }
 
-function viewJson (id){
+function viewJson(id) {
     var method = "GET";
     var url = "/view";
-    var params = "?credential=nconstanzo&id="+id;
+    var params = "?credential=nconstanzo&id=" + id;
     loadXML(method, url, params, popUp);
 }
 
-function viewEditJson (id) {
+function viewEditJson(id) {
     var method = "GET";
     var url = "/view";
-    var params = "?credential=nconstanzo&id="+id;
+    var params = "?credential=nconstanzo&id=" + id;
     loadXML(method, url, params, editPopUp);
 }
 
-function createJson () {
+function createJson() {
     var first = document.getElementById("editFirst").value;
     var last = document.getElementById("editLast").value;
     var mail = document.getElementById("editMail").value;
@@ -135,47 +136,46 @@ function createJson () {
 
     var method = "POST";
     var url = "/create?credential=ranking";
-    var params = "&first="+first+"&last="+last+"&mail="+mail+"&phone="+phone;
+    var params = "&first=" + first + "&last=" + last + "&mail=" + mail + "&phone=" + phone;
     loadXML(method, url, params, parseOneJson);
     hidePopUp();
 }
 
-function parseOneJson (json) {
+function parseOneJson(json) {
 
-	var id = json.payload.id;
-	var mail = json.payload.name;
-	var phone = json.payload.rank;
-        var last = json.payload.Win;
-        var first = json.payload.Lost;
-	createTableRow (id, first, last, mail, phone);
+    var id = json.payload.id;
+    var mail = json.payload.name;
+    var phone = json.payload.rank;
+    var last = json.payload.Win;
+    var first = json.payload.Lost;
+    createTableRow(id, first, last, mail, phone);
 }
 
-function deleteJson (id){
+function deleteJson(id) {
     var method = "POST";
     var url = "/delete";
-    var params = "?credential=nconstanzo&id="+id;
+    var params = "?credential=nconstanzo&id=" + id;
     loadXML(method, url, params, deleteRow);
     hidePopUp();
 }
 
-function deleteRow (json) {
+function deleteRow(json) {
 
-	var id = json.payload.id;
-	var row = document.getElementById(id);
-    	suicide(row);
+    var id = json.payload.id;
+    var row = document.getElementById(id);
+    suicide(row);
 
 }
 
-function bubbleSort(a)
-{
+function bubbleSort(a) {
     var swapped;
     do {
         swapped = false;
-        for (var i=0; i < a.length-1; i++) {
-            if (Number(a[i].win) > Number(a[i+1].win)) {
+        for (var i = 0; i < a.length - 1; i++) {
+            if (Number(a[i].win) > Number(a[i + 1].win)) {
                 var temp = a[i];
-                a[i] = a[i+1];
-                a[i+1] = temp;
+                a[i] = a[i + 1];
+                a[i + 1] = temp;
                 swapped = true;
             }
         }
@@ -199,21 +199,21 @@ function parseJSON(json) {
     console.log(players);
 
     for (i = 0; i < 10; i++) {
-            var id = json.payload.items[i].id;
-            var credential = json.payload.items[i].credential;
-            var first = 10 - (i);
-            var last = players[i].name;
-            var mail = players[i].win;
-            var phone = players[i].lose;
-            var created = json.payload.items[i].created;
-            createTableRow(id, first, last, mail, phone);
+        var id = json.payload.items[i].id;
+        var credential = json.payload.items[i].credential;
+        var first = 10 - (i);
+        var last = players[i].name;
+        var mail = players[i].win;
+        var phone = players[i].lose;
+        var created = json.payload.items[i].created;
+        createTableRow(id, first, last, mail, phone);
     }
-        document.getElementById('table1').deleteRow(json.payload.count+1);
-        var loading = document.getElementById('loading');
-        suicide (loading);
+    //document.getElementById('table1').deleteRow(json.payload.count+1);
+    //var loading = document.getElementById('loading');
+    //suicide (loading);
 }
 
-function createTableRow (id, first, last, mail, phone) {
+function createTableRow(id, first, last, mail, phone) {
     var table = document.getElementById('rankingTable').insertRow(1);
     table.setAttribute("class", "row");
 
@@ -232,13 +232,13 @@ function createTableRow (id, first, last, mail, phone) {
 
 }
 
-function showWarning (req) {
+function showWarning(req) {
     var index = document.getElementById("index");
     var element = document.createElement("span");
 
-    element.setAttribute ("id", "error");
-    element.setAttribute ("class", "message");
-    element.innerHTML = "Oops... An error ocurred: \n"+req.statusText;
+    element.setAttribute("id", "error");
+    element.setAttribute("class", "message");
+    element.innerHTML = "Oops... An error ocurred: \n" + req.statusText;
 
     setTimeout(fade(element), 1000);
 
@@ -248,18 +248,18 @@ function showWarning (req) {
 function fade(element) {
     var op = 1;  // initial opacity
     var timer = setInterval(function () {
-                            if (op <= 0.1){
-                            clearInterval(timer);
+        if (op <= 0.1) {
+            clearInterval(timer);
 
-                            element.style.display = 'none';
-                            }
-                            element.style.opacity = op;
-                            element.style.filter = 'alpha(opacity=' + op * 100 + ")";
-                            op -= op * 0.1;
-                            }, 50);
+            element.style.display = 'none';
+        }
+        element.style.opacity = op;
+        element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+        op -= op * 0.1;
+    }, 50);
 }
 
-function popUp (json){
+function popUp(json) {
     var window = document.getElementById("viewPopUp");
     var blanket = document.getElementById("popUpBlanket");
     show(window);
@@ -291,7 +291,7 @@ function popUp (json){
     five.innerHTML = created;
 }
 
-function editPopUp (json) {
+function editPopUp(json) {
     var window = document.getElementById("editPopUp");
     var blanket = document.getElementById("popUpBlanket");
     show(window);
@@ -314,23 +314,23 @@ function editPopUp (json) {
     phone.value = json.payload.phone;
 
     var saveEdit = document.getElementById("saveEdit");
-     saveEdit.setAttribute("onclick", "updateJson('"+id+"')");
+    saveEdit.setAttribute("onclick", "updateJson('" + id + "')");
 
 }
 
-function hidePopUp () {
+function hidePopUp() {
     var window = document.getElementById("viewPopUp");
     var editWindow = document.getElementById("editPopUp");
     var cancelWindow = document.getElementById("cancelPopUp");
     var blanket = document.getElementById("popUpBlanket");
     hide(window);
-    hide (editWindow);
+    hide(editWindow);
     hide(cancelWindow);
     hide(blanket);
 
 }
 
-function createUserPopUp (){
+function createUserPopUp() {
     var window = document.getElementById("editPopUp");
     var blanket = document.getElementById("popUpBlanket");
     show(window);
@@ -344,35 +344,34 @@ function createUserPopUp (){
     var mail = document.getElementById("editMail");
     var phone = document.getElementById("editPhone");
 
-    first.value ="";
-    last.value ="";
-    mail.value ="";
-    phone.value ="";
+    first.value = "";
+    last.value = "";
+    mail.value = "";
+    phone.value = "";
 
 
     var saveUser = document.getElementById("saveEdit");
     saveUser.setAttribute("onclick", "createJson()")
 }
 
-function cancelPopUp (id) {
+function cancelPopUp(id) {
     var window = document.getElementById("cancelPopUp");
     var blanket = document.getElementById("popUpBlanket");
     show(blanket);
     show(window);
 
     var ok = document.getElementById("confirmDelete");
-    ok.setAttribute("onclick","deleteJson('"+id+"')" );
+    ok.setAttribute("onclick", "deleteJson('" + id + "')");
 
 }
 
 
-
-function suicide (element) {
+function suicide(element) {
     element.parentNode.removeChild(element);
 }
 
-function show (element) {
-    element.style.display="block";
+function show(element) {
+    element.style.display = "block";
 }
 
 

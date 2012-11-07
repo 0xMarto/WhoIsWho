@@ -10,7 +10,7 @@ Author: Team w&w
 }
 
 body {
-    font-family: "Open Sans", sans-serif;
+    //font-family: "Open Sans", sans-serif;
     font-size: 13px;
 
     font-weight: normal;
@@ -53,7 +53,7 @@ body.pinstripe {
 
 #header {
     background-color: black;
-    width: @page-width + 20px;
+    width: @page-width;
     position: relative;
     z-index: 999;
     height: 60px;
@@ -74,7 +74,7 @@ body.pinstripe {
         float: right;
         display: block;
         position: relative;
-        margin-right: -11px;
+        margin-right: 0px;
         li {
             float:right;
         }
@@ -178,7 +178,7 @@ body.pinstripe {
 
 #wraparound {
     position: relative;
-    margin: 0 -10px;
+    margin: 0px;
     box-shadow: 0 4px 4px rgba(0,0,0,0.3);
 
     z-index: 1000;
@@ -201,10 +201,11 @@ body.pinstripe {
 #pageFooter {
     width: @page-width;
     float: left;
+    border-top: none;
     height: 33px;
-    background: #f5f5f5;
-    color: @gray-font;
-    font-size: 12px;
+    background: #9893A8;
+    color: #000000;
+    font-size: 13px;
     position: relative;
     bottom: 0;
     padding-top: 0px;
@@ -355,22 +356,23 @@ body.pinstripe {
 #messages {
     /*overflow: auto;*/
     /*height: 400px;*/
-    width: 100%;
-    color: white;
-    overflow: scroll;
+    width: 98%;
+    color: black;
+    font-weight: bold;
+    overflow: overlay;
     max-height: 120px;
 }
 
 #questionPanel, #answerPanel{
     margin: 10px;
+    padding: 10px;
     display: none;
     position: relative;
-    padding-top: 10px;
-    border-top: 4px solid #F43059;
+    border: 1px solid #000000;
 }
 
 #questionAbout, #askQuestions {
-    width: 197px;
+    width: 49%;
 }
 
 #main {
@@ -378,6 +380,7 @@ body.pinstripe {
     height: 164px;
     position: relative;
     overflow: auto;
+
 }
 
 #talk {
@@ -385,16 +388,20 @@ body.pinstripe {
     bottom: 0;
     left: 0;
     right: 0;
-    width: 399px;
+    width: 95%;
     height: 20px;
-    color: #000099;
+    color: #000000;
     border-radius: 0;
+    margin-bottom: 8px;
 }
 
 .message {
     padding: 4px 0;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #000000;
+    border-left: 1px solid #000000;
+    border-right: 1px solid #000000;
     position: relative;
+    background: gainsboro;
 }
 
 .message span {
@@ -553,13 +560,13 @@ Author: Team w&w
 #panel {
     position: relative;
     color: black;
-    background: black;
+    background: #EAFD5D;
     font-size: 1.5em;
     float: left;
     border: 1px solid black;
     clear: both;
-    margin: 20px -10px;
-    width: 420px;
+    margin: 10px -10px 0px 0px;
+    width: 615px;
 
     box-shadow: 2px 4px 4px 2px rgba(0, 0, 0, 0.3);
     &:before  {
@@ -588,8 +595,8 @@ Author: Team w&w
    	float:right;
    	clear:both;
 
-   	padding:10px 15px 10px 15px;
-    margin: -70px -10px 0 -10px;
+   	padding: 10px 5px 10px 5px;
+    margin: -70px 0px 0px -10px;
 
     box-shadow: 0 4px 4px rgba(0,0,0,0.3);
 
@@ -616,7 +623,7 @@ Author: Team w&w
 
 #askBt, #infoBt, #yesBt, #noBt {
     color: black;
-    background-color: white;
+    background-color: #ACA4A4;
     text-align: center;
     font-weight: bolder;
     font-size: 20px;
@@ -636,7 +643,7 @@ Author: Team w&w
 }
 
 #yesBt:hover {
-    background-color: #adff2f;
+    background-color: #36A236;
 }
 
 .btn {
@@ -743,7 +750,7 @@ div#rankingTitle, #closeRanking {
     position: relative;
 
     box-shadow: 0px 0px 0px rgba(0,0,0,0) inset, 0px -5px 5px rgba(0,0,0,0.3) inset;
-    background: url('/assets/images/aboutBg.jpg') repeat center center;
+    //background: url('/assets/images/aboutBg.jpg') repeat center center;
     background-color: whitesmoke;
 
     color: #666;
