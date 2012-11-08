@@ -17,7 +17,7 @@ body {
 }
 
 body.pinstripe {
-    background: white;
+    background: whiteSmoke;
 }
 
 .layout {
@@ -62,6 +62,7 @@ body.pinstripe {
         float: left;
         margin-left: 10px;
         width: 300px;
+        height: 60px;
         a:visited, a {
             color: @gray-font;
             img {
@@ -176,26 +177,30 @@ body.pinstripe {
 
 }
 
+.pressed {
+    box-shadow: 0px 2px 7px 1px rgba(0, 0, 0, 0.4) inset;
+}
+
 #wraparound {
     position: relative;
     margin: 0px;
     box-shadow: 0 4px 4px rgba(0,0,0,0.3);
 
     z-index: 1000;
-    &:before , &:after {
-        content: " ";
-        border-top: 11px solid @orangered;
-        position: absolute;
-        bottom: -11px;
-    }
-    &:before {
-        border-left: 10px solid transparent;
-        left: 0;
-    }
-    &:after {
-        border-right: 10px solid transparent;
-        right: 0;
-    }
+    /*&:before , &:after {*/
+        /*content: " ";*/
+        /*border-top: 11px solid @orangered;*/
+        /*position: absolute;*/
+        /*bottom: -11px;*/
+    /*}*/
+    /*&:before {*/
+        /*border-left: 10px solid transparent;*/
+        /*left: 0;*/
+    /*}*/
+    /*&:after {*/
+        /*border-right: 10px solid transparent;*/
+        /*right: 0;*/
+    /*}*/
 }
 
 #pageFooter {
@@ -203,8 +208,8 @@ body.pinstripe {
     float: left;
     border-top: none;
     height: 33px;
-    background: #9893A8;
-    color: #000000;
+    background: black;
+    color: white;
     font-size: 13px;
     position: relative;
     bottom: 0;
@@ -303,14 +308,27 @@ body.pinstripe {
         margin-right: auto;
         position: relative;
         display: block;
-        .Border-radius(5px);
-        &:hover {
-            box-shadow: 0 0 5px 5px @facebook-blue;
-        }
+        /*.Border-radius(5px);*/
+        /*&:hover {*/
+            /*box-shadow: 0 0 5px 5px @facebook-blue;*/
+        /*}*/
     }
     button {
+        color: white;
         margin-top: 15px;
-        margin-left: 50px;
+        margin-left: 49px;
+        width: 303px;
+        font-size: 15px;
+        background-color: @facebook-blue;
+        border-radius: 5px;
+        padding: 10px;
+        box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.7);
+        text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+        .Transition(all,0.2s);
+        &:active {
+            box-shadow: 0px 3px 6px -1px rgba(0, 0, 0, 0.7) inset;
+            background-color: blue;
+        }
     }
     legend {
         width: 100%;
@@ -489,7 +507,7 @@ Author: Team w&w
     width: 100%;
     float: left;
     margin: 0 auto;
-    padding-bottom: 20px;
+    padding-bottom: 60px;
 
     background: url("/assets/images/boardBg.png") repeat;
 
@@ -557,13 +575,18 @@ Author: Team w&w
 
 }
 
+.cardContainer {
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
 #panel {
     position: relative;
     color: black;
     background: #EAFD5D;
     font-size: 1.5em;
     float: left;
-    border: 1px solid black;
+    /*border: 1px solid black;*/
     clear: both;
     margin: 10px -10px 0px 0px;
     width: 615px;

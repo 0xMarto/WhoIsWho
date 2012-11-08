@@ -32,15 +32,20 @@ $(document).ready(function () {
 });
 
 
+
 function loadRanking() {
     var room = $("#rankingRoom")
 
     room.slideToggle('slow');
+    var link = $('#rankingLink');
+    link.toggleClass('pressed');
 }
 
 function loadAbout() {
-    var room = $('#aboutRoom')
+    var room = $('#aboutRoom');
     room.slideToggle('slow');
+    var link = $('#aboutLink');
+    link.toggleClass('pressed');
 }
 
 var req;

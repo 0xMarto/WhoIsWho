@@ -46,7 +46,7 @@
                         <div class="wrapper">
                             <div id="logo">
                                     <a href="@routes.Application.index()">
-                                        <img src='@routes.Assets.at("images/logo.png")'>
+                                        <img src='@routes.Assets.at("images/logo2.png")'>
                                     </a>
                             </div>
                             <nav id="nav">
@@ -190,11 +190,11 @@
                     <div id="loginPage">
                         <form action="@routes.Application.chatRoom()" id="loginForm" class="animated fadeInDown">
                             <fieldset>
-                                <legend>Enter your username</legend>
-                                <input id="username" name="username" maxlength="8" class="input-small" type="text" placeholder="Username">
+                                <legend>Enter your nickname</legend>
+                                <input id="username" name="username" maxlength="8" class="input-small" type="text" placeholder="Nickname">
 
                                 <button type="submit" onclick="validateUsername()">
-                                    <img src='@routes.Assets.at("images/fb-connect.png")' alt="Connect with Facebook">
+                                    Join a game
                                 </button>
                             </fieldset>
                         </form>
