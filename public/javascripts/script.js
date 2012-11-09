@@ -199,9 +199,7 @@ function parseJSON(json) {
         players[i] = RankObject;
 
     }
-    console.log(players);
     players = bubbleSort(players);
-    console.log(players);
 
     for (i = 0; i < 10; i++) {
         var id = json.payload.items[i].id;

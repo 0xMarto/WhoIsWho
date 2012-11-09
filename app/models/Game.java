@@ -54,10 +54,10 @@ public class Game {
         loadCardsMap();
 
         playerOne.setCard(pickRandomCard());
-        message(playerOne, "start", "Your card is: " + playerOne.getCard().getNamee());
+        message(playerOne, "yourCard", "Your card is:" + playerOne.getCard().getNamee());
 
         playerTwo.setCard(pickRandomCard());
-        message(playerTwo, "start", "Your card is: " + playerTwo.getCard().getNamee());
+        message(playerTwo, "yourCard", "Your card is:" + playerTwo.getCard().getNamee());
     }
 
     private void loadCardsMap() {
@@ -77,7 +77,7 @@ public class Game {
         cardsMap.put("FRANK", "83f097");
         cardsMap.put("PABLO", "861d72");
         cardsMap.put("PETER", "91718d");
-        cardsMap.put("CLARIE", "ac4871");
+        cardsMap.put("CLAIRE", "ac4871");
         cardsMap.put("DAVID", "ade557");
         cardsMap.put("JOE", "b3e0af");
         cardsMap.put("BERNARD", "bb88ca");

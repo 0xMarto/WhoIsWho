@@ -26,7 +26,7 @@ function sendMessage(type) {
 
 function receiveEvent(event) {
     var data = JSON.parse(event.data);
-    console.log("Recive event: " + data);
+    console.log("Receive event: " + data.type);
 
     // Handle errors
     if (data.error) {
@@ -52,6 +52,11 @@ function receiveEvent(event) {
     if (data.type == 'leave') $(chatLine).addClass('leave');
     if (data.type == 'info') $(chatLine).addClass('info');
 
+    if (data.type == 'yourCard') {
+        $(chatLine).addClass('yourCard');
+        var cardName = data.message.split(":")[1];
+        showPlayerCard(cardName);
+    }
 
     if (data.type == 'ask') {
         $("#questionPanel").show();
@@ -61,8 +66,8 @@ function receiveEvent(event) {
         $("#answerPanel").show();
     }
     if (data.type == 'wait') {
-        $("#questionPanel").hide();
-        $("#answerPanel").hide();
+        //$("#questionPanel").hide();
+        //$("#answerPanel").hide();
     }
     if (data.type == 'my-ask' || data.type == 'my-answer') {
         $(chatLine).addClass('question');
@@ -97,10 +102,24 @@ function receiveEvent(event) {
 
 var updated = false;
 function updateRanking() {
-    if(!updated){
+    if (!updated) {
         updated = true;
         // todo CHEQUEAR SI EL USUARIO ESTA EN LA LISTA.
         // todo SI ESTA, HACER UPDATE, SINO CREARLO
+    }
+}
+
+function showPlayerCard(cardName) {
+    var cardList = document.getElementsByClassName("card");
+    for (var i = 0; i < cardList.length; i++) {
+        var name = cardList[i].getElementsByTagName("h2")[0].innerHTML;
+        if (name == cardName) {
+            console.log(name);
+            cardList[i].className += " " + "playerCard";
+            var cardInfoElement = cardList[i].getElementsByClassName("cardInfo")[0];
+            var id = cardInfoElement.getAttribute("id");
+            $("#"+id).attr("style", "box-shadow: 3px 5px 5px 2px rgba(15, 56, 218, 0.82)");
+        }
     }
 }
 
