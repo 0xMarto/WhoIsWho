@@ -118,7 +118,7 @@ function showPlayerCard(cardName) {
             cardList[i].className += " " + "playerCard";
             var cardInfoElement = cardList[i].getElementsByClassName("cardInfo")[0];
             var id = cardInfoElement.getAttribute("id");
-            $("#"+id).attr("style", "box-shadow: 3px 5px 5px 2px rgba(15, 56, 218, 0.82)");
+            $("#"+id).attr("style", "box-shadow: 7px 7px 5px 2px rgba(15, 56, 218, 0.82)");
         }
     }
 }
