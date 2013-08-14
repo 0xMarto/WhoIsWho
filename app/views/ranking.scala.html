@@ -3,48 +3,47 @@
 @main(username) {
 
 
-<div id="rankingRoom">
+    <div id="rankingRoom">
 
-    <div id="rankingTitle">
-        Player Ranking
+        <div id="rankingTitle">
+                Player Ranking
+        </div>
+
+        <table id="rankingTable" class="bordered-table">
+            <thead>
+                <tr>
+                    <th id="col1">
+                            Rank
+                    </th>
+                    <th id="col2">
+                            Name
+                    </th>
+                    <th id="col3">
+                            Won
+                    </th>
+                    <th id="col4">
+                            Lost
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                </tr>
+            </tbody>
+
+            <tfoot>
+                <tr>
+                    <td colspan="4">
+                            +
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+
     </div>
 
-    <table id="rankingTable" class="bordered-table">
-        <thead>
-        <tr>
-            <th id="col1">
-                Rank
-            </th>
-            <th id="col2">
-                Name
-            </th>
-            <th id="col3">
-                Won
-            </th>
-            <th id="col4">
-                Lost
-            </th>
-        </tr>
-        </thead>
-        <tbody>
-            <tr>
+    <script src="@routes.Assets.at("javascripts/jquery-1.7.2.min.js")"></script>
+    <script src="@routes.Assets.at("javascripts/script.js")"></script>
 
-            </tr>
-        </tbody>
-
-        <tfoot>
-        <tr>
-            <th colspan=4> + </th>
-        </tr>
-        </tfoot>
-    </table>
-
-</div>
-
-<script src="@routes.Assets.at("javascripts/jquery-1.7.2.min.js")"></script>
-<script src="@routes.Assets.at("javascripts/script.js")"></script>
-
-<script  type="text/javascript">listJson()</script>
-
-
+    <script type="text/javascript"> listJson() </script>
 }

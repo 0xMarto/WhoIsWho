@@ -14,6 +14,7 @@ import java.util.ArrayList;
  */
 public class ConnectionHandler {
     private static ArrayList<Game> gameList = new ArrayList<Game>();
+
     private static int gamesPlayed = 0;
     private static int activeGames = 0;
 
