@@ -100,7 +100,7 @@ public class Game {
 
     private Card pickRandomCard() {
         String cards[] = {"RICHARD", "FRANK", "MANNY", "DAVID", "MARIA", "ANITA", "SUSAN", "ANNA", "GEORGE", "ALEX",
-                "SAM", "WILLIAM", "ALFRED", "CHARLES", "TOM", "ROBERT", "PABLO", "PETER", "CLAIRE", "JOE", "BERNARD",
+                "SAM", "WILLIAM", "ALFRED", "CHARLES", "TOM", "ROBERT", "PABLO", "PETER", "CLARIE", "JOE", "BERNARD",
                 "GERMAN", "ERNEST", "PHILIP"};
 
         Random turnRoller = new Random();

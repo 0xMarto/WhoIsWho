@@ -113,7 +113,8 @@ function showPlayerCard(cardName) {
     var cardList = document.getElementsByClassName("card");
     for (var i = 0; i < cardList.length; i++) {
         var name = cardList[i].getElementsByTagName("h2")[0].innerHTML;
-        if (name == ' '+ cardName + ' ') {
+        if (name == cardName) {
+            console.log(name);
             cardList[i].className += " " + "playerCard";
             var cardInfoElement = cardList[i].getElementsByClassName("cardInfo")[0];
             var id = cardInfoElement.getAttribute("id");

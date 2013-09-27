@@ -295,8 +295,7 @@ body.pinstripe {
             background-color: blue;
         }
     }
-
-    legend, #nickLabel {
+    legend {
         width: 100%;
         text-align: center;
         padding: 15px 0 15px 0;
@@ -751,7 +750,18 @@ div#rankingTitle, #closeRanking {
     color: #666;
 }
 
-.roomTitle h1, #aboutRoom h4 {
+#profileRoom {
+  display: none;
+  padding: 40px 14px 80px 15px;
+  position: relative;
+
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0) inset, 0px -5px 5px rgba(0, 0, 0, 0.3) inset; //background: url('/assets/images/aboutBg.jpg') repeat center center;
+  background-color: whitesmoke;
+
+  color: #666;
+}
+
+.roomTitle h1, #aboutRoom h4, #profileRoom h4, #profileRoom h6 {
     text-align: center;
 
 }
@@ -785,6 +795,9 @@ div#rankingTitle, #closeRanking {
     padding: 10px;
     margin-bottom: 10px;
     h4 {
+        color: #666666;
+    }
+    h6{
         color: #666666;
     }
 }

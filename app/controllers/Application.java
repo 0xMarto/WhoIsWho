@@ -3,9 +3,15 @@ package controllers;
 import models.ConnectionHandler;
 import org.codehaus.jackson.JsonNode;
 import play.mvc.Controller;
+import play.mvc.Http;
 import play.mvc.Result;
 import play.mvc.WebSocket;
-import views.html.*;
+import views.html.aboutGame;
+import views.html.chatRoom;
+import views.html.index;
+import views.html.ranking;
+
+import java.io.File;
 
 public class Application extends Controller {
 
@@ -57,6 +63,28 @@ public class Application extends Controller {
                 }
             }
         };
+    }
+
+    /**
+    * Uploads a .zip o .rar file
+    */
+    public static Result upload() {
+        Http.MultipartFormData body = request().body().asMultipartFormData();
+        Http.MultipartFormData.FilePart zipFile = body.getFile("zip");
+        String fileName= zipFile.getFilename();
+        System.out.println("zipfile= " + fileName);
+        String sufix= fileName.substring((fileName.length() - 4));
+        System.out.println(sufix);
+
+        if (zipFile != null && (sufix.equals(".zip") )) {
+            //String fileName = zipFile.getFilename();
+            String contentType = zipFile.getContentType();
+            File file = zipFile.getFile();
+            return ok("File uploaded");
+        } else {
+            flash("error", "Missing file");
+            return redirect(routes.Application.index());
+        }
     }
 
 }

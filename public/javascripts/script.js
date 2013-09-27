@@ -48,6 +48,13 @@ function loadAbout() {
     link.toggleClass('pressed');
 }
 
+function loadProfile() {
+    var room = $('#profileRoom');
+    room.slideToggle('slow');
+    var link = $('#profileLink');
+    link.toggleClass('pressed');
+}
+
 var req;
 
 function loadXML(method, url, params, callback) {

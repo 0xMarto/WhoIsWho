@@ -1,13 +1,18 @@
 @(connected: String)(content: Html)
+@import views.html.helper.form
+@import views.html.helper.form
 
 <!doctype html>
 <html xmlns="http://www.w3.org/1999/html">
 <head>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
+    <meta namee="viewport" content="width=device-width">
 
-    <title> Who is Who - An amazing online board game </title>
+    <title>Who is Who - An amazing online board game</title>
+
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
 
     <link rel="stylesheet" media="screen" href='@routes.Assets.at("stylesheets/style.css")'>
     <link rel="stylesheet" media="screen" href='@routes.Assets.at("stylesheets/bootstrap.css")'>
@@ -16,202 +21,259 @@
     <link rel="stylesheet" media="screen" href='@routes.Assets.at("stylesheets/dark.css")'>
 
     <link rel="shortcut icon" type="image/png" href='@routes.Assets.at("images/W&Wicon.png")'>
-
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-
     <script type="text/javascript">
 
-            var _gaq = _gaq || [];
-            _gaq.push(['_setAccount', 'UA-35973175-1']);
-            _gaq.push(['_setDomainName', 'martosystem.dyndns.org']);
-            _gaq.push(['_trackPageview']);
-            (function() {
-            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-            })();
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-35973175-1']);
+    _gaq.push(['_setDomainName', 'martosystem.dyndns.org']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
 
     </script>
 </head>
 <body class="index pinstripe">
-        <!--[if IE]><h3 class=chromeframe>Your browser can't render this site. <a href="http://www.google.com/chromeframe/?redirect=true">Click to Fix it!</a></h3><![endif]-->
+<!--[if IE]><h3 class=chromeframe>Your browser can't render this site. <a href="http://www.google.com/chromeframe/?redirect=true">Click to Fix it!</a></h3><![endif]-->
 
-    <div id="container">
-        <section id="outer_layout">
-            <section id="wrapper">
-                <section id="inner_wrapper">
-                    <div id="wraparound">
-                        <div id="header">
-                            <div class="wrapper">
-                                <div id="logo">
+<div id="container">
+    <section id="outer_layout">
+        <section id="wrapper">
+            <section id="inner_wrapper">
+                <div id="wraparound">
+                    <div id="header">
+                        <div class="wrapper">
+                            <div id="logo">
                                     <a href="@routes.Application.index()">
                                         <img src='@routes.Assets.at("images/logo2.png")'>
                                     </a>
-                                </div>
-                                <nav id="nav">
-                                    <ul>
-                                        <li>
-                                            <a href="#" id="aboutLink" onclick="loadAbout()"> About </a>
-                                        </li>
-
-                                        <li>
-                                            <a href="#" id="statsLink"> Stats </a>
-                                        </li>
-
-                                        <li>
-                                            <a href="#" id="rankingLink" onclick="loadRanking()"> Ranking </a>
-                                        </li>
-
-                                        <li>
-                                            <a href="#" id="playLink"> Profile </a>
-                                        </li>
-
-                                        <li>
-                                            <div id="loginLink">
-                                                @if(connected != null) {
-                                                    <a href="@routes.Application.index()"> @connected - Logout </a>
-                                                } else {
-                                                    <a href="@routes.Application.index()"> Login </a>
-                                                }
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </nav>
                             </div>
+                            <nav id="nav">
+                               <ul>
+                                    <li>
+                                        <a href="#" id="aboutLink" onclick="loadAbout()">About</a>
+                                    </li>
+
+                                    <li>
+                                        <a href="#" id="statsLink">Stats</a>
+                                    </li>
+
+                                    <li>
+                                        <a href="#" id="rankingLink" onclick="loadRanking()">Ranking</a>
+                                    </li>
+
+                                    <li>
+                                        <a href="#" id="playLink" onclick="loadProfile()">Profile</a>
+                                    </li>
+
+                                    <li>
+                                        <div id="loginLink">
+                                        @if(connected != null) {
+                                          <a href="@routes.Application.index()">@connected - Logout</a>
+                                        } else {
+                                          <a href="@routes.Application.index()">Login</a>
+                                        }
+                                        </div>
+                                    </li>
+                                </ul>
+                            </nav>
                         </div>
                     </div>
+                </div>
 
-                    <div id="aboutRoom" class="dropRoom">
-                        <div class="closeRoom">
-                            <a class="close" href="#" onclick="loadAbout()"> x </a>
-                        </div>
-                        <div class="roomTitle">
-                            <h1> About &amp; Rules </h1>
-                        </div>
+                <div id="profileRoom" class="dropRoom">
+                    <div class="closeRoom">
+                        <a class="close"  href="#" onclick="loadProfile()">&times;</a>
+                    </div>
+                    <div class= "roomTitle">
+                        <h1>Profile</h1>
+                    </div>
 
-                        <div class="roomContent">
+                    <div class= "roomContent">
+                        <h3>Profile info goes in here</h3>
+                    </div>
+
+                    <div class= "roomContent">
+                        <h4>Load your own set</h4>
+                        <p><strong>Who is Who</strong> allows the player to upload his own set of cards. </p>
+                        <p>The set must be uploaded as a compressed .zip file. This .zip file must have:</p>
+                        <p>
+                            24 images (in a jpg or png format). The file name will be the name you choose for the face. Each image must show a character face. Also, the image has to have a width of 185 to 205 pixels and a height of 185 to 210 pixels.
+                        </p>
+                        <p>
+                            One .txt file in which each face will be described. The description must follow some format too:
+                        </p>
+                        <p>
+                            The .txt will have 24 lines, one for each face. In each line will appear the Name of the face,
+                            the hair color, the sex (M or F), and other true or false features.
+                        </p>
+                        <p>Here it's showed the order of features and an example of how should be filled: </p>
+                        <h6>Name-   Hair-   Hat-LongHair-Glasses-Bold-Beard-Mustache-sex-bignose</h6>
+                        <h6>Sam-    white-  false-false-true-true-false-false-M-false</h6>
+                        @form(action = routes.Application.upload(), 'enctype -> "multipart/form-data") {
+
+                            <input type="file" name="zip">
+
                             <p>
-                                <strong> Who is who </strong> is an online two player guessing game.
+                                <input type="submit">
                             </p>
-                            <h4> How to play </h4>
-                            <p> Who is Who is a very simple game to play! </p>
-                            <p> Each player is first randomly assigned a name from one of the cards on the board.
-                                By asking questions back and forth, you have to guess the other player's card.</p>
-                            <p> The questions you are allowed to ask are predefined but are more than enough to figure out
-                                your opponent's card! </p>
-                            <h4> About cheating </h4>
-                            <p> Who is who allows cheating during the game, but with an interesting twist.
-                                Whenever you choose to cheat, your "lie counter" will increase by one.
-                            </p>
-                            <p> When the game finished, the player with the most lies on their counter will
-                                <strong> LOSE! </strong> </p>
-                        </div>
-                        <h5> <em> <small> Psst! </small> </em> </h5>
-                        <p> <small> You can always bring up this room by clicking on the "About" link on the navigation bar </small> </p>
-                    </div>
 
-                    <div id="rankingRoom">
-
-                        <div id="rankingTitle">
-                                Player Ranking
-                        </div>
-
-                        <div id="closeRanking">
-                            <a href="#" onclick="loadRanking()">
-                                    X
-                            </a>
-                        </div>
-
-                        <table id="rankingTable" class="bordered-table">
-                            <thead>
-                                <tr>
-                                    <th id="col1">
-                                            Rank
-                                    </th>
-                                    <th id="col2">
-                                            Name
-                                    </th>
-                                    <th id="col3">
-                                            Won
-                                    </th>
-                                    <th id="col4">
-                                            Lost
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                </tr>
-                            </tbody>
-
-                            <tfoot>
-                                <tr>
-                                    <th>
-                                            Rank
-                                    </th>
-                                    <th>
-                                            Name
-                                    </th>
-                                    <th>
-                                            Won
-                                    </th>
-                                    <th>
-                                            Lost
-                                    </th>
-                                </tr>
-                            </tfoot>
-                        </table>
-
-                    </div>
-
-                    <div class="layout">
-                        @if(connected != null) {
-                            @content
-
-                        } else {
-                            <section class="layout">
-                                <div>
-                                    <div id="loginPage">
-                                        <form action="@routes.Application.chatRoom()" id="loginForm" class="animated fadeInDown">
-                                            <fieldset>
-                                                <label id="nickLabel" for="username"> Enter your nickname </label>
-                                                <input id="username" name="username" maxlength="8" class="input-small" type="text" placeholder="Nickname">
-                                                <button type="submit" onclick="validateUsername()"> Join a Random Game </button>
-                                            </fieldset>
-                                        </form>
-                                    </div>
-                                </div>
-                            </section>
                         }
                     </div>
 
+                </div>
+
+                <div id="aboutRoom" class="dropRoom">
+                    <div class="closeRoom">
+                        <a class="close" href="#" onclick="loadAbout ( )">&times;</a>
+                    </div>
+                    <div class="roomTitle">
+                        <h1>About & Rules</h1>
+                    </div>
+
+
+                    <div class="roomContent">
+                        <p>
+                            <strong>Who is who</strong> is an online two player guessing game.
+                        </p>
+                        <h4>How to play</h4>
+                        <p>Who is Who is a very simple game to play!</p>
+                        <p>Each player is first randomly assigned a name from one of the cards on the board.
+                            By asking questions back and forth, you have to guess the other player's card.</p>
+                        <p>The questions you are allowed to ask are predefined but are more than enough to figure out
+                            your opponent's card!</p>
+                        <h4>About cheating</h4>
+                        <p>Who is who allows cheating during the game, but with an interesting twist.
+                            Whenever you choose to cheat, your "lie counter" will increase by one.
+                        </p>
+                        <p>When the game finished, the player with the most lies on their counter will
+                            <strong>LOSE!</strong></p>
+                    </div>
+                    <h5><em><small>Psst!</small></em></h5>
+                    <p><small>
+                        You can always bring up this room by clicking on the "About" link on the navigation bar</small></p>
+                </div>
+
+                <div id="rankingRoom">
+
+                    <div id="rankingTitle">
+                        Player Ranking
+                    </div>
+
+                    <div id="closeRanking">
+                        <a href="#" onclick="loadRanking()">
+                            X
+                        </a>
+                    </div>
+
+                    <table id="rankingTable" class="bordered-table">
+                        <thead>
+                        <tr>
+                            <th id="col1">
+                                Rank
+                            </th>
+                            <th id="col2">
+                                Name
+                            </th>
+                            <th id="col3">
+                                Won
+                            </th>
+                            <th id="col4">
+                                Lost
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+
+                            </tr>
+                        </tbody>
+
+                        <tfoot>
+                        <tr>
+                            <th>
+                                Rank
+                            </th>
+                            <th>
+                                Name
+                            </th>
+                            <th>
+                                Won
+                            </th>
+                            <th>
+                                Lost
+                            </th>
+                        </tr>
+                        </tfoot>
+                    </table>
+
+                </div>
+
+
+                <div class="layout">
+                    @if(connected != null) {
+                        @content
+                </div>
+
+                <section class="layout">
+                    <div>
+
+
+
+
+                     } else {
+                    </div>
+
                     <section class="layout">
-                        <footer id="pageFooter">
-                            <div class="wrapper">
-                                <p id="designed">
-                                        Designed by W&amp;W Team
-                                </p>
-                                <p id="license">
-                                    <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.en_EN">
-                                        <img alt="Licencia de Creative Commons" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-nd/3.0/88x31.png" />
-                                    </a>
-                                </p>
-                            </div>
-                        </footer>
-                    </section>
+                        <div>
+
+                    <div id="loginPage">
+                        <form action="@routes.Application.chatRoom()" id="loginForm" class="animated fadeInDown">
+                            <fieldset>
+                                <legend>Enter your nickname</legend>
+                                <input id="username" name="username" maxlength="8" class="input-small" type="text" placeholder="Nickname">
+
+                                <button type="submit" onclick="validateUsername()">
+                                    Join a game
+                                </button>
+                            </fieldset>
+                        </form>
+                    </div>
+                    }
+                </div>
+                </section>
+
+                <section class="layout">
+                    <footer id="pageFooter">
+                        <div class="wrapper">
+                            <p id="designed">
+                               Designed by W&W Team
+                            </p>
+                            <p id="license">
+                                Creative Commons License
+                                <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.en_EN">
+                                    <img alt="Licencia de Creative Commons" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-nd/3.0/88x31.png" />
+                                </a>
+                            </p>
+                        </div>
+                    </footer>
                 </section>
             </section>
         </section>
-    </div>
+    </section>
+</div>
 
-    <script src='@routes.Assets.at("javascripts/jquery-1.7.2.min.js")'></script>
-    <script src='@routes.Assets.at("javascripts/WSocketServer.js")'></script>
-    <script src='@routes.Assets.at("javascripts/jquery.chained.js")'></script>
-    <script src='@routes.Assets.at("javascripts/jquery-css-transform.js")'></script>
-    <script src='@routes.Assets.at("javascripts/rotate3Di.js")'></script>
-    <script src='@routes.Assets.at("javascripts/plugins.js")'></script>
-    <script src='@routes.Assets.at("javascripts/script.js")'></script>
-    <script src='@routes.Assets.at("javascripts/smoke.js")'></script>
+<script src='@routes.Assets.at("javascripts/jquery-1.7.2.min.js")'></script>
+<script src='@routes.Assets.at("javascripts/WSocketServer.js")'></script>
+<script src='@routes.Assets.at("javascripts/jquery.chained.js")'></script>
+<script src='@routes.Assets.at("javascripts/jquery-css-transform.js")'></script>
+<script src='@routes.Assets.at("javascripts/rotate3Di.js")'></script>
+<script src='@routes.Assets.at("javascripts/plugins.js")'></script>
+<script src='@routes.Assets.at("javascripts/script.js")'></script>
+<script src='@routes.Assets.at("javascripts/smoke.js")'></script>
 
 </body>
 </html>
