@@ -86,18 +86,13 @@ public class Util {
         int text = 0;
 
         for (String fileException : fileExceptions) {
-            switch (fileException) {
-                case "png":
-                case "jpg":
-                    images++;
-                    break;
-                case "txt":
-                    text++;
-                    break;
-                case "":
-                    break;
-                default:
-                    return false;
+            if (fileException.equals("png") || fileException.equals("jpg")) {
+                images++;
+            } else if (fileException.equals("txt")) {
+                text++;
+            } else if (fileException.equals("")) {
+            } else {
+                return false;
             }
         }
         return images == 24 && text == 1;
@@ -105,7 +100,11 @@ public class Util {
 
     private String getExtension(File file) {
         String path = "" + file.getAbsoluteFile();
-        String extencion = Files.getFileExtension(path);
+        String extencion = "";
+        final int beginIndex = file.getName().lastIndexOf('.');
+        if (beginIndex != -1) {
+            extencion = file.getName().substring(beginIndex + 1);
+        }
         System.out.println("la extencion es: " + extencion); //prints extencion
         return extencion;
     }
