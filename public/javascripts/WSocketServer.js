@@ -2,22 +2,28 @@
  * User: Mart0
  * Date: 4/30/12
  */
-var WS = window['MozWebSocket'] ? MozWebSocket : WebSocket;
 var WSPath = $("#WSocketPath").val();
-var chatSocket = new WS(WSPath);
-chatSocket.onmessage = receiveEvent;
-$("#talk").keypress(handleReturnKey);
+
+if (WSPath) {
+    console.log("Websocket started in path: " + WSPath);
+    var WS = window['MozWebSocket'] ? MozWebSocket : WebSocket;
+    var chatSocket = new WS(WSPath);
+    chatSocket.onmessage = receiveEvent;
+    $("#talk").keypress(handleReturnKey);
+} else {
+    console.log("System Error, cannot start websocket in path: " + WSPath);
+}
 
 function sendMessage(type) {
     chatSocket.send(JSON.stringify(
         {
-            type:type,
-            text:$("#talk").val(),
-            questionAbout:qAbout,
-            questionValue:qValue,
-            questionString:qString,
-            answer:qAnswer,
-            guessCard:guessCardName
+            type: type,
+            text: $("#talk").val(),
+            questionAbout: qAbout,
+            questionValue: qValue,
+            questionString: qString,
+            answer: qAnswer,
+            guessCard: guessCardName
         }
     ))
     ;
@@ -118,7 +124,7 @@ function showPlayerCard(cardName) {
             cardList[i].className += " " + "playerCard";
             var cardInfoElement = cardList[i].getElementsByClassName("cardInfo")[0];
             var id = cardInfoElement.getAttribute("id");
-            $("#"+id).attr("style", "box-shadow: 7px 7px 5px 2px rgba(15, 56, 218, 0.82)");
+            $("#" + id).attr("style", "box-shadow: 7px 7px 5px 2px rgba(15, 56, 218, 0.82)");
         }
     }
 }

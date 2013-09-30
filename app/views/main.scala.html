@@ -212,6 +212,13 @@
 
                 </div>
 
+                @if(flash.size() > 0){
+                    <div style="padding: 10px; border: 10px dotted #F56521">
+                        @for((key, value) <- flash){
+                            <strong>@value</strong><br />
+                        }
+                    </div>
+                }
 
                 <div class="layout">
                     @if(connected != null) {
