@@ -2,6 +2,7 @@ package controllers;
 
 import models.ConnectionHandler;
 import org.codehaus.jackson.JsonNode;
+import play.api.Play;
 import play.mvc.Controller;
 import play.mvc.Http;
 import play.mvc.Result;
@@ -12,6 +13,7 @@ import views.html.index;
 import views.html.ranking;
 
 import java.io.File;
+import java.io.IOException;
 
 public class Application extends Controller {
 
@@ -68,22 +70,50 @@ public class Application extends Controller {
     /**
     * Uploads a .zip o .rar file
     */
-    public static Result upload() {
+    public static Result upload() throws IOException {
         Http.MultipartFormData body = request().body().asMultipartFormData();
         Http.MultipartFormData.FilePart zipFile = body.getFile("zip");
-        String fileName= zipFile.getFilename();
+        String fileName = zipFile.getFilename();
         System.out.println("zipfile= " + fileName);
-        String sufix= fileName.substring((fileName.length() - 4));
-        System.out.println(sufix);
+        String suffix = fileName.substring((fileName.length() - 4));
+        System.out.println(suffix);
 
-        if (zipFile != null && (sufix.equals(".zip") )) {
+        if (zipFile != null && (suffix.equals(".zip"))) {
             //String fileName = zipFile.getFilename();
             String contentType = zipFile.getContentType();
             File file = zipFile.getFile();
-            return ok("File uploaded");
+            File finalFile = new File(Play.current().path().getAbsolutePath() + "/public/themes/"
+                    + String.valueOf((int) (Math.random() * 10000000)));
+            System.out.println(finalFile.getAbsolutePath());
+
+            Util util = new Util();
+            util.decompress(file.getAbsolutePath(), finalFile.getAbsolutePath());
+            File[] listOfFiles = finalFile.listFiles();
+            File textFile = null;
+            for (File tempFile : listOfFiles) {
+                final int beginIndex = tempFile.getName().lastIndexOf('.');
+                if (beginIndex != -1) {
+                    if (tempFile.getName().substring(beginIndex).contains("txt")){
+                        System.out.println(file);
+                        textFile = tempFile;
+                        break;
+                    }
+                }
+            }
+
+            final boolean integrity = util.verifyIntegrity();
+            final boolean txtIntegrity = Util.verifyTXT(textFile);
+
+            if (integrity && txtIntegrity) {
+                return ok("File uploaded");
+            } else {
+                if (!integrity){
+                    return ok("Zip content is not valid");
+                }
+                return ok("Text file is not valid");
+            }
         } else {
-            flash("error", "Missing file");
-            return redirect(routes.Application.index());
+            return ok("Not a zip File");
         }
     }
 
