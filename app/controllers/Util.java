@@ -42,7 +42,7 @@ public class Util {
                 String fileName = zipEntry.getName();
                 File newFile = new File(outputFolder + File.separator + fileName);
 
-                System.out.println("file unzip : " + newFile.getAbsoluteFile());
+                //System.out.println("file unzip : " + newFile.getAbsoluteFile());
                 fileExceptions.add(getExtension(newFile));
 
                 //create all non exists folders
@@ -70,7 +70,7 @@ public class Util {
             zipInputStream.closeEntry();
             zipInputStream.close();
 
-            System.out.println("Done");
+            //System.out.println("Done");
 
         } catch (IOException ex) {
             ex.printStackTrace();
@@ -105,7 +105,7 @@ public class Util {
         if (beginIndex != -1) {
             extencion = file.getName().substring(beginIndex + 1);
         }
-        System.out.println("la extencion es: " + extencion); //prints extencion
+        //System.out.println("la extencion es: " + extencion); //prints extencion
         return extencion;
     }
 

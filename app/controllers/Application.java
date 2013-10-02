@@ -105,15 +105,19 @@ public class Application extends Controller {
             final boolean txtIntegrity = Util.verifyTXT(textFile);
 
             if (integrity && txtIntegrity) {
-                return ok("File uploaded");
+                flash("Success","File uploaded");
+                return redirect(routes.Application.index());
             } else {
                 if (!integrity){
-                    return ok("Zip content is not valid");
+                    flash("Error", "Zip content is not valid");
+                    return redirect(routes.Application.index());
                 }
-                return ok("Text file is not valid");
+                flash("Error", "Text file is not valid");
+                return redirect(routes.Application.index());
             }
         } else {
-            return ok("Not a zip File");
+            flash("Error", " not a zip file");
+            return redirect(routes.Application.index());
         }
     }
 
