@@ -102,20 +102,26 @@ public class Application extends Controller {
             }
 
             final boolean integrity = util.verifyIntegrity();
-            final boolean txtIntegrity = Util.verifyTXT(textFile);
+            boolean txtIntegrity = false;
+            if (textFile != null){
+                txtIntegrity = Util.verifyTXT(textFile);
+            }
 
             if (integrity && txtIntegrity) {
                 flash("Success","File uploaded");
                 return redirect(routes.Application.index());
             } else {
                 if (!integrity){
+                    Util.delete(finalFile);
                     flash("Error", "Zip content is not valid");
                     return redirect(routes.Application.index());
                 }
+                Util.delete(finalFile);
                 flash("Error", "Text file is not valid");
                 return redirect(routes.Application.index());
             }
         } else {
+            Util.delete(zipFile.getFile());
             flash("Error", " not a zip file");
             return redirect(routes.Application.index());
         }
