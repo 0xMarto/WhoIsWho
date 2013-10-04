@@ -66,7 +66,7 @@
                                     </li>
 
                                     <li>
-                                        <a href="#" id="playLink" onclick="loadProfile()">Profile</a>
+                                        <a href="#" id="playLink" onclick="loadProfile()">Theme</a>
                                     </li>
 
                                     <li>
@@ -89,12 +89,9 @@
                         <a class="close"  href="#" onclick="loadProfile()">&times;</a>
                     </div>
                     <div class= "roomTitle">
-                        <h1>Profile</h1>
+                        <h1>Theme Loader</h1>
                     </div>
 
-                    <div class= "roomContent">
-                        <h3>Profile info goes in here</h3>
-                    </div>
 
                     <div class= "roomContent">
                         <h4>Load your own set</h4>
@@ -113,15 +110,19 @@
                         <p>Here it's showed the order of features and an example of how should be filled: </p>
                         <h6>Name-   Hair-   Hat-LongHair-Glasses-Bold-Beard-Mustache-sex-bignose</h6>
                         <h6>Sam-    white-  false-false-true-true-false-false-M-false</h6>
-                        @form(action = routes.Application.upload(), 'enctype -> "multipart/form-data") {
+                    </div>
+                    <div class="roomContent">
+                    @form(action = routes.Application.upload(), 'enctype -> "multipart/form-data") {
 
-                            <input type="file" name="zip">
 
-                            <p>
-                                <input type="submit">
-                            </p>
+                        <input type="file" id="zip" name= "zip" style="display : none ;" />
+                        <input type="button" value="Browse" onclick="document.getElementById ( 'zip' ).click ( ) ;" />
 
-                        }
+                        <p>
+                            <input type="submit">
+                        </p>
+
+                    }
                     </div>
 
                 </div>
