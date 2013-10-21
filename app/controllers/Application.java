@@ -108,21 +108,21 @@ public class Application extends Controller {
             }
 
             if (integrity && txtIntegrity) {
-                flash("Success","File uploaded");
+                flash("Success","Your theme file was successfully upload!");
                 return redirect(routes.Application.index());
             } else {
                 if (!integrity){
                     Util.delete(finalFile);
-                    flash("Error", "Zip content is not valid");
+                    flash("Error", "Zip file is not valid. The zip file you upload doesn't have the right files inside!");
                     return redirect(routes.Application.index());
                 }
                 Util.delete(finalFile);
-                flash("Error", "Text file is not valid");
+                flash("Error", "The text file in the zip file doesn't have the required format!");
                 return redirect(routes.Application.index());
             }
         } else {
             Util.delete(zipFile.getFile());
-            flash("Error", " not a zip file");
+            flash("Error", "The file you tried to upload is not a zip file!");
             return redirect(routes.Application.index());
         }
     }
