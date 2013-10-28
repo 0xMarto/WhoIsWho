@@ -1,0 +1,302 @@
+@(username: String)
+
+@main(username) {
+
+    <input id="WSocketPath" value="@routes.Application.game(username).webSocketURL(request)" style="display : none ;">
+
+    <div id="onError" class="alert-message error">
+        <p>
+            <strong>Oops!</strong> <span></span>
+        </p>
+    </div>
+
+    <div id="boardGame">
+
+        <div id="guess" onclick="guessCard ( )">
+            <img id="guessImage" src='@routes.Assets.at("images/guessOrange.png")'>
+        </div>
+
+        <div class="cardContainer">
+            <div class="card span2">
+                <div id="face1" class="cardInfo">
+                    <div class="cardFront">
+                        <img src='@routes.Assets.at("themes/3791671/Aniston.jpg")'><img>
+                        <h2>Aniston</h2>
+                    </div>
+                    <div class="cardBack"><h2>Aniston</h2></div>
+                </div>
+            </div>
+            <div class="card span2">
+                <div id="face2" class="cardInfo">
+                    <div class="cardFront">
+                        <img src='@routes.Assets.at("themes/3791671/Beckham.jpg")'><img>
+                        <h2>Beckham</h2>
+                    </div>
+                    <div class="cardBack"><h2>Beckham</h2></div>
+                </div>
+            </div>
+            <div class="card span2">
+                <div id="face3" class="cardInfo">
+                    <div class="cardFront">
+                        <img src='@routes.Assets.at("themes/3791671/Cruz.jpg")'><img>
+                        <h2>Cruz</h2>
+                    </div>
+                    <div class="cardBack"><h2>Cruz</h2></div>
+                </div>
+            </div>
+            <div class="card span2">
+                <div id="face4" class="cardInfo">
+                    <div class="cardFront">
+                        <img src='@routes.Assets.at("themes/3791671/Davids.jpg")'><img>
+                        <h2>Davids</h2>
+                    </div>
+                    <div class="cardBack"><h2>Davids</h2></div>
+                </div>
+            </div>
+            <div class="card span2">
+                <div id="face5" class="cardInfo">
+                    <div class="cardFront">
+                        <img src='@routes.Assets.at("themes/3791671/Depp.jpg")'><img>
+
+                        <h2>Depp</h2>
+                    </div>
+                    <div class="cardBack"><h2>Depp</h2></div>
+                </div>
+            </div>
+            <div class="card span2">
+                <div id="face6" class="cardInfo">
+                    <div class="cardFront">
+                        <img src='@routes.Assets.at("themes/3791671/Fox.jpg")'><img>
+                        <h2>Fox</h2>
+                    </div>
+                    <div class="cardBack"><h2>Fox</h2></div>
+                </div>
+            </div>
+            <div class="card span2">
+                <div id="face7" class="cardInfo">
+                    <div class="cardFront">
+                        <img src='@routes.Assets.at("themes/3791671/Franchella.jpg")'><img>
+                        <h2>Franchella</h2>
+                    </div>
+                    <div class="cardBack"><h2>Franchella</h2></div>
+                </div>
+            </div>
+            <div class="card span2">
+                <div id="face8" class="cardInfo">
+                    <div class="cardFront">
+                        <img src='@routes.Assets.at("themes/3791671/Gandhi.jpg")'><img>
+                        <h2>Gandhi</h2>
+                    </div>
+                    <div class="cardBack"><h2>Gandhi</h2></div>
+                </div>
+            </div>
+
+
+            <div class="card span2">
+                <div id="face9" class="cardInfo">
+                    <div class="cardFront">
+                        <img src='@routes.Assets.at("themes/3791671/Garcia.jpg")'><img>
+                        <h2>Garcia</h2>
+                    </div>
+                    <div class="cardBack"><h2>Garcia</h2></div>
+                </div>
+            </div>
+            <div class="card span2">
+                <div id="face10" class="cardInfo">
+                    <div class="cardFront">
+                        <img src='@routes.Assets.at("themes/3791671/Hathaway.jpg")'><img>
+                        <h2>Hathaway</h2>
+                    </div>
+                    <div class="cardBack"><h2>Hathaway</h2></div>
+                </div>
+            </div>
+            <div class="card span2">
+                <div id="face11" class="cardInfo">
+                    <div class="cardFront">
+                        <img src='@routes.Assets.at("themes/3791671/Ibrahimovich.jpg")'><img>
+                        <h2>Ibra</h2>
+                    </div>
+                    <div class="cardBack"><h2>Ibra</h2></div>
+                </div>
+            </div>
+            <div class="card span2">
+                <div id="face12" class="cardInfo">
+                    <div class="cardFront">
+                        <img src='@routes.Assets.at("themes/3791671/Jackson.jpg")'><img>
+                        <h2>Jackson</h2>
+                    </div>
+                    <div class="cardBack"><h2>Jackson</h2></div>
+                </div>
+            </div>
+            <div class="card span2">
+                <div id="face13" class="cardInfo">
+                    <div class="cardFront">
+                        <img src='@routes.Assets.at("themes/3791671/Messi.jpg")'><img>
+                        <h2>Messi</h2>
+                    </div>
+                    <div class="cardBack"><h2>Messi</h2></div>
+                </div>
+            </div>
+            <div class="card span2">
+                <div id="face14" class="cardInfo">
+                    <div class="cardFront">
+                        <img src='@routes.Assets.at("themes/3791671/Norris.jpg")'><img>
+                        <h2>Norris</h2>
+                    </div>
+                    <div class="cardBack"><h2>Norris</h2></div>
+                </div>
+            </div>
+            <div class="card span2">
+                <div id="face15" class="cardInfo">
+                    <div class="cardFront">
+                        <img src='@routes.Assets.at("themes/3791671/Potter.jpg")'><img>
+                        <h2>Potter</h2>
+                    </div>
+                    <div class="cardBack"><h2>Potter</h2></div>
+                </div>
+            </div>
+            <div class="card span2">
+                <div id="face16" class="cardInfo">
+                    <div class="cardFront">
+                        <img src='@routes.Assets.at("themes/3791671/Ron.jpg")'><img>
+                        <h2>Ron</h2>
+                    </div>
+                    <div class="cardBack"><h2>Ron</h2></div>
+                </div>
+            </div>
+            <div class="card span2">
+                <div id="face17" class="cardInfo">
+                    <div class="cardFront">
+                        <img src='@routes.Assets.at("themes/3791671/Ryan.jpg")'><img>
+                        <h2>Ryan</h2>
+                    </div>
+                    <div class="cardBack"><h2>Ryan</h2></div>
+                </div>
+            </div>
+            <div class="card span2">
+                <div id="face18" class="cardInfo">
+                    <div class="cardFront">
+                        <img src='@routes.Assets.at("themes/3791671/Slash.jpg")'><img>
+                        <h2>Slash</h2>
+                    </div>
+                    <div class="cardBack"><h2>Slash</h2></div>
+                </div>
+            </div>
+            <div class="card span2">
+                <div id="face19" class="cardInfo">
+                    <div class="cardFront">
+                        <img src='@routes.Assets.at("themes/3791671/Stone.jpg")'><img>
+                        <h2>Stone</h2>
+                    </div>
+                    <div class="cardBack"><h2>Stone</h2></div>
+                </div>
+            </div>
+            <div class="card span2">
+                <div id="face20" class="cardInfo">
+                    <div class="cardFront">
+                        <img src='@routes.Assets.at("themes/3791671/Streep.jpg")'><img>
+                        <h2>Streep</h2>
+                    </div>
+                    <div class="cardBack"><h2>Streep</h2></div>
+                </div>
+            </div>
+            <div class="card span2">
+                <div id="face21" class="cardInfo">
+                    <div class="cardFront">
+                        <img src='@routes.Assets.at("themes/3791671/Torres.jpg")'><img>
+                        <h2>Torres</h2>
+                    </div>
+                    <div class="cardBack"><h2>Torres</h2></div>
+                </div>
+            </div>
+            <div class="card span2">
+                <div id="face22" class="cardInfo">
+                    <div class="cardFront">
+                        <img src='@routes.Assets.at("themes/3791671/Veron.jpg")'><img>
+                        <h2>Veron</h2>
+                    </div>
+                    <div class="cardBack"><h2>Veron</h2></div>
+                </div>
+            </div>
+            <div class="card span2">
+                <div id="face23" class="cardInfo">
+                    <div class="cardFront">
+                        <img src='@routes.Assets.at("themes/3791671/Wilson.jpg")'><img>
+                        <h2>Wilson</h2>
+                    </div>
+                    <div class="cardBack"><h2>Wilson</h2></div>
+                </div>
+            </div>
+            <div class="card span2">
+                <div id="face24" class="cardInfo">
+                    <div class="cardFront">
+                        <img src='@routes.Assets.at("themes/3791671/Zidane.jpg")'><img>
+                        <h2>Zidane</h2>
+                    </div>
+                    <div class="cardBack"><h2>Zidane</h2></div>
+                </div>
+            </div>
+
+            <div id="panel">
+
+                <div id="onChat">
+                    <div id="main">
+                        <div id="messages">
+                        </div>
+                        <input id="talk" type="text" placeholder="Chat here">
+                    </div>
+                </div>
+
+                <div id="questionPanel">
+                    <select id="questionAbout">
+                        <option value="">Category</option>
+
+                        <option value="sex">Sex</option>
+                        <option value="hair">Hair</option>
+                        <option value="glasses">Glasses</option>
+                        <option value="hat">Hat</option>
+                        <option value="mustache">Mustache</option>
+                        <option value="beard">Beard</option>
+                        <option value="nose">Nose</option>
+                    </select>
+                    <select id="askQuestions">
+                        <option value=",">Select a category first</option>
+
+                        <option value="brown,Does your card have brown hair?" class="hair">Brown hair?</option>
+                        <option value="black,Does your card have black hair?" class="hair">Black hair?</option>
+                        <option value="yellow,Does your card have blond hair?" class="hair">Blond hair?</option>
+                        <option value="white,Does your card have white hair?" class="hair">White hair?</option>
+                        <option value="orange,Does your card have white hair?" class="hair">Orange hair?</option>
+                        <option value="bald,Is your card bald?" class="hair">Is your card bald?</option>
+                        <option value="longHair,Does your card have long hair?" class="hair">Is your card bald?</option>
+
+                        <option value="male,Is your card a man?" class="sex">Is it a man?</option>
+
+                        <option value="glasses,Does your card wear glasses?" class="glasses">
+                            Is he/she wearing glasses?</option>
+
+                        <option value="hat,Does your card wear a hat?" class="hat">Is he/she wearing a hat?</option>
+
+                        <option value="nose,Does your card have a big nose?" class="nose">Is he/she wearing a hat?</option>
+
+                        <option value="mustache,Does he have a mustache?" class="mustache">Does he have a mustache?</option>
+
+                        <option value="beard,Does he have a beard?" class="beard">Does he have a beard?</option>
+                    </select>
+                    <button id="askBt" onclick="askQuestion ( )">Ask</button>
+                </div>
+
+                <div id="answerPanel">
+                    <button id="yesBt" onclick="answerQuestion ( 'Yes' )">YES</button>
+                    <button id="noBt" onclick="answerQuestion ( 'No' )">NO</button>
+                </div>
+            </div>
+
+            <div id="cheatCounter">
+                <h4>Lies Counter&nbsp;</h4>
+                <h3 id="lies">0</h3>
+            </div>
+
+        </div>
+
+}
