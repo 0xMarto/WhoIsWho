@@ -14,22 +14,24 @@ import java.util.Random;
 import java.util.UUID;
 
 /**
- * Created by w&w
- * Date: 4/24/12
+ * User: Jose Gonzalez
+ * Date: 28/10/13
+ * Time: 17:50
  */
-public class Game {
-    private String gameId;
-    private Player playerOne;
-    private Player playerTwo;
-    private Player currentPlayer;
-    private TurnState currentState;
-    private boolean start;
-    private boolean end;
-    private int leavers;
+
+public abstract class GameWhoIsWho {
+    protected String gameId;
+    protected Player playerOne;
+    protected Player playerTwo;
+    protected Player currentPlayer;
+    protected TurnState currentState;
+    protected boolean start;
+    protected boolean end;
+    protected int leavers;
     Map cardsMap;
     CurrentQuestion currentQuestion;
 
-    public Game() {
+    public GameWhoIsWho() {
         gameId = UUID.randomUUID().toString();
     }
 
@@ -61,31 +63,6 @@ public class Game {
     }
 
     private void loadCardsMap() {
-        cardsMap = new HashMap<String, String>();
-        cardsMap.put("RICHARD", "0e6067");
-        cardsMap.put("GEORGE", "0fbac2");
-        cardsMap.put("ANNA", "22a8a4");
-        cardsMap.put("ALEX", "2eafcf");
-        cardsMap.put("SAM", "3f7f60");
-        cardsMap.put("MARIA", "40c79c");
-        cardsMap.put("WILLIAM", "48166f");
-        cardsMap.put("ALFRED", "4e3b5c");
-        cardsMap.put("CHARLES", "63db8f");
-        cardsMap.put("TOM", "694599");
-        cardsMap.put("ANITA", "6f4433");
-        cardsMap.put("ROBERT", "7028d6");
-        cardsMap.put("FRANK", "83f097");
-        cardsMap.put("PABLO", "861d72");
-        cardsMap.put("PETER", "91718d");
-        cardsMap.put("CLAIRE", "ac4871");
-        cardsMap.put("DAVID", "ade557");
-        cardsMap.put("JOE", "b3e0af");
-        cardsMap.put("BERNARD", "bb88ca");
-        cardsMap.put("GERMAN", "c46e40");
-        cardsMap.put("SUSAN", "dca3b5");
-        cardsMap.put("MANNY", "dea8ed");
-        cardsMap.put("ERNEST", "e08c9c");
-        cardsMap.put("PHILIP", "e5ec68");
     }
 
     public void setPlayerA(Player playerOne) {
@@ -99,20 +76,15 @@ public class Game {
     }
 
     private Card pickRandomCard() {
-        String cards[] = {"RICHARD", "FRANK", "MANNY", "DAVID", "MARIA", "ANITA", "SUSAN", "ANNA", "GEORGE", "ALEX",
-                "SAM", "WILLIAM", "ALFRED", "CHARLES", "TOM", "ROBERT", "PABLO", "PETER", "CLARIE", "JOE", "BERNARD",
-                "GERMAN", "ERNEST", "PHILIP"};
-
-        Random turnRoller = new Random();
-        int roll = turnRoller.nextInt(24);
-
-        System.out.println("Game: " + this.gameId + " - Loading Card:" + cards[roll]);
-        Card card = getCardFromDb(cardsMap.get(cards[roll]).toString());
-        return card;
+        return null;
     }
 
     public Card getCardFromDb(String id) {
-        String requestUrl = "http://dpoi2012api.appspot.com/api/1.0/view?credential=w&id=" + id;
+        return getCardFromDB("http://dpoi2012api.appspot.com/api/1.0/view?credential=w&id=", id);
+    }
+
+    public Card getCardFromDB(String id, String urlCardInfo){
+        String requestUrl = urlCardInfo + id;
         try {
             URL url = new URL(requestUrl);
             BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream()));
@@ -130,7 +102,7 @@ public class Game {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.println("Game: " + this.gameId + " - ERROR: Card id no found");
+        System.out.println("GameClassic: " + this.gameId + " - ERROR: Card id no found");
         return null;
     }
 
@@ -273,7 +245,7 @@ public class Game {
 
     @Override
     public String toString() {
-        return "Game{" +
+        return "GameClassic{" +
                 "playerOne=" + playerOne +
                 ", playerTwo=" + playerTwo +
                 ", start=" + start +
@@ -298,7 +270,7 @@ public class Game {
         }
     }
 
-    private void guessCalculation(Player player, String guessCard) {
+    protected void guessCalculation(Player player, String guessCard) {
         if (getAlternative().getCard().getNamee().equalsIgnoreCase(guessCard)) {
             message(getCurrentPlayer(), "my-guess", "You guess " + guessCard);
             message(getAlternative(), "op-guess", player.getUsername() + " guess " + guessCard);

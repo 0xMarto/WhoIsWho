@@ -5,7 +5,7 @@
 # Home page
 GET        /whoiswho                      controllers.Application.index()
 GET        /whoiswho/chatRoom             controllers.Application.chatRoom(username: String ?= null)
-GET        /whoiswho/chatRoom/Play        controllers.Application.game(username)
+GET        /whoiswho/chatRoom/Play        controllers.Application.gameClassic(username)
 GET        /whoiswho/aboutGame            controllers.Application.aboutGame()
 GET        /whoiswho/ranking              controllers.Application.ranking(username: String ?= null)
 POST       /whoiswho/upload               controllers.Application.upload()
