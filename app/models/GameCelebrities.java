@@ -21,7 +21,7 @@ public class GameCelebrities extends GameWhoIsWho{
         super();
     }
 
-    private void loadCardsMap() {
+    protected void loadCardsMap() {
         cardsMap = new HashMap<String, String>();
         cardsMap.put("ANISTON", "0e6067");
         cardsMap.put("BECKHAM", "0fbac2");
@@ -49,7 +49,7 @@ public class GameCelebrities extends GameWhoIsWho{
         cardsMap.put("ZIDANE", "e5ec68");
     }
 
-    private Card pickRandomCard() {
+    protected Card pickRandomCard() {
         String cards[] = {"ANISTON", "BECKHAM", "CRUZ", "DAVIDS", "DEPP", "FOX", "FRANCHELLA", "GANDHI", "GARCIA", "HATHAWAY",
                 "IBRAHIMOVICH", "JACKSON", "MESSI", "NORRIS", "POTTER", "RON", "RYAN", "SLASH", "STONE", "STREEP", "TORRES",
                 "VERON", "WILSON", "ZIDANE"};

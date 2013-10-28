@@ -8,7 +8,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 import java.util.UUID;
@@ -62,8 +61,7 @@ public abstract class GameWhoIsWho {
         message(playerTwo, "yourCard", "Your card is:" + playerTwo.getCard().getNamee());
     }
 
-    private void loadCardsMap() {
-    }
+    protected abstract void loadCardsMap();
 
     public void setPlayerA(Player playerOne) {
         this.playerOne = playerOne;
@@ -75,9 +73,7 @@ public abstract class GameWhoIsWho {
         message(getAlternative(), "start", "Let's play WHO IS WHO, You're playing against " + getCurrentPlayer().getUsername());
     }
 
-    private Card pickRandomCard() {
-        return null;
-    }
+    protected abstract Card pickRandomCard() ;
 
     public Card getCardFromDb(String id) {
         return getCardFromDB("http://dpoi2012api.appspot.com/api/1.0/view?credential=w&id=", id);

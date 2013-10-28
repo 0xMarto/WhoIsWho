@@ -1,17 +1,13 @@
 package models;
 
 import com.google.gson.Gson;
-import org.codehaus.jackson.node.ObjectNode;
-import play.libs.Json;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.HashMap;
-import java.util.Map;
 import java.util.Random;
-import java.util.UUID;
 
 /**
  * Created by w&w
@@ -24,7 +20,7 @@ public class GameClassic extends GameWhoIsWho{
         super();
     }
 
-    private void loadCardsMap() {
+    protected void loadCardsMap() {
         cardsMap = new HashMap<String, String>();
         cardsMap.put("RICHARD", "0e6067");
         cardsMap.put("GEORGE", "0fbac2");
@@ -52,7 +48,7 @@ public class GameClassic extends GameWhoIsWho{
         cardsMap.put("PHILIP", "e5ec68");
     }
 
-    private Card pickRandomCard() {
+    protected Card pickRandomCard() {
         String cards[] = {"RICHARD", "FRANK", "MANNY", "DAVID", "MARIA", "ANITA", "SUSAN", "ANNA", "GEORGE", "ALEX",
                 "SAM", "WILLIAM", "ALFRED", "CHARLES", "TOM", "ROBERT", "PABLO", "PETER", "CLARIE", "JOE", "BERNARD",
                 "GERMAN", "ERNEST", "PHILIP"};

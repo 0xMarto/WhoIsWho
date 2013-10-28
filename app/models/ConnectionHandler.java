@@ -13,43 +13,73 @@ import java.util.ArrayList;
  * Date: 4/24/12
  */
 public class ConnectionHandler {
-    private static ArrayList<GameClassic> gameClassicList = new ArrayList<GameClassic>();
+    private static ArrayList<GameWhoIsWho> gameList = new ArrayList<GameWhoIsWho>();
+    private static ArrayList<GameClassic> classicList = new ArrayList<GameClassic>();
+    private static ArrayList<GameCelebrities> famousList= new ArrayList<GameCelebrities>();
     private static int gamesPlayed = 0;
     private static int activeGames = 0;
 
-    public static void join(String username, WebSocket.In<JsonNode> in, WebSocket.Out<JsonNode> out) {
-        GameClassic lastGameClassic = getLastGame();
-        if (!lastGameClassic.isPlayerOneDefined()) {
-            final Player player = new Player(username, out, lastGameClassic.getGameId());
-            lastGameClassic.setPlayerA(player);
+    public static void join(String username, String theme, WebSocket.In<JsonNode> in, WebSocket.Out<JsonNode> out) {
+        GameWhoIsWho lastGame = getLastGame(theme);
+        if (!lastGame.isPlayerOneDefined()) {
+            final Player player = new Player(username, out, lastGame.getGameId());
+            lastGame.setPlayerA(player);
             bingInWebSocket(in, player);
-        } else if (!lastGameClassic.isPlayerTwoDefined()) {
-            final Player player = new Player(username, out, lastGameClassic.getGameId());
-            lastGameClassic.setPlayerB(player);
+        } else if (!lastGame.isPlayerTwoDefined()) {
+            final Player player = new Player(username, out, lastGame.getGameId());
+            lastGame.setPlayerB(player);
             bingInWebSocket(in, player);
-            lastGameClassic.startGame();
+            lastGame.startGame();
         } else {
-            createNewGame();
-            join(username, in, out);
+            createNewGame(theme);
+            join(username, theme, in, out);
 //            out.write(createServerFullMsg());
         }
     }
 
-    private static GameClassic getLastGame() {
-        GameClassic last;
-        if (gameClassicList.isEmpty()) {
-            createNewGame();
-            last = gameClassicList.get(0);
+    private static GameWhoIsWho getLastGame(String theme) {
+        GameWhoIsWho last;
+        if (gameList.isEmpty()) {
+            createNewGame(theme);
+            last = gameList.get(0);
         } else {
-            last = gameClassicList.get(gameClassicList.size() - 1);
+            if(theme.contains("famo")){
+                if(famousList.isEmpty()){
+                    createNewGame(theme);
+                    last = famousList.get(0);
+                }else {
+                    last= famousList.get(famousList.size() -1);
+                }
+            } else {
+                if(classicList.isEmpty()){
+                    createNewGame(theme);
+                    last = classicList.get(0);
+                }else {
+                    last= classicList.get(classicList.size() -1);
+                }
+            }
         }
         return last;
     }
 
-    private static void createNewGame() {
+
+
+
+    private static void createNewGame(String theme) {
         activeGames++;
         gamesPlayed++;
-        gameClassicList.add(new GameClassic());
+        GameCelebrities celeb;
+        GameClassic classic;
+        if(theme.contains("famo")){
+            celeb= new GameCelebrities();
+            famousList.add(celeb);
+            gameList.add(celeb);
+        }
+        else{
+            classic= new GameClassic();
+            classicList.add(classic);
+            gameList.add(classic);
+        }
     }
 
     private static JsonNode createServerFullMsg() {
@@ -61,35 +91,35 @@ public class ConnectionHandler {
     private static void bingInWebSocket(WebSocket.In<JsonNode> in, final Player player) {
         in.onMessage(new F.Callback<JsonNode>() {
             public void invoke(JsonNode jsonNode) throws Throwable {
-                GameClassic gameClassic = getGameById(player.getGameId());
+                GameWhoIsWho game = getGameById(player.getGameId());
                 String messageType = jsonNode.get("type").asText();
-                System.out.println("GameClassic: " + gameClassic.getGameId() + " - Event Received: Type = " + messageType);
-                if (gameClassic.isStart()) {
+                System.out.println("Game: " + game.getGameId() + " - Event Received: Type = " + messageType);
+                if (game.isStart()) {
                     if (messageType.equals("chat")) {
 //                        Chat behavior
                         final String talk = jsonNode.get("text").asText();
-                        gameClassic.chat(player, talk);
+                        game.chat(player, talk);
                     } else if (messageType.equals("question")) {
 //                        Question behavior
                         final String questionString = jsonNode.get("questionString").asText();
                         final String questionAbout = jsonNode.get("questionAbout").asText();
                         final String questionValue = jsonNode.get("questionValue").asText();
-                        gameClassic.ask(player, questionAbout, questionValue, questionString);
+                        game.ask(player, questionAbout, questionValue, questionString);
                     } else if (messageType.equals("answer")) {
 //                        Answer behavior
                         final String answer = jsonNode.get("answer").asText();
-                        gameClassic.answer(player, answer);
+                        game.answer(player, answer);
                     } else if (messageType.equals("guess")) {
 //                        Guess behavior
                         final String guessCard = jsonNode.get("guessCard").asText();
-                        gameClassic.guess(player, guessCard.toUpperCase());
+                        game.guess(player, guessCard.toUpperCase());
                     }
                 } else {
 //                    Waiting for another player
-                    gameClassic.chat(player, "");
+                    game.chat(player, "");
                 }
                 if (messageType.equals("serverInfo")) {
-                    GameClassic.message(player, "info", "  " + activeGames + " Active Games" + " - " +
+                    GameWhoIsWho.message(player, "info", "  " + activeGames + " Active Games" + " - " +
                             gamesPlayed + " Total Games Played");
                 }
             }
@@ -97,20 +127,26 @@ public class ConnectionHandler {
 
         in.onClose(new F.Callback0() {
             public void invoke() throws Throwable {
-                GameClassic gameClassic = getGameById(player.getGameId());
-                gameClassic.leave(player);
-                if (gameClassic.isEmpty()) {
-                    gameClassicList.remove(gameClassicList.indexOf(gameClassic));
+                GameWhoIsWho game = getGameById(player.getGameId());
+                game.leave(player);
+                if (game.isEmpty()) {
+                    if(game instanceof GameCelebrities){
+                        famousList.remove(famousList.indexOf((GameCelebrities)game));
+                    }
+                    if(game instanceof GameClassic){
+                        classicList.remove(classicList.indexOf((GameClassic)game));
+                    }
+                    gameList.remove(gameList.indexOf(game));
                     activeGames--;
                 }
             }
         });
     }
 
-    private static GameClassic getGameById(String gameId) {
-        for (GameClassic gameClassic : gameClassicList) {
-            if (gameClassic.getGameId().equals(gameId)) {
-                return gameClassic;
+    private static GameWhoIsWho getGameById(String gameId) {
+        for (GameWhoIsWho game : gameList) {
+            if (game.getGameId().equals(gameId)) {
+                return game;
             }
         }
         return null;

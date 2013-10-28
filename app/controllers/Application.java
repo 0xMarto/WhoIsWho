@@ -41,10 +41,18 @@ public class Application extends Controller {
     /**
      * Display the chat room.
      */
-    public static Result chatRoom(String username) {
+    public static Result chatRoom(String username, String theme) {
         if (username == null || username.trim().equals("") || username.contains("%")) {
             flash("error", "Please choose a valid username.");
             return redirect(routes.Application.index());
+        }
+        System.out.println("theme = " + theme);
+        if (theme == null || theme.trim().equals("") || theme.contains("%")) {
+            flash("error", "Please choose a theme.");
+            return redirect(routes.Application.index());
+        }
+        if(theme.contains("famo")){
+            return ok(views.html.famousChatRoom.render(username));
         }
         return ok(chatRoom.render(username));
     }
@@ -52,14 +60,14 @@ public class Application extends Controller {
     /**
      * Handle the game webSocket.
      */
-    public static WebSocket<JsonNode> game(final String username) {
+    public static WebSocket<JsonNode> game(final String username, final String theme) {
         return new WebSocket<JsonNode>() {
 
             // Called when the WebSocket Handshake is done.
             public void onReady(WebSocket.In<JsonNode> in, WebSocket.Out<JsonNode> out) {
                 // Join the user to the GameClassic.
                 try {
-                    ConnectionHandler.join(username, in, out);
+                    ConnectionHandler.join(username, theme,  in, out);
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
