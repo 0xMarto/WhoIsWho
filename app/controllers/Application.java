@@ -57,7 +57,7 @@ public class Application extends Controller {
 
             // Called when the WebSocket Handshake is done.
             public void onReady(WebSocket.In<JsonNode> in, WebSocket.Out<JsonNode> out) {
-                // Join the user to the Game.
+                // Join the user to the GameClassic.
                 try {
                     ConnectionHandler.join(username, in, out);
                 } catch (Exception ex) {
