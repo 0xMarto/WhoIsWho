@@ -14,11 +14,12 @@ import java.util.ArrayList;
  */
 public class ConnectionHandler {
     private static ArrayList<Game> gameList = new ArrayList<Game>();
+    private static ArrayList<GameCelebrity> gameCelebrityList = new ArrayList<GameCelebrity>();
     private static int gamesPlayed = 0;
     private static int activeGames = 0;
 
-    public static void join(String username, WebSocket.In<JsonNode> in, WebSocket.Out<JsonNode> out) {
-        Game lastGame = getLastGame();
+    public static void join(String username, String theme, WebSocket.In<JsonNode> in, WebSocket.Out<JsonNode> out) {
+        Game lastGame = getLastGame(theme);
         if (!lastGame.isPlayerOneDefined()) {
             final Player player = new Player(username, out, lastGame.getGameId());
             lastGame.setPlayerA(player);
@@ -29,27 +30,31 @@ public class ConnectionHandler {
             bingInWebSocket(in, player);
             lastGame.startGame();
         } else {
-            createNewGame();
-            join(username, in, out);
+            createNewGame(theme);
+            join(username, theme, in, out);
 //            out.write(createServerFullMsg());
         }
     }
 
-    private static Game getLastGame() {
-        Game last;
+    private static Game getLastGame(String theme) {
         if (gameList.isEmpty()) {
-            createNewGame();
-            last = gameList.get(0);
-        } else {
-            last = gameList.get(gameList.size() - 1);
+            createNewGame(theme);
         }
-        return last;
+        return gameList.get(gameList.size() - 1);
     }
 
-    private static void createNewGame() {
+    private static void createNewGame(String theme) {
         activeGames++;
         gamesPlayed++;
+
         gameList.add(new Game());
+
+//      Uncomment this for add the new celebrity Game
+//        if (theme.equalsIgnoreCase("celebrity")){
+//            gameCelebrityList.add(new GameCelebrity());
+//        } else {
+//            gameList.add(new Game());
+//        }
     }
 
     private static JsonNode createServerFullMsg() {
