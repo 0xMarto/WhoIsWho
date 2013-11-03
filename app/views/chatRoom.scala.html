@@ -1,8 +1,8 @@
-@(username: String, theme:String)
+@(username: String)
 
 @main(username) {
 
-<input id="WSocketPath" value="@routes.Application.game(username, theme).webSocketURL(request)" style="display: none;">
+<input id="WSocketPath" value="@routes.Application.game(username, "first").webSocketURL(request)" style="display: none;">
 
 <div id="onError" class="alert-message error">
     <p>
