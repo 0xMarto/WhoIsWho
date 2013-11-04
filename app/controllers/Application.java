@@ -50,7 +50,7 @@ public class Application extends Controller {
             flash("error", "Please choose a theme.");
             return redirect(routes.Application.index());
         }
-        if(theme.contains("famo")){
+        if(theme.contains("cel")){
             return ok(views.html.famousChatRoom.render(username));
         }
         return ok(chatRoom.render(username));

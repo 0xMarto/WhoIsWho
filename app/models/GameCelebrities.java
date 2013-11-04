@@ -22,8 +22,8 @@ public class GameCelebrities extends GameWhoIsWho{
     }
 
     protected void loadCardsMap() {
-        cardsMap = new HashMap<String, Card>();
-        cardsMap.put("ANISTON", new Card());
+        cardsMap = new HashMap<String, String>();
+        cardsMap.put("ANISTON", "0e6067");
         cardsMap.put("BECKHAM", "0fbac2");
         cardsMap.put("CRUZ", "22a8a4");
         cardsMap.put("DAVIDS", "2eafcf");
@@ -57,8 +57,8 @@ public class GameCelebrities extends GameWhoIsWho{
         Random turnRoller = new Random();
         int roll = turnRoller.nextInt(24);
 
-        System.out.println("GameClassic: " + this.gameId + " - Loading Card:" + cards[roll]);
-        Card card = (Card) cardsMap.get(cards[roll]);
+        System.out.println("GameCelebrities: " + this.gameId + " - Loading Card:" + cards[roll]);
+        Card card = getCardFromDb(cardsMap.get(cards[roll]).toString());
         return card;
     }
 

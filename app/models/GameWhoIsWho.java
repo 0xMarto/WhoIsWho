@@ -146,13 +146,13 @@ public abstract class GameWhoIsWho {
         }
     }
 
+    public void waitForStart(Player player) {
+        message(player, "wait", "Still Waiting for opponent....");
+    }
+
     public void chat(Player player, String talk) {
-        if (start) {
-            chatMessage(getCurrentPlayer(), "chat", player.getUsername(), talk);
-            chatMessage(getAlternative(), "chat", player.getUsername(), talk);
-        } else {
-            message(player, "wait", "Still Waiting for opponent....");
-        }
+        chatMessage(getCurrentPlayer(), "chat", player.getUsername(), talk);
+        chatMessage(getAlternative(), "chat", player.getUsername(), talk);
     }
 
     public void answer(Player player, String answer) {
