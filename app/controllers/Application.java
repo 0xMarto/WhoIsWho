@@ -51,7 +51,7 @@ public class Application extends Controller {
             return redirect(routes.Application.index());
         }
         if(theme.contains("cel")){
-            return ok(views.html.famousChatRoom.render(username));
+            return ok(views.html.chatRoomCelebrity.render(username));
         }
         return ok(chatRoom.render(username));
     }
