@@ -55,10 +55,10 @@ public abstract class GameWhoIsWho {
         loadCardsMap();
 
         playerOne.setCard(pickRandomCard());
-        message(playerOne, "yourCard", "Your card is:" + playerOne.getCard().getNamee());
+        message(playerOne, "yourCard", "Your card is:" + playerOne.getCard().getName());
 
         playerTwo.setCard(pickRandomCard());
-        message(playerTwo, "yourCard", "Your card is:" + playerTwo.getCard().getNamee());
+        message(playerTwo, "yourCard", "Your card is:" + playerTwo.getCard().getName());
     }
 
     protected abstract void loadCardsMap();
@@ -107,7 +107,7 @@ public abstract class GameWhoIsWho {
             message(getCurrentPlayer(), "ask", "It's your turn, Ask a Question");
             message(getAlternative(), "wait", "Other player's turn!");
         } else {
-            message(getAlternative(), "answer", "Answer the Question. (Remember your card is " + getAlternative().getCard().getNamee() + ")");
+            message(getAlternative(), "answer", "Answer the Question. (Remember your card is " + getAlternative().getCard().getName() + ")");
             message(getCurrentPlayer(), "wait", "Wait for " + getAlternative().getUsername() + " answer");
         }
     }
@@ -267,7 +267,7 @@ public abstract class GameWhoIsWho {
     }
 
     protected void guessCalculation(Player player, String guessCard) {
-        if (getAlternative().getCard().getNamee().equalsIgnoreCase(guessCard)) {
+        if (getAlternative().getCard().getName().equalsIgnoreCase(guessCard)) {
             message(getCurrentPlayer(), "my-guess", "You guess " + guessCard);
             message(getAlternative(), "op-guess", player.getUsername() + " guess " + guessCard);
 

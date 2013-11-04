@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class ConnectionHandler {
     private static ArrayList<GameWhoIsWho> gameList = new ArrayList<GameWhoIsWho>();
     private static ArrayList<GameClassic> classicList = new ArrayList<GameClassic>();
-    private static ArrayList<GameCelebrities> famousList= new ArrayList<GameCelebrities>();
+    private static ArrayList<GameCelebrities> famousList = new ArrayList<GameCelebrities>();
     private static int gamesPlayed = 0;
     private static int activeGames = 0;
 
@@ -43,19 +43,19 @@ public class ConnectionHandler {
             createNewGame(theme);
             last = gameList.get(0);
         } else {
-            if(theme.contains("famo")){
-                if(famousList.isEmpty()){
+            if (theme.contains("famo")) {
+                if (famousList.isEmpty()) {
                     createNewGame(theme);
                     last = famousList.get(0);
-                }else {
-                    last= famousList.get(famousList.size() -1);
+                } else {
+                    last = famousList.get(famousList.size() - 1);
                 }
             } else {
-                if(classicList.isEmpty()){
+                if (classicList.isEmpty()) {
                     createNewGame(theme);
                     last = classicList.get(0);
-                }else {
-                    last= classicList.get(classicList.size() -1);
+                } else {
+                    last = classicList.get(classicList.size() - 1);
                 }
             }
         }
@@ -63,20 +63,17 @@ public class ConnectionHandler {
     }
 
 
-
-
     private static void createNewGame(String theme) {
         activeGames++;
         gamesPlayed++;
         GameCelebrities celeb;
         GameClassic classic;
-        if(theme.contains("famo")){
-            celeb= new GameCelebrities();
+        if (theme.contains("famo")) {
+            celeb = new GameCelebrities();
             famousList.add(celeb);
             gameList.add(celeb);
-        }
-        else{
-            classic= new GameClassic();
+        } else {
+            classic = new GameClassic();
             classicList.add(classic);
             gameList.add(classic);
         }
@@ -130,11 +127,11 @@ public class ConnectionHandler {
                 GameWhoIsWho game = getGameById(player.getGameId());
                 game.leave(player);
                 if (game.isEmpty()) {
-                    if(game instanceof GameCelebrities){
-                        famousList.remove(famousList.indexOf((GameCelebrities)game));
+                    if (game instanceof GameCelebrities) {
+                        famousList.remove(famousList.indexOf((GameCelebrities) game));
                     }
-                    if(game instanceof GameClassic){
-                        classicList.remove(classicList.indexOf((GameClassic)game));
+                    if (game instanceof GameClassic) {
+                        classicList.remove(classicList.indexOf((GameClassic) game));
                     }
                     gameList.remove(gameList.indexOf(game));
                     activeGames--;

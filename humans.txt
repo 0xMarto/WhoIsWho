@@ -3,7 +3,7 @@
 
 
 /* TEAM */
-  <your title>: <your namee>
+  <your title>: <your name>
   Site:
   Twitter:
   Location:

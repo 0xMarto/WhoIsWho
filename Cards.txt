@@ -1,4 +1,4 @@
-Crear una tabla en GAE a la cual se acceda por un GET : "www.gaeserver.com/getName?namee=Sam" y
+Crear una tabla en GAE a la cual se acceda por un GET : "www.gaeserver.com/getName?name=Sam" y
 devuelva un Json.
 
 Name-   Hair-   Hat-LongHair-Glasses-Bold-Beard-Mustache-sex-bignose

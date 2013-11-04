@@ -46,7 +46,6 @@ public class Application extends Controller {
             flash("error", "Please choose a valid username.");
             return redirect(routes.Application.index());
         }
-        System.out.println("theme = " + theme);
         if (theme == null || theme.trim().equals("") || theme.contains("%")) {
             flash("error", "Please choose a theme.");
             return redirect(routes.Application.index());

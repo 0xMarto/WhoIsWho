@@ -8,7 +8,7 @@ package models;
  */
 
 public class Card {
-    private String namee;
+    private String name;
     private String hairColor;
     private boolean hat;
     private boolean longHair;
@@ -22,12 +22,25 @@ public class Card {
     public Card() {
     }
 
-    public String getNamee() {
-        return namee;
+    public Card(String name, String hairColor, boolean hat, boolean longHair, boolean glasses, boolean bold, boolean beard, boolean mustache, Character sex, boolean bigNose) {
+        this.name = name;
+        this.hairColor = hairColor;
+        this.hat = hat;
+        this.longHair = longHair;
+        this.glasses = glasses;
+        this.bold = bold;
+        this.beard = beard;
+        this.mustache = mustache;
+        this.sex = sex;
+        this.bigNose = bigNose;
     }
 
-    public void setNamee(String namee) {
-        this.namee = namee;
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getHairColor() {
@@ -105,7 +118,7 @@ public class Card {
     @Override
     public String toString() {
         return "Card{" +
-                "namee='" + namee + '\'' +
+                "name='" + name + '\'' +
                 ", hairColor='" + hairColor + '\'' +
                 ", hat=" + hat +
                 ", longHair=" + longHair +

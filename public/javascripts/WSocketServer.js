@@ -25,9 +25,10 @@ function sendMessage(type) {
             answer: qAnswer,
             guessCard: guessCardName
         }
-    ))
-    ;
-    $("#talk").val('');
+    ));
+    if (type == 'chat'){
+        $("#talk").val('');
+    }
 }
 
 function receiveEvent(event) {
@@ -99,7 +100,7 @@ function receiveEvent(event) {
     }
 
 
-//    $("span", chatLine).text(data.type);
+    //$("span", chatLine).text(data.type);
     $("p", chatLine).text(data.message);
     $('#messages').append(chatLine)
     $("#messages").scrollTop($("#messages")[0].scrollHeight);
