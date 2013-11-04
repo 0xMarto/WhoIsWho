@@ -15,12 +15,12 @@ import java.util.zip.ZipInputStream;
 
 public class Util {
     List<String> fileList;
-    List<String> fileExceptions;
+    List<String> fileExtensions;
 
 
     public void decompress(String zipFile, String outputFolder) {
         byte[] buffer = new byte[1024];
-        fileExceptions = new ArrayList<String>();
+        fileExtensions = new ArrayList<String>();
 
         try {
 
@@ -41,7 +41,7 @@ public class Util {
                 File newFile = new File(outputFolder + File.separator + fileName);
 
                 //System.out.println("file unzip : " + newFile.getAbsoluteFile());
-                fileExceptions.add(getExtension(newFile));
+                fileExtensions.add(getExtension(newFile));
 
                 //create all non exists folders
                 //else you will hit FileNotFoundException for compressed folder
@@ -83,12 +83,12 @@ public class Util {
         int images = 0;
         int text = 0;
 
-        for (String fileException : fileExceptions) {
-            if (fileException.equals("png") || fileException.equals("jpg")) {
+        for (String fileExtension : fileExtensions) {
+            if (fileExtension.equals("png") || fileExtension.equals("jpg")) {
                 images++;
-            } else if (fileException.equals("txt")) {
+            } else if (fileExtension.equals("txt")) {
                 text++;
-            } else if (fileException.equals("")) {
+            } else if (fileExtension.equals("")) {
             } else {
                 return false;
             }
@@ -246,12 +246,14 @@ public class Util {
     public static void main(String[] args) {
         Util util = new Util();
         File file = null;
-        file = new File("testzip/test.txt");
-        try {
+        //file = new File(".txt");
+        //util.decompress("famosos.zip", "prueba");
+        System.out.println("integridad "+util.verifyIntegrity());
+        /*try {
             System.out.println(String.valueOf(util.verifyTXT(file))+"");
         } catch (IOException e) {
             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-        }
+        }    */
     }
 
 }
