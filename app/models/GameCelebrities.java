@@ -23,30 +23,30 @@ public class GameCelebrities extends GameWhoIsWho{
 
     protected void loadCardsMap() {
         cardsMap = new HashMap<String, Card>();
-        cardsMap.put("ANISTON", new Card());
-        cardsMap.put("BECKHAM", "0fbac2");
-        cardsMap.put("CRUZ", "22a8a4");
-        cardsMap.put("DAVIDS", "2eafcf");
-        cardsMap.put("DEPP", "3f7f60");
-        cardsMap.put("FOX", "40c79c");
-        cardsMap.put("FRANCHELLA", "48166f");
-        cardsMap.put("GANDHI", "4e3b5c");
-        cardsMap.put("GARCIA", "63db8f");
-        cardsMap.put("HATHAWAY", "694599");
-        cardsMap.put("IBRAHIMOVICH", "6f4433");
-        cardsMap.put("JACKSON", "7028d6");
-        cardsMap.put("MESSI", "83f097");
-        cardsMap.put("NORRIS", "861d72");
-        cardsMap.put("POTTER", "91718d");
-        cardsMap.put("RON", "ac4871");
-        cardsMap.put("RYAN", "ade557");
-        cardsMap.put("SLASH", "b3e0af");
-        cardsMap.put("STONE", "bb88ca");
-        cardsMap.put("STREEP", "c46e40");
-        cardsMap.put("TORRES", "dca3b5");
-        cardsMap.put("VERON", "dea8ed");
-        cardsMap.put("WILSON", "e08c9c");
-        cardsMap.put("ZIDANE", "e5ec68");
+        cardsMap.put("ANISTON", new Card("ANISTON", "yellow", false, true, true, false, false, false, 'F', false));
+        cardsMap.put("BECKHAM", new Card("BECKHAM", "yellow", false, false, false, false, true, false, 'M', false));
+        cardsMap.put("CRUZ", new Card("CRUZ", "black", true, true, false, false, false, false, 'F', false));
+        cardsMap.put("DAVIDS", new Card("DAVIDS", "brawn", false, true, true, false, false, false, 'M', false));
+        cardsMap.put("DEPP", new Card("DEPP", "orange", true, true, false, false, false, false, 'M', false));
+        cardsMap.put("FOX", new Card("FOX", "black", false, true, false, false, false, false, 'F', false));
+        cardsMap.put("FRANCHELLA", new Card("FRANCHELLA", "black", false, false, false, false, false, true, 'M', false));
+        cardsMap.put("GANDHI", new Card("GANDHI", "white", false, false, true, true, false, true, 'M', true));
+        cardsMap.put("GARCIA", new Card("GARCIA", "brawn", false, true, true, false, false, true, 'M', false));
+        cardsMap.put("HATHAWAY", new Card("HATHAWAY", "brawn", false, false, false, true, false, false, 'F', false));
+        cardsMap.put("IBRAHIMOVICH", new Card("IBRAHIMOVICH", "brawn", false, true, false, false, false, true, 'M', true));
+        cardsMap.put("JACKSON", new Card("JACKSON", "black", false, true, false, false, false, false, 'M', false));
+        cardsMap.put("MESSI", new Card("MESSI", "brawn", false, false, false, false, true, false, 'M', true));
+        cardsMap.put("NORRIS", new Card("NORRIS", "brawn", true, false, false, false, true, false, 'M', false));
+        cardsMap.put("POTTER", new Card("POTTER", "brawn", false, false, true, false, false, false, 'M', false));
+        cardsMap.put("RON", new Card("RON", "orange", false, true, false, false, false, false, 'M', false));
+        cardsMap.put("RYAN", new Card("RYAN", "yellow", true, false, false, false, false, false, 'M', false));
+        cardsMap.put("SLASH", new Card("SLASH", "black", true, true, true, false, false, false, 'M', false));
+        cardsMap.put("STONE", new Card("STONE", "orange", false, true, false, false, false, false, 'F', false));
+        cardsMap.put("STREEP", new Card("STREEP", "white", false, false, false, false, false, false, 'F', false));
+        cardsMap.put("TORRES", new Card("TORRES", "yellow", false, false, false, false, false, false, 'M', false));
+        cardsMap.put("VERON", new Card("VERON", "black", false, false, false, true, true, false, 'M', false));
+        cardsMap.put("WILSON", new Card("WILSON", "yellow", false, true, false, false, false, false, 'M', true));
+        cardsMap.put("ZIDANE", new Card("ZIDANE", "brawn", false, false, false, true, true, false, 'M', false));
     }
 
     protected Card pickRandomCard() {
