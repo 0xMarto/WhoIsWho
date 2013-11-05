@@ -24,7 +24,7 @@ public class Util {
 
         try {
 
-            //create output directory is not exists
+            //create output directory if not exists
             File folder = new File(outputFolder);
             if (!folder.exists()) {
                 folder.mkdir();
@@ -96,7 +96,7 @@ public class Util {
         return images == 24 && text == 1;
     }
 
-    private String getExtension(File file) {
+    public String getExtension(File file) {
         String path = "" + file.getAbsoluteFile();
         String extencion = "";
         final int beginIndex = file.getName().lastIndexOf('.');
