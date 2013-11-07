@@ -110,6 +110,8 @@
                                 <p>Here it's showed the order of features and an example of how should be filled: </p>
                                 <h6>Name-   Hair-   Hat-LongHair-Glasses-Bold-Beard-Mustache-sex-bignose</h6>
                                 <h6>Sam-    white-  false-false-true-true-false-false-M-false</h6>
+
+                                <p>Bought the images and the txt file must be inside one same folder, which will be then compressed.</p>
                             </div>
                             <div class="roomContent">
                             @form(action = routes.Application.upload(), 'enctype -> "multipart/form-data") {
@@ -264,8 +266,8 @@
                                                         <input name="theme" type="radio" id="theme1" value="theme1">
                                                     </div>
                                                     <div>
-                                                        Famouses
-                                                        <input name="theme" type="radio" id="theme2" value="famous">
+                                                        Celebrities
+                                                        <input name="theme" type="radio" id="theme2" value="celebrities">
                                                     </div>
                                                     <div>
                                                         Theme 3
@@ -282,7 +284,7 @@
                                                 </div>
 
                                                 <button type="submit" onclick="validateUsername()">
-                                                    Join a gameClassic
+                                                    Join a Game
                                                 </button>
                                             </fieldset>
                                         </form>

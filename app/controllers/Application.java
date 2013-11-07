@@ -50,8 +50,8 @@ public class Application extends Controller {
             flash("error", "Please choose a theme.");
             return redirect(routes.Application.index());
         }
-        if(theme.contains("famo")){
-            return ok(views.html.famousChatRoom.render(username));
+        if(theme.contains("cel")){
+            return ok(views.html.chatRoomCelebrity.render(username));
         }
         return ok(chatRoom.render(username));
     }
@@ -91,12 +91,18 @@ public class Application extends Controller {
             File file = zipFile.getFile();
             File finalFile = new File(Play.current().path().getAbsolutePath() + "/public/themes/"
                     + String.valueOf((int) (Math.random() * 10000000)));
-            System.out.println(finalFile.getAbsolutePath());
 
             Util util = new Util();
             util.decompress(file.getAbsolutePath(), finalFile.getAbsolutePath());
             File[] listOfFiles = finalFile.listFiles();
             File textFile = null;
+
+            //in case the user upload a zip whit all the files inside a folder
+            if(listOfFiles.length==1 && util.getExtension(listOfFiles[0]).equals("")){
+                finalFile = new File(listOfFiles[0].getAbsolutePath());
+                listOfFiles = finalFile.listFiles();
+            }
+
             for (File tempFile : listOfFiles) {
                 final int beginIndex = tempFile.getName().lastIndexOf('.');
                 if (beginIndex != -1) {
