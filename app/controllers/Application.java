@@ -77,7 +77,7 @@ public class Application extends Controller {
     /**
     * Uploads a .zip o .rar file
     */
-    public static Result upload() throws IOException {
+    public static Result upload() throws  IOException{
         Http.MultipartFormData body = request().body().asMultipartFormData();
         Http.MultipartFormData.FilePart zipFile = body.getFile("zip");
         String fileName = zipFile.getFilename();

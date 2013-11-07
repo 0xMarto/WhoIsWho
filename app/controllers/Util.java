@@ -15,16 +15,16 @@ import java.util.zip.ZipInputStream;
 
 public class Util {
     List<String> fileList;
-    List<String> fileExtensions;
+    List<String> fileExceptions;
 
 
     public void decompress(String zipFile, String outputFolder) {
         byte[] buffer = new byte[1024];
-        fileExtensions = new ArrayList<String>();
+        fileExceptions = new ArrayList<String>();
 
         try {
 
-            //create output directory if not exists
+            //create output directory is not exists
             File folder = new File(outputFolder);
             if (!folder.exists()) {
                 folder.mkdir();
@@ -41,7 +41,7 @@ public class Util {
                 File newFile = new File(outputFolder + File.separator + fileName);
 
                 //System.out.println("file unzip : " + newFile.getAbsoluteFile());
-                fileExtensions.add(getExtension(newFile));
+                fileExceptions.add(getExtension(newFile));
 
                 //create all non exists folders
                 //else you will hit FileNotFoundException for compressed folder
@@ -83,12 +83,12 @@ public class Util {
         int images = 0;
         int text = 0;
 
-        for (String fileExtension : fileExtensions) {
-            if (fileExtension.equals("png") || fileExtension.equals("jpg")) {
+        for (String fileException : fileExceptions) {
+            if (fileException.equals("png") || fileException.equals("jpg")) {
                 images++;
-            } else if (fileExtension.equals("txt")) {
+            } else if (fileException.equals("txt")) {
                 text++;
-            } else if (fileExtension.equals("")) {
+            } else if (fileException.equals("")) {
             } else {
                 return false;
             }
@@ -246,14 +246,12 @@ public class Util {
     public static void main(String[] args) {
         Util util = new Util();
         File file = null;
-        //file = new File(".txt");
-        //util.decompress("famosos.zip", "prueba");
-        System.out.println("integridad "+util.verifyIntegrity());
-        /*try {
+        file = new File("testzip/test.txt");
+        try {
             System.out.println(String.valueOf(util.verifyTXT(file))+"");
         } catch (IOException e) {
             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-        }    */
+        }
     }
 
 }

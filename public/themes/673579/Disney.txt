@@ -1,0 +1,24 @@
+Ariel-  orange- false-true-true-false-false-false-F-false
+Arthur- yellow- false-false-false-false-false-false-M-false
+Carl-   white-  false-false-true-false-false-false-M-true
+Cuasimodo- orange-  false-false-false-false-false-false-M-true
+Febo-   yellow- false-true-false-false-true-false-M-false
+Geppetto- white-false-false-true-false-false-true-M-true
+Grumpy-  white- true-false-false-true-true-false-M-true
+Hook-   black-  true-true-false-false-false-true-M-false
+Isma-   black-  true-false-false-false-false-false-F-false
+Jane-   brawn-  false-false-false-false-false-false-F-false
+Jazmin- black-  false-true-false-false-false-false-F-false
+Jim-    brawn-  false-false-false-false-false-true-M-true-
+John-   yellow- false-true-false-true-false-false-M-true-
+Kuzco-  black-  false-true-false-false-false-false-M-false
+Linguini-orange-  true-false-false-false-false-false-M-false-
+Milo-   brawn-  false-false-true-false-false-true-M-false
+Mr Smee-white-  false-false-true-true-false-false-M-false
+Peter-  orange- true-false-false-false-false-false-M-true-
+Phil-   orange- false-false-false-true-true-false-M-true-
+Sultan- white-  true-false-false-true-true-true-M-false
+Tarzan- brawn-  false-true-false-false-false-false-M-false
+Tony-   black-  false-false-false-true-false-true-M-true
+Witch-  white-  true-true-false-false-false-false-F-true
+Yao-    black-  false-false-false-false-false-true-M-true
