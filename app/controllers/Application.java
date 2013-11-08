@@ -53,6 +53,9 @@ public class Application extends Controller {
         if(theme.contains("cel")){
             return ok(views.html.chatRoomCelebrity.render(username));
         }
+        if(theme.contains("dis")){
+            return ok(views.html.chatRoomDisney.render(username));
+        }
         return ok(chatRoom.render(username));
     }
 

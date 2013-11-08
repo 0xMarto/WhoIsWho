@@ -16,6 +16,7 @@ public class ConnectionHandler {
     private static ArrayList<GameWhoIsWho> gameList = new ArrayList<GameWhoIsWho>();
     private static ArrayList<GameClassic> classicList = new ArrayList<GameClassic>();
     private static ArrayList<GameCelebrities> celebritiesList = new ArrayList<GameCelebrities>();
+    private static ArrayList<GameDisney> disneyList = new ArrayList<GameDisney>();
     private static int gamesPlayed = 0;
     private static int activeGames = 0;
 
@@ -50,6 +51,13 @@ public class ConnectionHandler {
                 }else {
                     last= celebritiesList.get(celebritiesList.size() -1);
                 }
+            }else if(theme.contains("dis")){
+                if(disneyList.isEmpty()){
+                    createNewGame(theme);
+                    last = disneyList.get(0);
+                }else {
+                    last= disneyList.get(disneyList.size() -1);
+                }
             } else {
                 if(classicList.isEmpty()){
                     createNewGame(theme);
@@ -69,11 +77,17 @@ public class ConnectionHandler {
         activeGames++;
         gamesPlayed++;
         GameCelebrities celeb;
+        GameDisney disne;
         GameClassic classic;
         if(theme.contains("cel")){
             celeb= new GameCelebrities();
             celebritiesList.add(celeb);
             gameList.add(celeb);
+        }
+        else if(theme.contains("dis")){
+            disne = new GameDisney();
+            disneyList.add(disne);
+            gameList.add(disne);
         }
         else{
             classic= new GameClassic();
@@ -132,6 +146,9 @@ public class ConnectionHandler {
                 if (game.isEmpty()) {
                     if(game instanceof GameCelebrities){
                         celebritiesList.remove(celebritiesList.indexOf((GameCelebrities) game));
+                    }
+                    if(game instanceof GameDisney){
+                        disneyList.remove(disneyList.indexOf((GameDisney) game));
                     }
                     if(game instanceof GameClassic){
                         classicList.remove(classicList.indexOf((GameClassic)game));
