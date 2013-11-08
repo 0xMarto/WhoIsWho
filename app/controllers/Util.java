@@ -15,16 +15,16 @@ import java.util.zip.ZipInputStream;
 
 public class Util {
     List<String> fileList;
-    List<String> fileExceptions;
+    List<String> fileExtensions;
 
 
     public void decompress(String zipFile, String outputFolder) {
         byte[] buffer = new byte[1024];
-        fileExceptions = new ArrayList<String>();
+        fileExtensions = new ArrayList<String>();
 
         try {
 
-            //create output directory is not exists
+            //create output directory if not exists
             File folder = new File(outputFolder);
             if (!folder.exists()) {
                 folder.mkdir();
@@ -41,7 +41,7 @@ public class Util {
                 File newFile = new File(outputFolder + File.separator + fileName);
 
                 //System.out.println("file unzip : " + newFile.getAbsoluteFile());
-                fileExceptions.add(getExtension(newFile));
+                fileExtensions.add(getExtension(newFile));
 
                 //create all non exists folders
                 //else you will hit FileNotFoundException for compressed folder
@@ -83,12 +83,12 @@ public class Util {
         int images = 0;
         int text = 0;
 
-        for (String fileException : fileExceptions) {
-            if (fileException.equals("png") || fileException.equals("jpg")) {
+        for (String fileExtension : fileExtensions) {
+            if (fileExtension.equals("png") || fileExtension.equals("jpg")) {
                 images++;
-            } else if (fileException.equals("txt")) {
+            } else if (fileExtension.equals("txt")) {
                 text++;
-            } else if (fileException.equals("")) {
+            } else if (fileExtension.equals("")) {
             } else {
                 return false;
             }
