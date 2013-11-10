@@ -4,8 +4,8 @@ Bo' Rai Cho- black-false-true-false-false-true-true-M-true
 Bowser- orange-false-true-false-false-false-false-M-true
 Gruntilda- black-true-true-false-false-false-false-F-true
 Jax- black- false-false-false-false-false-true-M-false
-Jihl Nabaat- yellow-false-true-false-false-false-F-false
-Jinpachi- white-false-false-true-true-true-M-true
+Jihl Nabaat- yellow-false-true-true-false-false-false-F-false
+Jinpachi- white-false-false-false-true-true-true-M-true
 Johnny Cage- brown-false-false-true-false-false-false-M-false
 Ko Horo- brown-false-true-false-false-false-true-M-false
 Kratos- black- false-false-false-true-true-false-M-false

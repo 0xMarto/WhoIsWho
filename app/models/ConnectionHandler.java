@@ -17,6 +17,7 @@ public class ConnectionHandler {
     private static ArrayList<GameClassic> classicList = new ArrayList<GameClassic>();
     private static ArrayList<GameCelebrities> celebritiesList = new ArrayList<GameCelebrities>();
     private static ArrayList<GameDisney> disneyList = new ArrayList<GameDisney>();
+    private static ArrayList<GameVideoGames> videoGamesList = new ArrayList<GameVideoGames>();
     private static int gamesPlayed = 0;
     private static int activeGames = 0;
 
@@ -58,7 +59,16 @@ public class ConnectionHandler {
                 }else {
                     last= disneyList.get(disneyList.size() -1);
                 }
-            } else {
+            }
+            else if(theme.contains("vid")){
+                if(videoGamesList.isEmpty()){
+                    createNewGame(theme);
+                    last = videoGamesList.get(0);
+                }else {
+                    last= videoGamesList.get(videoGamesList.size() -1);
+                }
+            }
+            else {
                 if(classicList.isEmpty()){
                     createNewGame(theme);
                     last = classicList.get(0);
@@ -78,6 +88,7 @@ public class ConnectionHandler {
         gamesPlayed++;
         GameCelebrities celeb;
         GameDisney disne;
+        GameVideoGames video;
         GameClassic classic;
         if(theme.contains("cel")){
             celeb= new GameCelebrities();
@@ -88,6 +99,11 @@ public class ConnectionHandler {
             disne = new GameDisney();
             disneyList.add(disne);
             gameList.add(disne);
+        }
+        else if(theme.contains("vid")){
+            video = new GameVideoGames();
+            videoGamesList.add(video);
+            gameList.add(video);
         }
         else{
             classic= new GameClassic();
@@ -149,6 +165,9 @@ public class ConnectionHandler {
                     }
                     if(game instanceof GameDisney){
                         disneyList.remove(disneyList.indexOf((GameDisney) game));
+                    }
+                    if(game instanceof GameVideoGames){
+                        videoGamesList.remove(videoGamesList.indexOf((GameVideoGames) game));
                     }
                     if(game instanceof GameClassic){
                         classicList.remove(classicList.indexOf((GameClassic)game));

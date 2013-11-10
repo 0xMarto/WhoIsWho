@@ -6,6 +6,7 @@
 GET        /whoiswho                      controllers.Application.index()
 GET        /whoiswho/chatRoom             controllers.Application.chatRoom(username: String ?= null, theme: String ?= null)
 GET        /whoiswho/chatRoomCelebrity    controllers.Application.chatRoom(username: String ?= null, theme: String ?= null)
+GET        /whoiswho/chatRoomVideoGames   controllers.Application.chatRoom(username: String ?= null, theme: String ?= null)
 GET        /whoiswho/chatRoomDisney       controllers.Application.chatRoom(username: String ?= null, theme: String ?= null)
 GET        /whoiswho/chatRoom/Play        controllers.Application.game(username, theme)
 GET        /whoiswho/aboutGame            controllers.Application.aboutGame()
