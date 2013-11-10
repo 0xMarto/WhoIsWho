@@ -1,0 +1,24 @@
+Ash- black-true-false-false-false-false-false-M-false
+Bayonetta- black-false-true-true-false-false-false-F-false
+Bo' Rai Cho- black-false-true-false-false-true-true-M-true
+Bowser- orange-false-true-false-false-false-false-M-true
+Gruntilda- black-true-true-false-false-false-false-F-true
+Jax- black- false-false-false-false-false-true-M-false
+Jihl Nabaat- yellow-false-true-false-false-false-F-false
+Jinpachi- white-false-false-true-true-true-M-true
+Johnny Cage- brown-false-false-true-false-false-false-M-false
+Ko Horo- brown-false-true-false-false-false-true-M-false
+Kratos- black- false-false-false-true-true-false-M-false
+Link- yellow- true-true-false-false-false-false-M-false
+Mario- black- true-false-false-false-false-true-M-true
+May- brown- true-true-false-false-false-false-F-false
+Nakiro- orange- false-true-false-false-false-false-F-false
+Oak- white- false-false-false-false-false-false-M-false
+Old Mushrom- white- true-false-true-true-false-true-M-false
+Paul Phoenix- yellow- false-false-false-false-true-true-M-false
+Peach- yellow-true-true-false-false-false-false-F-false
+Robotnik- brown- false-false-true-true-false-true-M-true
+Shujinko- white- false-true-false-false-true-true-M-false
+Sindel- white- false-true-false-false-false-false-F-false
+Tanya- black- false-false-false-false-false-false-F-false
+Wario- brown- true-false-false-false-false-true-M-true
