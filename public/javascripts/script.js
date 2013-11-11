@@ -207,11 +207,11 @@ function parseJSON(json) {
 
     }
     players = bubbleSort(players);
-
-    for (i = 0; i < 10; i++) {
+    var length= players.length;
+    for (i = length-10; i < length; i++) {
         var id = json.payload.items[i].id;
         var credential = json.payload.items[i].credential;
-        var first = 10 - (i);
+        var first = length - (i);
         var last = players[i].name;
         var mail = players[i].win;
         var phone = players[i].lose;
