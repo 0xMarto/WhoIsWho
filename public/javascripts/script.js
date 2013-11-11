@@ -31,8 +31,6 @@ $(document).ready(function () {
     listJson();
 });
 
-
-
 function loadRanking() {
     var room = $("#rankingRoom")
 
@@ -56,7 +54,6 @@ function loadProfile() {
 }
 
 var req;
-
 function loadXML(method, url, params, callback) {
     var baseUrl = "http://dpoi2012api.appspot.com/api/1.0";
     if (window.XMLHttpRequest) {
@@ -195,10 +192,12 @@ function bubbleSort(a) {
     return a;
 }
 
+var players;
 function parseJSON(json) {
-    var players = new Array();
+    players = [];
     for (i = 0; i < json.payload.count; i++) {
         var RankObject = {};
+        RankObject.id = json.payload.items[i].id;
         RankObject.name = json.payload.items[i].name;
         RankObject.rank = json.payload.items[i].rank;
         RankObject.win = json.payload.items[i].Win;
@@ -221,6 +220,29 @@ function parseJSON(json) {
     //document.getElementById('table1').deleteRow(json.payload.count+1);
     //var loading = document.getElementById('loading');
     //suicide (loading);
+}
+
+function addPlayer(playerName) {
+    var method = "POST";
+    var url = "/create?credential=ranking";
+    var params = ["name=" + playerName,"Win=" + 0, "Lost=" + 0];
+    loadXML(method, url, params, null);
+
+    var RankObject = {};
+    RankObject.name = playerName;
+    RankObject.win = 0;
+    RankObject.lose = 0;
+
+    return RankObject;
+}
+
+function getPlayer(playerName){
+            for(var i = 0; i < players.length; i++){
+                if (players[i].name == playerName){
+                    return players[i];
+                }
+    }
+    return addPlayer(playerName);
 }
 
 function createTableRow(id, first, last, mail, phone) {
@@ -374,7 +396,6 @@ function cancelPopUp(id) {
     ok.setAttribute("onclick", "deleteJson('" + id + "')");
 
 }
-
 
 function suicide(element) {
     element.parentNode.removeChild(element);

@@ -106,7 +106,6 @@ function receiveEvent(event) {
     $("#messages").scrollTop($("#messages")[0].scrollHeight);
 }
 
-
 var updated = false;
 function updateRanking() {
     if (!updated) {
