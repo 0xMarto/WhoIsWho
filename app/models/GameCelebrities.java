@@ -29,11 +29,11 @@ public class GameCelebrities extends GameWhoIsWho{
         cardsMap.put("DAVIDS", new Card("DAVIDS", "brawn", false, true, true, false, false, false, 'M', false));
         cardsMap.put("DEPP", new Card("DEPP", "orange", true, true, false, false, false, false, 'M', false));
         cardsMap.put("FOX", new Card("FOX", "black", false, true, false, false, false, false, 'F', false));
-        cardsMap.put("FRANCHELLA", new Card("FRANCHELLA", "black", false, false, false, false, false, true, 'M', false));
+        cardsMap.put("GUILLE", new Card("GUILLE", "black", false, false, false, false, false, true, 'M', false));
         cardsMap.put("GANDHI", new Card("GANDHI", "white", false, false, true, true, false, true, 'M', true));
         cardsMap.put("GARCIA", new Card("GARCIA", "brawn", false, true, true, false, false, true, 'M', false));
-        cardsMap.put("HATHAWAY", new Card("HATHAWAY", "brawn", false, false, false, true, false, false, 'F', false));
-        cardsMap.put("IBRAHIMOVICH", new Card("IBRAHIMOVICH", "brawn", false, true, false, false, false, true, 'M', true));
+        cardsMap.put("ANNE", new Card("ANNE", "brawn", false, false, false, true, false, false, 'F', false));
+        cardsMap.put("ZLATAN", new Card("ZLATAN", "brawn", false, true, false, false, false, true, 'M', true));
         cardsMap.put("JACKSON", new Card("JACKSON", "black", false, true, false, false, false, false, 'M', false));
         cardsMap.put("MESSI", new Card("MESSI", "brawn", false, false, false, false, true, false, 'M', true));
         cardsMap.put("NORRIS", new Card("NORRIS", "brawn", true, false, false, false, true, false, 'M', false));
@@ -50,8 +50,8 @@ public class GameCelebrities extends GameWhoIsWho{
     }
 
     protected Card pickRandomCard() {
-        String cards[] = {"ANISTON", "BECKHAM", "CRUZ", "DAVIDS", "DEPP", "FOX", "FRANCHELLA", "GANDHI", "GARCIA", "HATHAWAY",
-                "IBRAHIMOVICH", "JACKSON", "MESSI", "NORRIS", "POTTER", "RON", "RYAN", "SLASH", "STONE", "STREEP", "TORRES",
+        String cards[] = {"ANISTON", "BECKHAM", "CRUZ", "DAVIDS", "DEPP", "FOX", "GUILLE", "GANDHI", "GARCIA", "ANNE",
+                "ZLATAN", "JACKSON", "MESSI", "NORRIS", "POTTER", "RON", "RYAN", "SLASH", "STONE", "STREEP", "TORRES",
                 "VERON", "WILSON", "ZIDANE"};
 
         Random turnRoller = new Random();
