@@ -57,7 +57,7 @@ public class GameClassic extends GameWhoIsWho{
         int roll = turnRoller.nextInt(24);
 
         System.out.println("GameClassic: " + this.gameId + " - Loading Card:" + cards[roll]);
-        Card card = getCardFromDb(cardsMap.get(cards[roll]).toString());
+        Card card = (Card) cardsMap.get(cards[roll]);
         return card;
     }
 
