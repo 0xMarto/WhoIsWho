@@ -119,7 +119,7 @@ function updateRanking() {
 function showPlayerCard(cardName) {
     var cardList = document.getElementsByClassName("card");
     for (var i = 0; i < cardList.length; i++) {
-        var name = cardList[i].getElementsByTagName("h2")[0].innerHTML;
+        var name = (cardList[i].getElementsByTagName("h2")[0].innerHTML).toUpperCase();
         if (name == cardName) {
             console.log(name);
             cardList[i].className += " " + "playerCard";
