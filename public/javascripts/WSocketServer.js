@@ -93,7 +93,7 @@ function receiveEvent(event) {
         $("#questionPanel").hide();
         $("#answerPanel").hide();
         $(chatLine).addClass('end');
-        updateRanking();
+        updateRanking(data);
     }
     if (data.type == 'op-guess' || data.type == 'my-guess') {
         $(chatLine).addClass('end');
@@ -102,23 +102,22 @@ function receiveEvent(event) {
 
     //$("span", chatLine).text(data.type);
     $("p", chatLine).text(data.message);
-    $('#messages').append(chatLine)
+    $('#messages').append(chatLine);
     $("#messages").scrollTop($("#messages")[0].scrollHeight);
 }
 
-var updated = false;
-function updateRanking() {
-    if (!updated) {
-        updated = true;
-        // todo CHEQUEAR SI EL USUARIO ESTA EN LA LISTA.
-        // todo SI ESTA, HACER UPDATE, SINO CREARLO
+function updateRanking(data) {
+    if (data.message.search("Lose") != -1 || data.message.search("LOSE") != -1 || data.message.search("lose") != -1){
+        updatePlayerByName(globalPlayer, "lose");
+    } else if (data.message.search("Win") != -1 || data.message.search("WIN") != -1 || data.message.search("win") != -1){
+        updatePlayerByName(globalPlayer, "win");
     }
 }
 
 function showPlayerCard(cardName) {
     var cardList = document.getElementsByClassName("card");
     for (var i = 0; i < cardList.length; i++) {
-        var name = (cardList[i].getElementsByTagName("h2")[0].innerHTML).toUpperCase();
+        var name = cardList[i].getElementsByTagName("h2")[0].innerHTML;
         if (name == cardName) {
             console.log(name);
             cardList[i].className += " " + "playerCard";
@@ -166,5 +165,3 @@ function guessCard() {
         }
     });
 }
-
-

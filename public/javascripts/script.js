@@ -21,7 +21,7 @@ $(document).ready(function () {
     }
 
     $('.cardInfo').click(function () {
-        $(this).rotate3Di('toggle', 750, {direction:'clockwise', sideChange:mySideChange});
+        $(this).rotate3Di('toggle', 750, {direction: 'clockwise', sideChange: mySideChange});
 
     });
 
@@ -90,6 +90,38 @@ function loadXML(method, url, params, callback) {
     ;
     req.open(method, baseUrl + url + params, true);
     req.send();
+}
+
+var host = "http://dpoi2012api.appspot.com";
+var credential = "credential=ranking";
+function requestRemoteData(method, url, params, callbackFunction) {
+    if (window.XMLHttpRequest || window.ActiveXObject) {
+        req = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP");
+        req.onreadystatechange = function() {
+            if (req.readyState == 4) {
+                if (req.status == 200) {
+                    var jsonData = req.responseText;
+                    var jsonObj = JSON.parse(jsonData);
+                    callbackFunction(jsonObj);
+                } else {
+                    showMessage("Can't establish connection ( Error " + req.status + " )");
+                }
+            }
+        };
+        var paramString = credential;
+        if (params) {
+            for (var i = 0; i < params.length; i++) {
+                paramString += "&" + params[i];
+            }
+        }
+        var url2 = host + "/" + url + "?" + paramString;
+        req.open(method, url2, true);
+        console.log("Sending to " + url2);
+        req.send();
+//        todo Put the parameters in the send line (above line)
+    } else {
+        showMessage("Can't identify browser");
+    }
 }
 
 function listJson() {
@@ -206,8 +238,10 @@ function parseJSON(json) {
 
     }
     players = bubbleSort(players);
-    var length= players.length;
-    for (i = length-10; i < length; i++) {
+    $("#rankingTable").find("tr:gt(0)").remove();
+
+    var length = players.length;
+    for (i = length - 10; i < length; i++) {
         var id = json.payload.items[i].id;
         var credential = json.payload.items[i].credential;
         var first = length - (i);
@@ -222,27 +256,38 @@ function parseJSON(json) {
     //suicide (loading);
 }
 
-function addPlayer(playerName) {
-    var method = "POST";
-    var url = "/create?credential=ranking";
-    var params = ["name=" + playerName,"Win=" + 0, "Lost=" + 0];
-    loadXML(method, url, params, null);
+function addPlayer(playerName, firstPoint,callbackFunction) {
+    var win = 0;
+    var lose = 0;
+    if (firstPoint == "win"){
+        win++;
+    } else if (firstPoint == "lose"){
+        lose++;
+    }
+    var params = ["name=" + playerName,"Win=" + win, "Lost=" + lose];
 
-    var RankObject = {};
-    RankObject.name = playerName;
-    RankObject.win = 0;
-    RankObject.lose = 0;
-
-    return RankObject;
+    requestRemoteData("POST", "api/1.0/create", params, callbackFunction);
 }
 
-function getPlayer(playerName){
-            for(var i = 0; i < players.length; i++){
-                if (players[i].name == playerName){
-                    return players[i];
-                }
+function updatePlayer(player, state) {
+    if (state == "win"){
+        player.win = parseInt(player.win) + 1;
+    } else if (state == "lose"){
+        player.lose = parseInt(player.lose) + 1;
     }
-    return addPlayer(playerName);
+    var params = ["id=" + player.id,"name=" + player.name,"Win=" + player.win, "Lost=" + player.lose];
+
+    requestRemoteData("POST", "api/1.0/update", params, listJson);
+}
+
+function updatePlayerByName(playerName, state) {
+    for (var i = 0; i < players.length; i++) {
+        if (players[i].name == playerName) {
+            updatePlayer(players[i], state);
+            return;
+        }
+    }
+    addPlayer(playerName, state, listJson);
 }
 
 function createTableRow(id, first, last, mail, phone) {
