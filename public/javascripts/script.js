@@ -21,7 +21,7 @@ $(document).ready(function () {
     }
 
     $('.cardInfo').click(function () {
-        $(this).rotate3Di('toggle', 750, {direction:'clockwise', sideChange:mySideChange});
+        $(this).rotate3Di('toggle', 750, {direction: 'clockwise', sideChange: mySideChange});
 
     });
 
@@ -30,8 +30,6 @@ $(document).ready(function () {
 //    Load ranking table when document is loaded
     listJson();
 });
-
-
 
 function loadRanking() {
     var room = $("#rankingRoom")
@@ -56,7 +54,6 @@ function loadProfile() {
 }
 
 var req;
-
 function loadXML(method, url, params, callback) {
     var baseUrl = "http://dpoi2012api.appspot.com/api/1.0";
     if (window.XMLHttpRequest) {
@@ -93,6 +90,38 @@ function loadXML(method, url, params, callback) {
     ;
     req.open(method, baseUrl + url + params, true);
     req.send();
+}
+
+var host = "http://dpoi2012api.appspot.com";
+var credential = "credential=ranking";
+function requestRemoteData(method, url, params, callbackFunction) {
+    if (window.XMLHttpRequest || window.ActiveXObject) {
+        req = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP");
+        req.onreadystatechange = function() {
+            if (req.readyState == 4) {
+                if (req.status == 200) {
+                    var jsonData = req.responseText;
+                    var jsonObj = JSON.parse(jsonData);
+                    callbackFunction(jsonObj);
+                } else {
+                    showMessage("Can't establish connection ( Error " + req.status + " )");
+                }
+            }
+        };
+        var paramString = credential;
+        if (params) {
+            for (var i = 0; i < params.length; i++) {
+                paramString += "&" + params[i];
+            }
+        }
+        var url2 = host + "/" + url + "?" + paramString;
+        req.open(method, url2, true);
+        console.log("Sending to " + url2);
+        req.send();
+//        todo Put the parameters in the send line (above line)
+    } else {
+        showMessage("Can't identify browser");
+    }
 }
 
 function listJson() {
@@ -195,10 +224,12 @@ function bubbleSort(a) {
     return a;
 }
 
+var players;
 function parseJSON(json) {
-    var players = new Array();
+    players = [];
     for (i = 0; i < json.payload.count; i++) {
         var RankObject = {};
+        RankObject.id = json.payload.items[i].id;
         RankObject.name = json.payload.items[i].name;
         RankObject.rank = json.payload.items[i].rank;
         RankObject.win = json.payload.items[i].Win;
@@ -207,11 +238,13 @@ function parseJSON(json) {
 
     }
     players = bubbleSort(players);
+    $("#rankingTable").find("tr:gt(0)").remove();
 
-    for (i = 0; i < 10; i++) {
+    var length = players.length;
+    for (i = length - 10; i < length; i++) {
         var id = json.payload.items[i].id;
         var credential = json.payload.items[i].credential;
-        var first = 10 - (i);
+        var first = length - (i);
         var last = players[i].name;
         var mail = players[i].win;
         var phone = players[i].lose;
@@ -221,6 +254,40 @@ function parseJSON(json) {
     //document.getElementById('table1').deleteRow(json.payload.count+1);
     //var loading = document.getElementById('loading');
     //suicide (loading);
+}
+
+function addPlayer(playerName, firstPoint,callbackFunction) {
+    var win = 0;
+    var lose = 0;
+    if (firstPoint == "win"){
+        win++;
+    } else if (firstPoint == "lose"){
+        lose++;
+    }
+    var params = ["name=" + playerName,"Win=" + win, "Lost=" + lose];
+
+    requestRemoteData("POST", "api/1.0/create", params, callbackFunction);
+}
+
+function updatePlayer(player, state) {
+    if (state == "win"){
+        player.win = parseInt(player.win) + 1;
+    } else if (state == "lose"){
+        player.lose = parseInt(player.lose) + 1;
+    }
+    var params = ["id=" + player.id,"name=" + player.name,"Win=" + player.win, "Lost=" + player.lose];
+
+    requestRemoteData("POST", "api/1.0/update", params, listJson);
+}
+
+function updatePlayerByName(playerName, state) {
+    for (var i = 0; i < players.length; i++) {
+        if (players[i].name == playerName) {
+            updatePlayer(players[i], state);
+            return;
+        }
+    }
+    addPlayer(playerName, state, listJson);
 }
 
 function createTableRow(id, first, last, mail, phone) {
@@ -374,7 +441,6 @@ function cancelPopUp(id) {
     ok.setAttribute("onclick", "deleteJson('" + id + "')");
 
 }
-
 
 function suicide(element) {
     element.parentNode.removeChild(element);

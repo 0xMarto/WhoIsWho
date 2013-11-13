@@ -1,6 +1,7 @@
 @(username: String)
 
 @main(username) {
+    <script>var globalPlayer = "@username";</script>
 
 <input id="WSocketPath" value="@routes.Application.game(username, "cel").webSocketURL(request)" style="display: none;">
 

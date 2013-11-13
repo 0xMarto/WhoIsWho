@@ -22,30 +22,30 @@ public class GameClassic extends GameWhoIsWho{
 
     protected void loadCardsMap() {
         cardsMap = new HashMap<String, String>();
-        cardsMap.put("RICHARD", "0e6067");
-        cardsMap.put("GEORGE", "0fbac2");
-        cardsMap.put("ANNA", "22a8a4");
-        cardsMap.put("ALEX", "2eafcf");
-        cardsMap.put("SAM", "3f7f60");
-        cardsMap.put("MARIA", "40c79c");
-        cardsMap.put("WILLIAM", "48166f");
-        cardsMap.put("ALFRED", "4e3b5c");
-        cardsMap.put("CHARLES", "63db8f");
-        cardsMap.put("TOM", "694599");
-        cardsMap.put("ANITA", "6f4433");
-        cardsMap.put("ROBERT", "7028d6");
-        cardsMap.put("FRANK", "83f097");
-        cardsMap.put("PABLO", "861d72");
-        cardsMap.put("PETER", "91718d");
-        cardsMap.put("CLAIRE", "ac4871");
-        cardsMap.put("DAVID", "ade557");
-        cardsMap.put("JOE", "b3e0af");
-        cardsMap.put("BERNARD", "bb88ca");
-        cardsMap.put("GERMAN", "c46e40");
-        cardsMap.put("SUSAN", "dca3b5");
-        cardsMap.put("MANNY", "dea8ed");
-        cardsMap.put("ERNEST", "e08c9c");
-        cardsMap.put("PHILIP", "e5ec68");
+        cardsMap.put("RICHARD", new Card("RICHARD","brawn", false, false, false, true, true, true, 'M', false));
+        cardsMap.put("GEORGE", new Card("GEORGE", "white", true, false, false, false, false, false, 'M', false));
+        cardsMap.put("ANNA", new Card("ANNA", "black", false, false, false, false, false, false, 'F', true));
+        cardsMap.put("ALEX", new Card("ALEX", "black", false, false, false, false, false, true, 'M', false));
+        cardsMap.put("SAM", new Card("SAM", "white", false, false, true, true, false, false, 'M', false));
+        cardsMap.put("MARIA", new Card("MARIA", "brawn", true, true, false, false, true, false, 'F', false));
+        cardsMap.put("WILLIAM", new Card("WILLIAM", "orange", false, false, false, true, false, false, 'M', false));
+        cardsMap.put("ALFRED", new Card("ALFRED", "orange", false, true, false, false, false, true, 'M', false));
+        cardsMap.put("CHARLES", new Card("CHARLES", "yellow", false, false, false, false, false, true, 'M', false));
+        cardsMap.put("TOM", new Card("TOM", "black", false, false, true, true, false, false, 'M', false));
+        cardsMap.put("ANITA", new Card("ANITA", "yellow", false, true, false, false, false, false, 'F', false));
+        cardsMap.put("ROBERT", new Card("ROBERT", "brawn", false, false, false, false, false, false, 'M', true));
+        cardsMap.put("FRANK", new Card("FRANK", "orange", false, false, false, false, false, false, 'M', false));
+        cardsMap.put("PABLO", new Card("PABLO", "white", false, false, true, false, false, false, 'M', false));
+        cardsMap.put("PETER", new Card("PETER", "white", false, false, false, false, false, false, 'M', true));
+        cardsMap.put("CLAIRE", new Card("CLAIRE", "orange", true, false, true, false, false, false, 'F', false));
+        cardsMap.put("DAVID", new Card("DAVID", "yellow", false, false, false, false, true, false, 'M', false));
+        cardsMap.put("JOE", new Card("JOE", "yellow", false, false, true, false, false, false, 'M', false));
+        cardsMap.put("BERNARD", new Card("BERNARD", "brawn", true, false, false, false, false, false, 'M', true));
+        cardsMap.put("GERMAN", new Card("GERMAN", "orange", false, false, false, true, false, false, 'M', true));
+        cardsMap.put("SUSAN", new Card("SUSAN", "white", false, true, false, false, false, false, 'F', false));
+        cardsMap.put("MANNY", new Card("MANNY", "brawn", false, false, false, false, false, true, 'M', true));
+        cardsMap.put("ERNEST", new Card("ERNEST", "yellow", true, false, false, false, false, false, 'M', false));
+        cardsMap.put("PHILIP", new Card("PHILIP", "black", false, false, false, false, true, false, 'M', false));
     }
 
     protected Card pickRandomCard() {
@@ -57,7 +57,7 @@ public class GameClassic extends GameWhoIsWho{
         int roll = turnRoller.nextInt(24);
 
         System.out.println("GameClassic: " + this.gameId + " - Loading Card:" + cards[roll]);
-        Card card = getCardFromDb(cardsMap.get(cards[roll]).toString());
+        Card card = (Card) cardsMap.get(cards[roll]);
         return card;
     }
 

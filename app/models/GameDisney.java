@@ -26,9 +26,9 @@ public class GameDisney extends GameWhoIsWho{
         cardsMap.put("ARIEL", new Card("ARIEL", "orange", false, true, true, false, false, false, 'F', false));
         cardsMap.put("ARTHUR", new Card("ARTHUR", "yellow", false, false, false, false, false, false, 'M', false));
         cardsMap.put("CARL", new Card("CARL", "white", false, false, true, false, false, false, 'M', true));
-        cardsMap.put("CUASIMODO", new Card("CUASIMODO", "orange", false, false, false, false, false, false, 'M', true));
+        cardsMap.put("CUASI", new Card("CUASI", "orange", false, false, false, false, false, false, 'M', true));
         cardsMap.put("FEBO", new Card("FEBO", "yellow", false, true, false, false, true, false, 'M', false));
-        cardsMap.put("GEPPETTO", new Card("GEPPETTO", "white", false, false, true, false, false, true, 'M', true));
+        cardsMap.put("GEPETO", new Card("GEPETO", "white", false, false, true, false, false, true, 'M', true));
         cardsMap.put("GRUMPY", new Card("GRUMPY", "white", true, false, false, true, true, false, 'M', true));
         cardsMap.put("HOOK", new Card("HOOK", "black", true, true, false, false, false, true, 'M', false));
         cardsMap.put("ISMA", new Card("ISMA", "black", true, false, false, false, false, false, 'F', false));
@@ -50,7 +50,7 @@ public class GameDisney extends GameWhoIsWho{
     }
 
     protected Card pickRandomCard() {
-        String cards[] = {"ARIEL", "ARTHUR", "CARL", "CUASIMODO", "FEBO", "GEPPETTO", "GRUMPY", "HOOK", "ISMA", "JANE",
+        String cards[] = {"ARIEL", "ARTHUR", "CARL", "CUASI", "FEBO", "GEPETO", "GRUMPY", "HOOK", "ISMA", "JANE",
                 "JAZMIN", "JIM", "JOHN", "KUZCO", "LINGUINI", "MILO", "MR SMEE", "PETER", "PHIL", "SULTAN", "TARZAN",
                 "TONY", "WITCH", "YAO"};
 
