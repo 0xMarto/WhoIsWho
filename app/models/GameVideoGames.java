@@ -24,14 +24,14 @@ public class GameVideoGames extends GameWhoIsWho{
     protected void loadCardsMap() {
         cardsMap = new HashMap<String, Card>();
         cardsMap.put("ASH", new Card("ASH", "black", true, false, false, false, false, false, 'M', false));
-        cardsMap.put("BAYONETTA", new Card("BAYONETTA", "black", false, true, true, false, false, false, 'F', false));
-        cardsMap.put("BO RAI CHO", new Card("BO RAI CHO", "black", false, true, false, false, true, true, 'M', true));
+        cardsMap.put("BAYONET", new Card("BAYONET", "black", false, true, true, false, false, false, 'F', false));
+        cardsMap.put("BO' RAI", new Card("BO' RAI", "black", false, true, false, false, true, true, 'M', true));
         cardsMap.put("BOWSER", new Card("BOWSER", "orange", false, true, false, false, false, false, 'M', true));
-        cardsMap.put("GRUNTILDA", new Card("GRUNTILDA", "black", true, true, false, false, false, false, 'F', true));
+        cardsMap.put("GRUNTIL", new Card("GRUNTILDA", "black", true, true, false, false, false, false, 'F', true));
         cardsMap.put("JAX", new Card("JAX", "black", false, false, false, false, false, true, 'M', false));
-        cardsMap.put("JIHL NABAAT", new Card("JIHL NABAAT", "yellow", false, true, true, false, false, false, 'F', false));
+        cardsMap.put("JIHN", new Card("JIHN", "yellow", false, true, true, false, false, false, 'F', false));
         cardsMap.put("JINPACHI", new Card("JINPACHI", "white", false, false, false, true, true, true, 'M', true));
-        cardsMap.put("JOHNNY CAGE", new Card("JOHNNY CAGE", "brown", false, false, true, false, false, false, 'M', false));
+        cardsMap.put("JOHNNY", new Card("JOHNNY", "brown", false, false, true, false, false, false, 'M', false));
         cardsMap.put("KO HORO", new Card("KO HORO", "brown", false, true, false, false, false, true, 'M', false));
         cardsMap.put("KRATOS", new Card("KRATOS", "black", false, false, false, true, true, false, 'M', false));
         cardsMap.put("LINK", new Card("LINK", "yellow", true, true, false, false, false, false, 'M', false));
@@ -39,10 +39,10 @@ public class GameVideoGames extends GameWhoIsWho{
         cardsMap.put("MAY", new Card("MAY", "brown", true, true, false, false, false, false, 'F', false));
         cardsMap.put("NAKIRO", new Card("NAKIRO", "orange", false, true, false, false, false, false, 'F', false));
         cardsMap.put("OAK", new Card("OAK", "white", false, false, false, false, false, false, 'M', false));
-        cardsMap.put("OLD MUSHROM", new Card("OLD MUSHROM", "white", true, false, true, true, false, true, 'M', false));
-        cardsMap.put("PAUL PHOENIX", new Card("PAUL PHOENIX", "yellow", false, false, false, false, true, true, 'M', false));
+        cardsMap.put("MUSHROM", new Card("MUSHROM", "white", true, false, true, true, false, true, 'M', false));
+        cardsMap.put("PHOENIX", new Card("PHOENIX", "yellow", false, false, false, false, true, true, 'M', false));
         cardsMap.put("PEACH", new Card("PEACH", "yellow", true, true, false, false, false, false, 'F', false));
-        cardsMap.put("ROBOTNIK", new Card("ROBOTNIK", "brown", false, false, true, true, false, true, 'M', true));
+        cardsMap.put("BOTNIK", new Card("BOTNIK", "brown", false, false, true, true, false, true, 'M', true));
         cardsMap.put("SHUJINKO", new Card("SHUJINKO", "white", false, true, false, false, true, true, 'M', false));
         cardsMap.put("SINDEL", new Card("SINDEL", "white", false, true, false, false, false, false, 'F', false));
         cardsMap.put("TANYA", new Card("TANYA", "black", false, false, false, false, false, false, 'F', false));
@@ -50,8 +50,8 @@ public class GameVideoGames extends GameWhoIsWho{
     }
 
     protected Card pickRandomCard() {
-        String cards[] = {"ASH", "BAYONETTA", "BO RAI CHO", "BOWSER", "GRUNTILDA", "JAX", "JIHL NABAAT", "JINPACHI", "JOHNNY CAGE", "KO HORO",
-                "KRATOS", "LINK", "MARIO", "MAY", "NAKIRO", "OAK", "OLD MUSHROM", "PAUL PHOENIX", "PEACH", "ROBOTNIK", "SHUJINKO",
+        String cards[] = {"ASH", "BAYONET", "BO' RAI", "BOWSER", "GRUNTIL", "JAX", "JIHN", "JINPACHI", "JOHNNY", "KO HORO",
+                "KRATOS", "LINK", "MARIO", "MAY", "NAKIRO", "OAK", "MUSHROM", "PHOENIX", "PEACH", "BOTNIK", "SHUJINKO",
                 "SINDEL", "TANYA", "WARIO"};
 
         Random turnRoller = new Random();
